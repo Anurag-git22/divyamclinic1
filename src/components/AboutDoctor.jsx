@@ -1,6 +1,7 @@
 import React from 'react';
 import { UserCheck, Calendar, ShieldCheck, FileText, Clock, Sparkles } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
+import doctorImg from '../assets/DR image.jpg';
 
 export default function AboutDoctor({ onBookClick }) {
   const scrollToAppointment = () => {
@@ -24,22 +25,24 @@ export default function AboutDoctor({ onBookClick }) {
               {/* Main Card */}
               <div className="rounded-3xl bg-white border border-brand-border shadow-warm-lg p-6 sm:p-8 flex flex-col items-center text-center">
                 
-                {/* Doctor Avatar / Photo Placeholder Container */}
-                <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl bg-gradient-to-br from-secondary-light to-primary-soft/50 border-2 border-dashed border-secondary flex flex-col items-center justify-center p-4 text-center group hover:border-primary transition-colors">
-                  <div className="w-20 h-20 rounded-full bg-white shadow-warm-sm flex items-center justify-center text-primary mb-3">
-                    <UserCheck className="w-10 h-10" />
-                  </div>
-                  <span className="text-xs font-semibold text-dark-accent">
-                    {clinicData.doctor.name}
-                  </span>
-                  <span className="text-[11px] text-brand-muted mt-0.5">
-                    {clinicData.doctor.specialization}
-                  </span>
-                  
-                  {/* Clear placeholder badge */}
-                  <div className="mt-3 px-3 py-1 rounded-full bg-white/95 border border-secondary/50 text-[10px] font-medium text-dark-accent shadow-sm flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-primary" />
-                    <span>Photo updating after clinic approval</span>
+                {/* Doctor Photo Container */}
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden shadow-warm-md border-2 border-primary/20 group">
+                  <img
+                    src={doctorImg}
+                    alt={`${clinicData.doctor.name} - ${clinicData.doctor.specialization}`}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/70 via-transparent to-transparent opacity-80" />
+                  <div className="absolute bottom-3 left-3 right-3 text-white text-left">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/90 text-white shadow-sm mb-1">
+                      Available for Consultation
+                    </span>
+                    <p className="font-display font-bold text-sm leading-tight text-white drop-shadow-sm">
+                      {clinicData.doctor.name}
+                    </p>
+                    <p className="text-[11px] text-white/90">
+                      {clinicData.doctor.specialization}
+                    </p>
                   </div>
                 </div>
 

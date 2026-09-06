@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, ArrowRight, Star, ShieldCheck, MapPin, Sparkles, UserCheck, Eye } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
+import doctorImg from '../assets/DR image.jpg';
 
 export default function Hero({ onBookClick, onExploreServices }) {
   const scrollTo = (id) => {
@@ -48,8 +49,12 @@ export default function Hero({ onBookClick, onExploreServices }) {
 
             {/* Doctor Highlight Banner */}
             <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/90 border border-brand-border/80 shadow-warm-sm w-full sm:w-auto">
-              <div className="w-12 h-12 rounded-xl bg-secondary-light flex items-center justify-center text-primary font-bold">
-                <UserCheck className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden border border-secondary flex-shrink-0 shadow-sm">
+                <img
+                  src={doctorImg}
+                  alt={clinicData.doctor.name}
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
               <div className="text-left">
                 <div className="flex items-center gap-2">
@@ -150,32 +155,27 @@ export default function Hero({ onBookClick, onExploreServices }) {
                   </span>
                 </div>
 
-                {/* Visual Medical Graphic / Illustrated Eye Frame */}
-                <div className="my-6 relative py-8 px-4 rounded-2xl bg-gradient-to-b from-brand-bg to-secondary-light/40 border border-secondary/30 flex flex-col items-center justify-center text-center">
+                {/* Visual Doctor Profile Card */}
+                <div className="my-6 relative py-5 px-4 rounded-2xl bg-gradient-to-b from-brand-bg to-secondary-light/40 border border-secondary/30 flex flex-col items-center justify-center text-center">
                   
-                  {/* Eye Anatomy / Care Graphic */}
-                  <div className="relative w-32 h-32 rounded-full bg-white shadow-warm-md flex items-center justify-center border-4 border-primary/20 mb-4">
-                    <div className="w-24 h-24 rounded-full bg-primary/5 flex items-center justify-center border border-primary/30">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-dark-accent flex items-center justify-center text-white shadow-inner">
-                        <Eye className="w-9 h-9" />
-                      </div>
-                    </div>
-                    {/* Subtle pulse ring */}
-                    <div className="absolute inset-0 rounded-full border border-primary/40 animate-ping opacity-25 pointer-events-none" />
+                  <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-2xl overflow-hidden shadow-warm-md border-2 border-primary/30 mb-3 group">
+                    <img
+                      src={doctorImg}
+                      alt={clinicData.doctor.name}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/40 via-transparent to-transparent" />
                   </div>
 
                   <h4 className="font-display font-bold text-base text-dark-accent">
-                    Dedicated Ophthalmology Care
+                    {clinicData.doctor.name}
                   </h4>
-                  <p className="text-xs text-brand-muted max-w-xs mt-1">
+                  <p className="text-xs font-semibold text-primary mt-0.5">
+                    {clinicData.doctor.specialization}
+                  </p>
+                  <p className="text-xs text-brand-muted max-w-xs mt-1.5 leading-relaxed">
                     Specialized diagnostic guidance, vision care, and surgical consultations in Nehru Nagar, Pimpri.
                   </p>
-
-                  {/* Clearly Marked Placeholder Notice */}
-                  <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 border border-secondary/50 text-[11px] text-brand-muted">
-                    <Sparkles className="w-3.5 h-3.5 text-primary" />
-                    <span>{clinicData.doctor.photoPlaceholderText}</span>
-                  </div>
                 </div>
 
                 {/* Highlights List */}
@@ -205,8 +205,12 @@ export default function Hero({ onBookClick, onExploreServices }) {
 
               {/* Floating Badge 2: Bottom Left */}
               <div className="hidden sm:flex absolute -bottom-4 -left-4 bg-white px-4 py-2.5 rounded-2xl shadow-warm-md border border-brand-border items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                  <UserCheck className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-lg overflow-hidden border border-primary/20 flex-shrink-0">
+                  <img
+                    src={doctorImg}
+                    alt={clinicData.doctor.name}
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
                 <div className="text-left">
                   <p className="text-xs font-bold text-dark-accent">{clinicData.doctor.name}</p>

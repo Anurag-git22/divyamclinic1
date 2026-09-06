@@ -42,8 +42,7 @@ export async function submitAppointment(appointmentData) {
     try {
       const { data, error } = await supabase
         .from('appointments')
-        .insert([payload])
-        .select();
+        .insert([payload]);
 
       if (error) {
         console.error('Supabase insertion error:', error);
