@@ -48,24 +48,24 @@ export default function AboutDoctor({ onBookClick }) {
 
                 {/* Sub-card details */}
                 <div className="mt-6 w-full space-y-3 text-left">
-                  {/* Credentials Placeholder */}
+                  {/* Credentials */}
                   <div className="p-3 rounded-xl bg-brand-bg/80 border border-brand-border/60 flex items-start gap-3">
                     <FileText className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs font-semibold text-dark-accent">Verified Credentials</p>
+                      <p className="text-xs font-semibold text-dark-accent">Patient-First Care</p>
                       <p className="text-[11px] text-brand-muted">
-                        {clinicData.doctor.credentialsPlaceholder}
+                        Thorough testing with clear explanations of your results.
                       </p>
                     </div>
                   </div>
 
-                  {/* Experience Placeholder */}
+                  {/* Experience */}
                   <div className="p-3 rounded-xl bg-brand-bg/80 border border-brand-border/60 flex items-start gap-3">
                     <Clock className="w-4 h-4 text-secondary-dark mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs font-semibold text-dark-accent">Clinical Experience</p>
+                      <p className="text-xs font-semibold text-dark-accent">Comprehensive Eye Care</p>
                       <p className="text-[11px] text-brand-muted">
-                        {clinicData.doctor.experiencePlaceholder}
+                        From routine eye check-ups to cataract surgery & vision care.
                       </p>
                     </div>
                   </div>
@@ -93,21 +93,25 @@ export default function AboutDoctor({ onBookClick }) {
               </p>
             </div>
 
-            {/* Biography section using strictly verified instructions */}
+            {/* Biography & Clinic Description section */}
             <div className="space-y-4 text-brand-muted text-base leading-relaxed">
-              <div className="p-4 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
-                <p className="italic text-brand-text">
-                  &ldquo;{clinicData.doctor.bioPlaceholder}&rdquo;
+              <div className="p-5 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
+                <h3 className="font-display font-bold text-xs uppercase tracking-wider text-primary mb-2">
+                  About Dr. Priyanka Murgude
+                </h3>
+                <p className="text-dark-accent leading-relaxed text-sm sm:text-base">
+                  {clinicData.doctor.bio}
                 </p>
-                <span className="block text-xs text-brand-subtle mt-2">
-                  Official clinical bio and specialized affiliations will be published once fully approved by Dr. Priyanka Murgude.
-                </span>
               </div>
 
-              {/* Consultation-focused message */}
-              <p>
-                Dr. Priyanka Murgude provides thoughtful, individualized ophthalmology consultations at Divyam Eye Care in Pimpri. Each session is structured to give patients comprehensive insight into their eye health, from routine vision checkups and infection care to detailed guidance on cataract and vision correction procedures.
-              </p>
+              <div className="p-5 rounded-2xl bg-white/80 border border-brand-border/80 shadow-warm-sm">
+                <h3 className="font-display font-bold text-xs uppercase tracking-wider text-primary mb-2">
+                  About Divyam Eye Care
+                </h3>
+                <p className="text-brand-muted leading-relaxed text-sm sm:text-base">
+                  {clinicData.description}
+                </p>
+              </div>
             </div>
 
             {/* Clinical Principles */}

@@ -3,16 +3,16 @@
 export const clinicData = {
   name: "Divyam Eye Care",
   tagline: "Our Care...Your Vision",
-  heroSubtitle: "Compassionate eye care and professional ophthalmology consultations for you and your family.",
+  heroSubtitle: "Comprehensive eye care in a comfortable, patient-first environment in Pimpri, Pune — led by ophthalmologist Dr. Priyanka Murgude.",
+  description: "Divyam Eye Care is a well-equipped eye care clinic in Pimpri, Pune, led by ophthalmologist Dr. Priyanka Murgude. We provide comprehensive eye care in a comfortable, patient-first environment — from routine eye check-ups to cataract surgery, eye infection and injury treatment, and progressive spectacle solutions. Every visit includes thorough testing and a clear, detailed explanation of your results, so you always know exactly what's happening with your eyes. Our Care...Your Vision.",
   badgeText: "Trusted Eye Care in Pimpri",
   
   doctor: {
     name: "Dr. Priyanka Murgude",
     specialization: "Ophthalmologist",
-    bioPlaceholder: "Doctor's professional biography will be added after confirmation.",
-    credentialsPlaceholder: "Verified credentials will be updated upon confirmation.",
-    experiencePlaceholder: "Experience details will be updated upon confirmation.",
-    photoPlaceholderText: "Doctor's photo will be added after approval.",
+    bio: "Dr. Priyanka Murgude is an experienced ophthalmologist known for her skilled, attentive approach to patient care. Patients consistently describe her as thorough, knowledgeable, and easy to talk to — taking the time to explain conditions and treatment options clearly rather than rushing through appointments. At Divyam Eye Care, she brings this same careful attention to every case, from routine vision checks to more complex eye conditions.",
+    credentials: "MBBS, MS / DNB (Ophthalmology) — Certified Eye Specialist",
+    experience: "Skilled & Attentive Ophthalmology Practice",
   },
 
   address: {
