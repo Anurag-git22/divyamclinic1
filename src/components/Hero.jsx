@@ -1,7 +1,7 @@
 import React from 'react';
 import { Calendar, ArrowRight, Star, ShieldCheck, MapPin, Sparkles, UserCheck, Eye } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
-import doctorImg from '../assets/DR image.jpg';
+import doctorImg from '../assets/dr-priyanka-murgude.jpg';
 
 export default function Hero({ onBookClick, onExploreServices }) {
   const scrollTo = (id) => {
