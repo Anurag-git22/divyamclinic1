@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Calendar, PhoneCall, ChevronRight } from 'lucide-react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronRight, PhoneCall } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
+import CoralEyeIcon from './CoralEyeIcon';
 
-export default function Navbar({ onBookClick }) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,47 +17,44 @@ export default function Navbar({ onBookClick }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Insurance', href: '#insurance' },
-    { name: 'Reviews', href: '#reviews' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const handleLinkClick = (e, href) => {
-    e.preventDefault();
+  // Close mobile menu on route change
+  useEffect(() => {
     setIsOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  }, [location.pathname]);
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Insurance', path: '/insurance' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-brand-bg/95 backdrop-blur-md shadow-warm-sm border-b border-brand-border/60 py-3'
-          : 'bg-brand-bg/90 backdrop-blur-sm border-b border-transparent py-4'
+          ? 'bg-white/95 backdrop-blur-md shadow-warm-sm border-b border-brand-border/80 py-3'
+          : 'bg-white/90 backdrop-blur-sm border-b border-brand-border/40 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Brand Logo & Name */}
-          <a
-            href="#home"
+          <Link
+            to="/"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
           >
+            {/* Vector Brand Logo Icon (Teal & Orange) */}
             <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center text-white shadow-md shadow-primary/20 group-hover:scale-105 transition-transform duration-200">
-              {/* Custom Medical Eye SVG */}
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                <circle cx="12" cy="12" r="3" />
+                <circle cx="12" cy="12" r="3" fill="#FD7401" stroke="#FD7401" />
               </svg>
             </div>
+
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="font-display font-bold text-xl sm:text-2xl text-dark-accent tracking-tight">
@@ -68,93 +68,91 @@ export default function Navbar({ onBookClick }) {
                 {clinicData.tagline}
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="px-3.5 py-2 rounded-lg text-sm font-medium text-brand-text hover:text-primary hover:bg-secondary-light/40 transition-colors duration-200"
+                to={link.path}
+                className={({ isActive }) =>
+                  `px-3.5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? 'text-primary bg-primary-light font-semibold shadow-sm'
+                      : 'text-brand-text hover:text-primary hover:bg-primary-light/40'
+                  }`
+                }
               >
                 {link.name}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
-          {/* Desktop Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="#appointment"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onBookClick) onBookClick();
-                document.querySelector('#appointment')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-sm font-semibold shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+          {/* Right Action / CTA Buttons */}
+          <div className="hidden sm:flex items-center gap-3">
+            <Link
+              to="/appointment"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/25 hover:shadow-lg hover:shadow-secondary/35 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <Calendar className="w-4 h-4" />
+              <CoralEyeIcon className="w-4 h-4" />
               <span>Book Appointment</span>
-            </a>
+            </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <div className="flex lg:hidden items-center gap-2">
-            <a
-              href="#appointment"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#appointment')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors sm:hidden"
-              aria-label="Book Appointment"
+          {/* Mobile Menu Hamburger */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <Link
+              to="/appointment"
+              className="sm:hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-white text-xs font-semibold shadow-sm"
             >
-              <Calendar className="w-5 h-5" />
-            </a>
+              <CoralEyeIcon className="w-3.5 h-3.5" />
+              <span>Book</span>
+            </Link>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2.5 rounded-xl text-dark-accent hover:text-primary hover:bg-secondary-light/50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              className="p-2 rounded-xl text-brand-text hover:text-primary hover:bg-primary-light/50 focus:outline-none transition-colors"
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-        </div>
 
-        {/* Mobile Dropdown Drawer */}
-        {isOpen && (
-          <div className="lg:hidden mt-3 pt-3 pb-5 border-t border-brand-border/70 animate-fadeIn">
-            <div className="flex flex-col space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  className="flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium text-brand-text hover:bg-secondary-light/50 hover:text-primary transition-colors"
-                >
-                  <span>{link.name}</span>
-                  <ChevronRight className="w-4 h-4 text-brand-muted" />
-                </a>
-              ))}
-              <div className="pt-3 px-2">
-                <a
-                  href="#appointment"
-                  onClick={(e) => {
-                    handleLinkClick(e, '#appointment');
-                    if (onBookClick) onBookClick();
-                  }}
-                  className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-base font-semibold shadow-md shadow-primary/25 transition-all"
-                >
-                  <Calendar className="w-5 h-5" />
-                  <span>Book Appointment</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {isOpen && (
+        <div className="lg:hidden animate-fadeIn bg-white border-b border-brand-border/80 shadow-lg px-4 pt-3 pb-6 space-y-2 mt-2">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.path}
+              className={({ isActive }) =>
+                `flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'text-primary bg-primary-light font-semibold'
+                    : 'text-brand-text hover:bg-primary-light/40'
+                }`
+              }
+            >
+              <span>{link.name}</span>
+              <ChevronRight className="w-4 h-4 text-brand-subtle" />
+            </NavLink>
+          ))}
+
+          <div className="pt-3 border-t border-brand-border/60">
+            <Link
+              to="/appointment"
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-secondary hover:bg-secondary-hover text-white font-semibold text-sm shadow-md shadow-secondary/20 transition-all"
+            >
+              <CoralEyeIcon className="w-4 h-4" />
+              <span>Book Appointment</span>
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
