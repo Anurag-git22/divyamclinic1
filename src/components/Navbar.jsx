@@ -45,9 +45,22 @@ export default function Navbar() {
           {/* Brand Logo */}
           <Link
             to="/"
-            className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
           >
-            <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-[60px] w-auto object-contain" />
+            <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-[60px] w-auto object-contain shrink-0" />
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1.5">
+                <span className="font-display font-bold text-xl sm:text-2xl text-dark-accent tracking-tight">
+                  Divyam
+                </span>
+                <span className="font-display font-semibold text-xl sm:text-2xl text-primary">
+                  Eye Care
+                </span>
+              </div>
+              <span className="text-[11px] sm:text-xs font-medium text-brand-muted tracking-wide -mt-0.5">
+                {clinicData.tagline}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
