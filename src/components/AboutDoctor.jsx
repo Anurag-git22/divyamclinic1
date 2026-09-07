@@ -91,7 +91,7 @@ export default function AboutDoctor({ onBookClick }) {
                 {clinicData.doctor.name}
               </h2>
               <p className="text-lg font-medium text-primary">
-                {clinicData.doctor.specialization} &bull; Divyam Eye Care
+                {clinicData.doctor.specialization} &bull; Divyang Eye Care
               </p>
             </div>
 
@@ -108,7 +108,7 @@ export default function AboutDoctor({ onBookClick }) {
 
               <div className="p-5 rounded-2xl bg-white/80 border border-brand-border/80 shadow-warm-sm">
                 <h3 className="font-display font-bold text-xs uppercase tracking-wider text-primary mb-2">
-                  About Divyam Eye Care
+                  About Divyang Eye Care
                 </h3>
                 <p className="text-brand-muted leading-relaxed text-sm sm:text-base">
                   {clinicData.description}

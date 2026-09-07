@@ -146,7 +146,7 @@ export default function Hero({ onBookClick, onExploreServices }) {
                       <Eye className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-display font-bold text-sm text-dark-accent">Divyam Eye Care</h3>
+                      <h3 className="font-display font-bold text-sm text-dark-accent">Divyang Eye Care</h3>
                       <p className="text-[11px] text-brand-muted">Ophthalmology Practice</p>
                     </div>
                   </div>
