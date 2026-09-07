@@ -8,7 +8,7 @@ export default function Reviews() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Trust Highlight Banner */}
-        <div className="relative rounded-3xl bg-gradient-to-br from-brand-bg via-white to-secondary-light/40 border border-brand-border p-8 sm:p-12 lg:p-16 shadow-warm-md overflow-hidden">
+        <div className="relative rounded-3xl bg-gradient-to-br from-brand-bg via-white to-primary-light/30 border border-brand-border p-8 sm:p-12 lg:p-16 shadow-warm-md overflow-hidden">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
@@ -52,7 +52,7 @@ export default function Reviews() {
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-dark-accent hover:bg-dark-deep text-white text-sm font-semibold shadow-warm-sm hover:shadow-warm-md transition-all group"
               >
                 <span>View Justdial Profile</span>
-                <ExternalLink className="w-4 h-4 text-secondary group-hover:translate-x-0.5 transition-transform" />
+                <ExternalLink className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
 
@@ -86,7 +86,7 @@ export default function Reviews() {
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-brand-border/80 shadow-warm-sm">
-                  <MessageSquare className="w-5 h-5 text-secondary-dark mb-2" />
+                  <MessageSquare className="w-5 h-5 text-primary mb-2" />
                   <h4 className="text-xs font-bold text-dark-accent">Local Reputation</h4>
                   <p className="text-[11px] text-brand-muted mt-1">
                     Recognized eye care practice in Nehru Nagar, Pimpri Colony.

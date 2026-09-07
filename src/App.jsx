@@ -1,69 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import WhyChooseUs from './components/WhyChooseUs';
-import AboutDoctor from './components/AboutDoctor';
-import Services from './components/Services';
-import Insurance from './components/Insurance';
-import Gallery from './components/Gallery';
-import Reviews from './components/Reviews';
-import AppointmentForm from './components/AppointmentForm';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+
+// Multi-page route components
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import InsurancePage from './pages/InsurancePage';
+import GalleryPage from './pages/GalleryPage';
+import AppointmentPage from './pages/AppointmentPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
-  const [selectedService, setSelectedService] = useState('');
-
-  const handleSelectService = (serviceName) => {
-    setSelectedService(serviceName);
-  };
-
-  const handleBookClick = () => {
-    // Keep or clear service depending on user intent
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-brand-bg text-brand-text font-sans antialiased selection:bg-primary-soft selection:text-primary">
-      {/* A. Sticky Responsive Navbar */}
-      <Navbar onBookClick={handleBookClick} />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="min-h-screen flex flex-col bg-brand-bg text-brand-text font-sans antialiased selection:bg-primary-soft selection:text-primary">
+        {/* Responsive Navbar */}
+        <Navbar />
 
-      <main className="flex-grow">
-        {/* B. Hero Section */}
-        <Hero
-          onBookClick={handleBookClick}
-          onExploreServices={() => {}}
-        />
+        {/* Multi-Page Routes */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/insurance" element={<InsurancePage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/appointment" element={<AppointmentPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-        {/* C. Why Choose Divyam Eye Care? */}
-        <WhyChooseUs />
-
-        {/* D. About the Doctor */}
-        <AboutDoctor onBookClick={handleBookClick} />
-
-        {/* E. Services Section */}
-        <Services onSelectService={handleSelectService} />
-
-        {/* F. Insurance / Cashless Partners */}
-        <Insurance />
-
-        {/* G. Gallery Section */}
-        <Gallery />
-
-        {/* H. Reviews / Trust Section */}
-        <Reviews />
-
-        {/* I. Appointment Section */}
-        <AppointmentForm
-          preselectedReason={selectedService}
-          onClearPreselected={() => setSelectedService('')}
-        />
-
-        {/* J. Contact & Location Section */}
-        <Contact onBookClick={handleBookClick} />
-      </main>
-
-      {/* K. Footer */}
-      <Footer />
-    </div>
+        {/* Footer */}
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

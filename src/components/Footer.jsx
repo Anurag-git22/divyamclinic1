@@ -1,16 +1,10 @@
 import React from 'react';
-import { Eye, MapPin, Phone, Clock, ExternalLink, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, Phone, Clock, ExternalLink, Heart, ShieldCheck } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
+import CoralEyeIcon from './CoralEyeIcon';
 
 export default function Footer() {
-  const scrollTo = (e, id) => {
-    e.preventDefault();
-    const el = document.querySelector(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <footer className="bg-dark-accent text-white pt-16 pb-12 border-t border-dark-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,22 +14,22 @@ export default function Footer() {
           
           {/* Col 1: Brand & Tagline */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
-                <Eye className="w-6 h-6" />
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center text-white shadow-md">
+                <CoralEyeIcon className="w-6 h-6" />
               </div>
               <div>
                 <span className="font-display font-bold text-xl text-white tracking-tight">
                   Divyam Eye Care
                 </span>
-                <p className="text-xs text-secondary font-medium">
+                <p className="text-xs text-primary font-medium">
                   {clinicData.tagline}
                 </p>
               </div>
-            </div>
+            </Link>
 
-            <p className="text-sm text-secondary-light/80 leading-relaxed max-w-sm">
-              Dedicated ophthalmology consultations, cataract evaluation, and eye care services under the leadership of Dr. Priyanka Murgude in Pimpri, Pune.
+            <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
+              Dedicated ophthalmology consultations, cataract evaluation, and comprehensive vision care under the leadership of Dr. Priyanka Murgude in Pimpri, Pune.
             </p>
 
             {/* Social Links */}
@@ -66,7 +60,7 @@ export default function Footer() {
                 </svg>
               </a>
 
-              <span className="text-xs text-secondary-light/60 ml-2">
+              <span className="text-xs text-slate-400 ml-2">
                 {clinicData.socialMedia.instagram.handle}
               </span>
             </div>
@@ -77,41 +71,42 @@ export default function Footer() {
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
               Navigation
             </h4>
-            <ul className="space-y-2 text-sm text-secondary-light/80">
+            <ul className="space-y-2 text-sm text-slate-300">
               <li>
-                <a href="#home" onClick={(e) => scrollTo(e, '#home')} className="hover:text-primary transition-colors">
+                <Link to="/" className="hover:text-primary transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" onClick={(e) => scrollTo(e, '#about')} className="hover:text-primary transition-colors">
+                <Link to="/about" className="hover:text-primary transition-colors">
                   About Doctor
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" onClick={(e) => scrollTo(e, '#services')} className="hover:text-primary transition-colors">
+                <Link to="/services" className="hover:text-primary transition-colors">
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#insurance" onClick={(e) => scrollTo(e, '#insurance')} className="hover:text-primary transition-colors">
+                <Link to="/insurance" className="hover:text-primary transition-colors">
                   Cashless Insurance
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#reviews" onClick={(e) => scrollTo(e, '#reviews')} className="hover:text-primary transition-colors">
-                  Justdial Reviews
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" onClick={(e) => scrollTo(e, '#gallery')} className="hover:text-primary transition-colors">
+                <Link to="/gallery" className="hover:text-primary transition-colors">
                   Clinic Preview
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" onClick={(e) => scrollTo(e, '#contact')} className="hover:text-primary transition-colors">
-                  Location & Contact
-                </a>
+                <Link to="/contact" className="hover:text-primary transition-colors">
+                  Contact & Location
+                </Link>
+              </li>
+              <li>
+                <Link to="/appointment" className="hover:text-primary font-semibold transition-colors flex items-center gap-1 text-primary">
+                  <span>Book Visit</span>
+                  <CoralEyeIcon className="w-3.5 h-3.5" />
+                </Link>
               </li>
             </ul>
           </div>
@@ -119,43 +114,51 @@ export default function Footer() {
           {/* Col 3: Services List */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
-              Eye Care Services
+              Key Services
             </h4>
-            <ul className="space-y-2 text-sm text-secondary-light/80">
-              {clinicData.services.map((s) => (
-                <li key={s.id}>
-                  <a
-                    href="#services"
-                    onClick={(e) => scrollTo(e, '#services')}
-                    className="hover:text-primary transition-colors"
+            <ul className="space-y-2 text-sm text-slate-300">
+              {clinicData.services.slice(0, 5).map((service) => (
+                <li key={service.id}>
+                  <Link
+                    to={`/services#${service.id}`}
+                    className="hover:text-primary transition-colors block truncate"
                   >
-                    {s.name}
-                  </a>
+                    {service.name}
+                  </Link>
                 </li>
               ))}
+              <li>
+                <Link to="/services" className="text-xs text-primary hover:underline font-medium">
+                  View all services &rarr;
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4: Clinic Info */}
+          {/* Col 4: Address & Practical Clinic Info */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
               Clinic Location
             </h4>
-            <div className="space-y-2.5 text-xs sm:text-sm text-secondary-light/80">
-              <p className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <span>
-                  Shop 1, Plot 109, Aaikrupa Building, Udyamnagar, New Telco Rd, Pimpri Colony, Pune 411018
-                </span>
-              </p>
-              <p className="flex items-center gap-2">
+            
+            <div className="space-y-2.5 text-xs text-slate-300">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <address className="not-italic leading-relaxed">
+                  <span className="font-medium text-white block">Divyam Eye Care</span>
+                  {clinicData.address.line1}, {clinicData.address.line2}, {clinicData.address.landmark}, {clinicData.address.cityStateZip}
+                </address>
+              </div>
+
+              <div className="flex items-center gap-2.5 text-slate-400">
+                <Clock className="w-4 h-4 text-secondary flex-shrink-0" />
+                <span>{clinicData.placeholders.openingHours}</span>
+              </div>
+
+              <div className="flex items-center gap-2.5 text-slate-400">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-secondary-light/90 italic">{clinicData.placeholders.phone}</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-secondary-light/90 italic">{clinicData.placeholders.openingHours}</span>
-              </p>
+                <span>{clinicData.placeholders.phone}</span>
+              </div>
             </div>
 
             <div className="pt-2">
@@ -163,9 +166,9 @@ export default function Footer() {
                 href={clinicData.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-semibold"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-primary text-xs font-semibold text-white transition-colors"
               >
-                <span>View on Google Maps</span>
+                <span>Open in Google Maps</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -174,14 +177,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-secondary-light/60">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            &copy; 2026 Divyam Eye Care. All rights reserved.
+            &copy; {new Date().getFullYear()} Divyam Eye Care. All rights reserved. Dr. Priyanka Murgude.
           </p>
 
-          <p className="flex items-center gap-1">
-            <span>Dr. Priyanka Murgude &bull; Ophthalmologist</span>
-          </p>
+          <div className="flex items-center gap-4">
+            <span className="inline-flex items-center gap-1 text-slate-400">
+              <ShieldCheck className="w-4 h-4 text-primary" />
+              <span>Verified Clinic Practice &bull; Nehru Nagar, Pimpri</span>
+            </span>
+          </div>
         </div>
 
       </div>

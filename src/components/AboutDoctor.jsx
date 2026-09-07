@@ -1,7 +1,9 @@
 import React from 'react';
-import { UserCheck, Calendar, ShieldCheck, FileText, Clock, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { UserCheck, ShieldCheck, FileText, Clock, Sparkles, Calendar } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import doctorImg from '../assets/dr-priyanka-murgude.jpg';
+import CoralEyeIcon from './CoralEyeIcon';
 
 export default function AboutDoctor({ onBookClick }) {
   const scrollToAppointment = () => {
@@ -20,7 +22,7 @@ export default function AboutDoctor({ onBookClick }) {
             <div className="relative w-full max-w-sm">
               
               {/* Soft decorative backdrop glow */}
-              <div className="absolute -inset-2 rounded-3xl bg-secondary/20 blur-xl -z-10" />
+              <div className="absolute -inset-2 rounded-3xl bg-primary/15 blur-xl -z-10" />
 
               {/* Main Card */}
               <div className="rounded-3xl bg-white border border-brand-border shadow-warm-lg p-6 sm:p-8 flex flex-col items-center text-center">
@@ -61,7 +63,7 @@ export default function AboutDoctor({ onBookClick }) {
 
                   {/* Experience */}
                   <div className="p-3 rounded-xl bg-brand-bg/80 border border-brand-border/60 flex items-start gap-3">
-                    <Clock className="w-4 h-4 text-secondary-dark mt-0.5 flex-shrink-0" />
+                    <Clock className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs font-semibold text-dark-accent">Comprehensive Eye Care</p>
                       <p className="text-[11px] text-brand-muted">
@@ -125,7 +127,7 @@ export default function AboutDoctor({ onBookClick }) {
               </div>
 
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-brand-border/70">
-                <Calendar className="w-5 h-5 text-secondary-dark mt-0.5 flex-shrink-0" />
+                <Calendar className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <h3 className="text-sm font-bold text-dark-accent">Direct Consultation</h3>
                   <p className="text-xs text-brand-muted mt-0.5">Dedicated one-on-one time to address your questions thoroughly.</p>
@@ -135,13 +137,13 @@ export default function AboutDoctor({ onBookClick }) {
 
             {/* CTA Button */}
             <div className="pt-2">
-              <button
-                onClick={scrollToAppointment}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary hover:bg-primary-hover text-white font-semibold text-sm shadow-md shadow-primary/25 hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              <Link
+                to="/appointment"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover text-white font-semibold text-sm shadow-md shadow-secondary/25 hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <Calendar className="w-4 h-4" />
+                <CoralEyeIcon className="w-4 h-4" />
                 <span>Book Consultation with Dr. Murgude</span>
-              </button>
+              </Link>
             </div>
 
           </div>

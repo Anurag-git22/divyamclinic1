@@ -26,9 +26,9 @@ export default function Insurance() {
           {clinicData.insurancePartners.map((partner) => (
             <div
               key={partner.name}
-              className="p-5 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm hover:shadow-warm-md hover:border-secondary transition-all flex flex-col items-center text-center justify-between min-h-[140px] group"
+              className="p-5 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm hover:shadow-warm-md hover:border-primary transition-all flex flex-col items-center text-center justify-between min-h-[140px] group"
             >
-              <div className="w-10 h-10 rounded-full bg-secondary-light/60 flex items-center justify-center text-dark-accent mb-3 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+              <div className="w-10 h-10 rounded-full bg-primary-light/60 flex items-center justify-center text-dark-accent mb-3 group-hover:bg-primary/20 group-hover:text-primary transition-colors">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
               </div>
               <div>
@@ -47,7 +47,7 @@ export default function Insurance() {
         </div>
 
         {/* Informational Disclaimer Notice */}
-        <div className="mt-10 max-w-3xl mx-auto p-4 rounded-2xl bg-white border border-secondary/40 shadow-warm-sm flex items-start gap-3.5">
+        <div className="mt-10 max-w-3xl mx-auto p-4 rounded-2xl bg-white border border-primary/30 shadow-warm-sm flex items-start gap-3.5">
           <Info className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
           <div className="text-xs sm:text-sm text-brand-muted leading-relaxed">
             <span className="font-semibold text-dark-accent">Important Note: </span>

@@ -436,7 +436,7 @@ export default function AppointmentForm({ preselectedReason = '', onClearPresele
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full py-3.5 px-6 rounded-xl bg-primary hover:bg-primary-hover active:bg-primary-hover text-white text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-3.5 px-6 rounded-xl bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-base font-semibold shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/35 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status === 'loading' ? (
                     <>
