@@ -42,32 +42,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Brand Logo & Name */}
+          {/* Brand Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+            className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
           >
-            {/* Vector Brand Logo Icon (Teal & Orange) */}
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center text-white shadow-md shadow-primary/20 group-hover:scale-105 transition-transform duration-200">
-              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                <circle cx="12" cy="12" r="3" fill="#FD7401" stroke="#FD7401" />
-              </svg>
-            </div>
-
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-display font-bold text-xl sm:text-2xl text-dark-accent tracking-tight">
-                  Divyam
-                </span>
-                <span className="font-display font-semibold text-xl sm:text-2xl text-primary">
-                  Eye Care
-                </span>
-              </div>
-              <span className="text-[11px] sm:text-xs font-medium text-brand-muted tracking-wide -mt-0.5">
-                {clinicData.tagline}
-              </span>
-            </div>
+            <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-[60px] w-auto object-contain" />
           </Link>
 
           {/* Desktop Navigation */}
