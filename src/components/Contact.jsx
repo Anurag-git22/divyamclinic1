@@ -10,7 +10,7 @@ export default function Contact({ onBookClick }) {
 
   // Google Maps embed URL using the verified location query
   const mapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
-    'Divyang Eye care, Plot no 109,Shop no 1, Aaikrupa building, Udyamnagar, near Ajmera and, opp. to Swapnanagari, Nehru Nagar, Pimpri Colony, Pune, Maharashtra 411018'
+    'Divyam Eye care, Plot no 109,Shop no 1, Aaikrupa building, Udyamnagar, near Ajmera and, opp. to Swapnanagari, Nehru Nagar, Pimpri Colony, Pune, Maharashtra 411018'
   )}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
@@ -24,7 +24,7 @@ export default function Contact({ onBookClick }) {
             <span>Clinic Location & Reach</span>
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-dark-accent tracking-tight">
-            Visit Divyang Eye Care
+            Visit Divyam Eye Care
           </h2>
           <p className="mt-3 text-base text-brand-muted leading-relaxed">
             Conveniently located in Nehru Nagar, Pimpri Colony, easily accessible from New Telco Road and nearby areas.
@@ -132,7 +132,7 @@ export default function Contact({ onBookClick }) {
             <div className="rounded-3xl bg-white border border-brand-border p-3 shadow-warm-md overflow-hidden">
               <div className="relative w-full h-[400px] sm:h-[460px] rounded-2xl overflow-hidden bg-brand-bg">
                 <iframe
-                  title="Divyang Eye Care Clinic Location Google Maps"
+                  title="Divyam Eye Care Clinic Location Google Maps"
                   src={mapsEmbedUrl}
                   width="100%"
                   height="100%"

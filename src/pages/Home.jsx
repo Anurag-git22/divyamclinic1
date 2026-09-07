@@ -149,7 +149,7 @@ export default function Home() {
                         <CoralEyeIcon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h3 className="font-display font-bold text-sm text-dark-accent">Divyang Eye Care</h3>
+                        <h3 className="font-display font-bold text-sm text-dark-accent">Divyam Eye Care</h3>
                         <p className="text-[11px] text-brand-muted">Ophthalmology Practice</p>
                       </div>
                     </div>
@@ -348,7 +348,7 @@ export default function Home() {
               to="/about"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-hover group"
             >
-              <span>Read more about Dr. Priyanka Murgude & Divyang Eye Care Clinic</span>
+              <span>Read more about Dr. Priyanka Murgude & Divyam Eye Care Clinic</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

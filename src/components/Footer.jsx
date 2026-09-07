@@ -20,7 +20,7 @@ export default function Footer() {
               </div>
               <div>
                 <span className="font-display font-bold text-xl text-white tracking-tight">
-                  Divyang Eye Care
+                  Divyam Eye Care
                 </span>
                 <p className="text-xs text-primary font-medium">
                   {clinicData.tagline}
@@ -145,7 +145,7 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <address className="not-italic leading-relaxed">
-                  <span className="font-medium text-white block">Divyang Eye Care</span>
+                  <span className="font-medium text-white block">Divyam Eye Care</span>
                   {clinicData.address.line1}, {clinicData.address.line2}, {clinicData.address.landmark}, {clinicData.address.cityStateZip}
                 </address>
               </div>
@@ -179,7 +179,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            &copy; {new Date().getFullYear()} Divyang Eye Care. All rights reserved. Dr. Priyanka Murgude.
+            &copy; {new Date().getFullYear()} Divyam Eye Care. All rights reserved. Dr. Priyanka Murgude.
           </p>
 
           <div className="flex items-center gap-4">

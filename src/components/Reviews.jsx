@@ -46,7 +46,7 @@ export default function Reviews() {
 
               {/* View Reviews CTA */}
               <a
-                href="https://www.justdial.com/Pune/Divyang-Eye-Care-Near-Vital-Multispeciality-Hospital-Nehru-Nagar-Pimpri/020PXX20-XX20-220718163625-L9D7_BZDET"
+                href="https://www.justdial.com/Pune/Divyam-Eye-Care-Near-Vital-Multispeciality-Hospital-Nehru-Nagar-Pimpri/020PXX20-XX20-220718163625-L9D7_BZDET"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-dark-accent hover:bg-dark-deep text-white text-sm font-semibold shadow-warm-sm hover:shadow-warm-md transition-all group"
@@ -96,7 +96,7 @@ export default function Reviews() {
 
               {/* Notice */}
               <p className="text-[11px] text-brand-subtle italic">
-                *Verified rating statistics sourced directly from Justdial business listing for Divyang Eye Care (Dr. Priyanka Murgude).
+                *Verified rating statistics sourced directly from Justdial business listing for Divyam Eye Care (Dr. Priyanka Murgude).
               </p>
             </div>
 

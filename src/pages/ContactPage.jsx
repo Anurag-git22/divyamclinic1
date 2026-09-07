@@ -15,7 +15,7 @@ export default function ContactPage() {
           <span>Location & Reach</span>
         </div>
         <h1 className="font-display font-bold text-4xl sm:text-5xl text-dark-accent tracking-tight">
-          Find & Contact Divyang Eye Care
+          Find & Contact Divyam Eye Care
         </h1>
         <p className="mt-3 text-base sm:text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
           Conveniently located on New Telco Road, Nehru Nagar, Pimpri Colony, Pune. Get directions or contact our desk.

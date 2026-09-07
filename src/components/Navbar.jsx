@@ -47,11 +47,11 @@ export default function Navbar() {
             to="/"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
           >
-            <img src="/eye-logo.png" alt="Divyang Eye Care" className="h-[60px] w-auto object-contain shrink-0" />
+            <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-[60px] w-auto object-contain shrink-0" />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="font-display font-bold text-xl sm:text-2xl text-dark-accent tracking-tight">
-                  Divyang
+                  Divyam
                 </span>
                 <span className="font-display font-semibold text-xl sm:text-2xl text-primary">
                   Eye Care

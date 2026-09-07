@@ -35,7 +35,7 @@ export default function GalleryPage() {
               <span>Easy Accessibility</span>
             </div>
             <h3 className="font-display font-bold text-xl text-dark-accent">
-              Visit Divyang Eye Care in Pimpri
+              Visit Divyam Eye Care in Pimpri
             </h3>
             <p className="text-xs sm:text-sm text-brand-muted max-w-lg leading-relaxed">
               Located at Shop No. 1, Aaikrupa Building, near Vital Multispeciality Hospital and opposite Swapnanagari, Nehru Nagar.

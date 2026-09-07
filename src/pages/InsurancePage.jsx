@@ -56,7 +56,7 @@ export default function InsurancePage() {
           Cashless Insurance & TPA Support
         </h1>
         <p className="mt-3 text-base sm:text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
-          Divyang Eye Care facilitates transparent insurance coordination with leading health insurers to make quality eye treatment smooth and accessible.
+          Divyam Eye Care facilitates transparent insurance coordination with leading health insurers to make quality eye treatment smooth and accessible.
         </p>
       </section>
 

@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
             Patient-Centered Eye Care in Pimpri
           </h2>
           <p className="mt-3 text-base text-brand-muted leading-relaxed">
-            At Divyang Eye Care, every consultation is guided by medical diligence, clear communication, and thoughtful patient support.
+            At Divyam Eye Care, every consultation is guided by medical diligence, clear communication, and thoughtful patient support.
           </p>
         </div>
 
