@@ -65,7 +65,7 @@ export default function Footer() {
           </div>
 
           {/* Col 2: Navigation + Key Services (Two columns side-by-side) */}
-          <div className="grid grid-cols-1 xs:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {/* Navigation */}
             <div className="space-y-3">
               <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
