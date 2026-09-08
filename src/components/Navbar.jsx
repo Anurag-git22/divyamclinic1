@@ -61,7 +61,7 @@ export default function Navbar() {
                   Eye Care
                 </span>
               </div>
-              <span className="hidden sm:block text-[10px] sm:text-xs font-medium text-brand-muted tracking-wide -mt-0.5 truncate">
+              <span className="text-[9px] xs:text-[10px] sm:text-xs font-medium text-brand-muted tracking-wide -mt-0.5 truncate">
                 {clinicData.tagline}
               </span>
             </div>
