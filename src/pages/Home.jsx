@@ -7,35 +7,14 @@ import {
   ShieldCheck, 
   MapPin, 
   UserCheck, 
-  CheckCircle2, 
   Eye, 
   Sparkles,
-  Award,
-  Clock,
-  HeartHandshake,
-  Glasses,
-  ShieldAlert,
-  Activity,
-  Stethoscope,
-  SmilePlus,
-  Camera,
-  ChevronRight
+  Camera
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import doctorImg from '../assets/dr-priyanka-murgude.jpg';
 import CoralEyeIcon from '../components/CoralEyeIcon';
 import WhyChooseUs from '../components/WhyChooseUs';
-
-const serviceIcons = {
-  Eye: Eye,
-  ShieldAlert: ShieldAlert,
-  Activity: Activity,
-  Glasses: Glasses,
-  Stethoscope: Stethoscope,
-  SmilePlus: SmilePlus,
-  Sparkles: Sparkles,
-  CheckCircle2: CheckCircle2,
-};
 
 export default function Home() {
   return (
@@ -80,20 +59,20 @@ export default function Home() {
               </p>
 
               {/* Doctor Highlight Banner */}
-              <div className="flex flex-col xs:flex-row items-start xs:items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white border border-brand-border shadow-warm-sm w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white border border-brand-border shadow-warm-sm w-full overflow-hidden">
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-primary-light border border-primary/20 flex items-center justify-center text-primary shrink-0 shadow-sm">
                   <UserCheck className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="text-left min-w-0">
+                <div className="text-left min-w-0 overflow-hidden">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="font-display font-bold text-sm xs:text-base sm:text-lg text-dark-accent">
+                    <h2 className="font-display font-bold text-sm sm:text-base text-dark-accent truncate">
                       {clinicData.doctor.name}
                     </h2>
-                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] xs:text-[11px] font-bold bg-primary-light text-primary border border-primary/20 whitespace-nowrap">
+                    <span className="inline-block px-2 py-0.5 rounded-full text-[11px] font-bold bg-primary-light text-primary border border-primary/20 whitespace-nowrap">
                       Verified Specialist
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-brand-muted mt-0.5">
+                  <p className="text-xs sm:text-sm text-brand-muted mt-0.5 truncate">
                     {clinicData.doctor.specialization} &bull; Pimpri, Pune
                   </p>
                 </div>
@@ -232,231 +211,49 @@ export default function Home() {
       {/* 2. WHY CHOOSE US (4 confirmed core pillars, replaces duplicate stats strip) */}
       <WhyChooseUs />
 
-      {/* 3. EXPANDED SERVICES SECTION (All 8 clinical services filled, no dead space) */}
-      <section className="py-16 sm:py-24 bg-brand-bg border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
-                <Eye className="w-3.5 h-3.5" />
-                <span>Specialized Eye Care & Procedures</span>
-              </span>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl text-dark-accent tracking-tight">
-                Comprehensive Clinical Services
-              </h2>
-              <p className="mt-2 text-sm sm:text-base text-brand-muted leading-relaxed">
-                From pre-operative cataract guidance and acute infections to precision progressive refraction, every patient receives dedicated one-on-one attention from Dr. Priyanka Murgude.
-              </p>
-            </div>
-
-            <div className="mt-2 md:mt-0">
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-secondary-hover group"
-              >
-                <span>View Full Procedure Details</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 8 Full Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {clinicData.services.map((service) => {
-              const Icon = serviceIcons[service.icon] || Eye;
-              return (
-                <div
-                  key={service.id}
-                  className="p-5 sm:p-6 rounded-3xl bg-white border border-brand-border hover:border-primary/50 transition-all duration-300 shadow-warm-sm hover:shadow-warm-md flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-brand-bg border border-brand-border flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shadow-sm">
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110" />
-                      </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary border border-secondary/20 truncate max-w-[130px]">
-                        {service.category}
-                      </span>
-                    </div>
-
-                    <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent group-hover:text-primary transition-colors leading-snug">
-                      {service.name}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-brand-muted leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-5 sm:mt-6 pt-4 border-t border-brand-border flex items-center justify-between gap-2">
-                    <Link
-                      to={`/services#${service.id}`}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-brand-muted hover:text-primary transition-colors"
-                    >
-                      <span>Details</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                    <Link
-                      to={`/appointment?service=${encodeURIComponent(service.name)}`}
-                      className="text-xs px-3.5 py-1.5 rounded-full bg-secondary hover:bg-secondary-hover text-white font-semibold shadow-sm transition-all whitespace-nowrap"
-                    >
-                      Book Consult
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
+      {/* 3. SERVICES TEASER */}
+      <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
+            <Eye className="w-3.5 h-3.5" />
+            <span>Specialized Eye Care</span>
+          </span>
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent tracking-tight">
+            Comprehensive Clinical Services
+          </h2>
+          <p className="mt-2 text-sm text-brand-muted max-w-xl mx-auto">
+            From cataract guidance to vision correction, explore our full range of ophthalmology services.
+          </p>
+          <Link
+            to="/services"
+            className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/25 transition-all"
+          >
+            <span>View All Services</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
-      {/* 5. REAL CLINIC PREVIEW & ENVIRONMENT (Real photo & equipment, no dead space) */}
-      <section className="py-16 sm:py-24 bg-brand-bg border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
-                <Camera className="w-3.5 h-3.5" />
-                <span>Real Clinic Environment</span>
-              </span>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl text-dark-accent tracking-tight">
-                Modern Diagnostics & Caring Environment
-              </h2>
-              <p className="mt-2 text-base text-brand-muted leading-relaxed">
-                Take a look inside Divyam Eye Care on New Telco Road, Nehru Nagar, Pimpri — equipped with high-precision ophthalmic diagnostics and a calm patient setting.
-              </p>
-            </div>
-
-            <div className="mt-4 md:mt-0">
-              <Link
-                to="/gallery"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-secondary-hover group"
-              >
-                <span>View Full Clinic Gallery</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 3 Real Clinic Visuals Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            
-            {/* Card 1: Consultation Room */}
-            <div className="rounded-3xl bg-white border border-brand-border overflow-hidden shadow-warm-sm hover:shadow-warm-md transition-all group flex flex-col justify-between">
-              <div className="relative h-56 w-full bg-gradient-to-br from-primary-light via-brand-bg to-primary/10 p-6 flex flex-col justify-center items-center text-center">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-3 group-hover:scale-105 transition-transform duration-300">
-                  <Stethoscope className="w-7 h-7" />
-                </div>
-                <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-primary text-white mb-2">
-                  Doctor Consultation
-                </span>
-                <h4 className="font-display font-bold text-base text-dark-accent">
-                  Comprehensive Eye OPD
-                </h4>
-                <p className="text-xs text-brand-muted mt-1 max-w-xs">
-                  Dedicated consultation desk with personalized diagnostic explanations
-                </p>
-              </div>
-              <div className="p-5">
-                <h4 className="font-display font-bold text-base text-dark-accent">
-                  Attentive Patient Consultation
-                </h4>
-                <p className="text-xs text-brand-muted mt-1 leading-relaxed">
-                  Every patient receives dedicated consultation time with in-depth explanations of diagnostic findings.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2: Diagnostic Slit-Lamp Machinery */}
-            <div className="rounded-3xl bg-white border border-brand-border overflow-hidden shadow-warm-sm hover:shadow-warm-md transition-all group flex flex-col justify-between">
-              <div className="relative h-56 w-full bg-gradient-to-br from-secondary-light/50 via-brand-bg to-secondary/10 p-6 flex flex-col justify-center items-center text-center">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-secondary mb-3 group-hover:scale-105 transition-transform duration-300">
-                  <Eye className="w-7 h-7" />
-                </div>
-                <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-secondary text-white mb-2">
-                  Clinical Diagnostics
-                </span>
-                <h4 className="font-display font-bold text-base text-dark-accent">
-                  Slit-Lamp Biomicroscope
-                </h4>
-                <p className="text-xs text-brand-muted mt-1 max-w-xs">
-                  High-precision anterior segment examination &amp; refraction suite
-                </p>
-              </div>
-              <div className="p-5">
-                <h4 className="font-display font-bold text-base text-dark-accent">
-                  Precision Slit-Lamp Testing
-                </h4>
-                <p className="text-xs text-brand-muted mt-1 leading-relaxed">
-                  High-magnification corneal, lens, and anterior segment diagnostics for accurate clinical evaluations.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3: Location & Accessibility */}
-            <div className="rounded-3xl bg-white border border-brand-border overflow-hidden shadow-warm-sm hover:shadow-warm-md transition-all group flex flex-col justify-between">
-              <div className="relative h-56 w-full bg-gradient-to-br from-primary-light via-brand-bg to-secondary-light/40 p-6 flex flex-col justify-center items-center text-center">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-secondary mb-3">
-                  <MapPin className="w-7 h-7" />
-                </div>
-                <h4 className="font-display font-bold text-base text-dark-accent">
-                  Aaikrupa Building, Shop No. 1
-                </h4>
-                <p className="text-xs text-brand-muted mt-1 max-w-xs">
-                  Near Vital Multispeciality Hospital, New Telco Road, Nehru Nagar, Pimpri
-                </p>
-              </div>
-              <div className="p-5">
-                <h4 className="font-display font-bold text-base text-dark-accent">
-                  Convenient Ground-Floor Access
-                </h4>
-                <p className="text-xs text-brand-muted mt-1 leading-relaxed">
-                  Easily accessible street front with parking availability for senior citizens and families.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. CASHLESS INSURANCE PARTNERS STRIP */}
-      <section className="py-14 bg-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-primary">Insurance Coverage</span>
-              <h3 className="font-display font-bold text-2xl text-dark-accent mt-0.5">
-                Cashless Insurance Coordination
-              </h3>
-              <p className="text-xs sm:text-sm text-brand-muted mt-1">
-                Accepted TPA and General Insurance partners for smooth procedure settlements.
-              </p>
-            </div>
-            <Link
-              to="/insurance"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-secondary hover:text-secondary-hover"
-            >
-              <span>Learn about cashless claims</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 xs:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
-            {clinicData.insurancePartners.map((partner) => (
-              <div
-                key={partner.name}
-                className="p-3 sm:p-4 rounded-2xl bg-brand-bg border border-brand-border text-center flex flex-col items-center justify-center hover:border-primary/40 transition-colors"
-              >
-                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 mb-1.5" />
-                <span className="font-bold text-xs text-dark-accent leading-tight">{partner.name}</span>
-                <span className="text-[10px] text-brand-muted mt-0.5">{partner.type}</span>
-              </div>
-            ))}
-          </div>
+      {/* 4. CLINIC GALLERY TEASER */}
+      <section className="py-12 sm:py-16 bg-brand-bg border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
+            <Camera className="w-3.5 h-3.5" />
+            <span>Clinic Environment</span>
+          </span>
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent tracking-tight">
+            Modern Diagnostics & Caring Environment
+          </h2>
+          <p className="mt-2 text-sm text-brand-muted max-w-xl mx-auto">
+            Take a look inside Divyam Eye Care — equipped with high-precision diagnostics and a calm patient setting.
+          </p>
+          <Link
+            to="/gallery"
+            className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-primary-light text-dark-accent text-sm font-semibold border border-brand-border shadow-warm-sm transition-all"
+          >
+            <span>View Full Clinic Gallery</span>
+            <ArrowRight className="w-4 h-4 text-primary" />
+          </Link>
         </div>
       </section>
 
