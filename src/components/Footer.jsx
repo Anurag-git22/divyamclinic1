@@ -10,10 +10,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 pb-8 border-b border-white/10">
           
           {/* Col 1: Brand & Tagline */}
-          <div className="lg:col-span-4 space-y-3">
+          <div className="space-y-3">
             <Link to="/" className="flex items-center gap-3 group">
               <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-9 w-auto object-contain" />
               <div>
@@ -65,7 +65,7 @@ export default function Footer() {
           </div>
 
           {/* Col 2: Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="space-y-3">
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
               Navigation
             </h4>
@@ -110,7 +110,7 @@ export default function Footer() {
           </div>
 
           {/* Col 3: Services List */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="space-y-3">
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
               Key Services
             </h4>
@@ -134,7 +134,7 @@ export default function Footer() {
           </div>
 
           {/* Col 4: Address & Practical Clinic Info */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="space-y-3">
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
               Clinic Location
             </h4>
