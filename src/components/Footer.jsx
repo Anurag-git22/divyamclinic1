@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 pb-8 border-b border-white/10">
           
           {/* Col 1: Brand & Tagline */}
           <div className="space-y-3">
@@ -64,76 +64,79 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Quick Links */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
-              Navigation
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-300">
-              <li>
-                <Link to="/" className="hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-primary transition-colors">
-                  About Doctor
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-primary transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/insurance" className="hover:text-primary transition-colors">
-                  Cashless Insurance
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="hover:text-primary transition-colors">
-                  Clinic Preview
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-primary transition-colors">
-                  Contact & Location
-                </Link>
-              </li>
-              <li>
-                <Link to="/appointment" className="hover:text-primary font-semibold transition-colors flex items-center gap-1 text-primary">
-                  <span>Book Visit</span>
-                  <LogoIcon className="w-3.5 h-3.5" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Services List */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
-              Key Services
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-300">
-              {clinicData.services.slice(0, 5).map((service) => (
-                <li key={service.id}>
-                  <Link
-                    to={`/services#${service.id}`}
-                    className="hover:text-primary transition-colors block truncate"
-                  >
-                    {service.name}
+          {/* Col 2: Navigation + Key Services (Two columns side-by-side) */}
+          <div className="grid grid-cols-1 xs:grid-cols-2 gap-8 lg:gap-10">
+            {/* Navigation */}
+            <div className="space-y-3">
+              <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
+                Navigation
+              </h4>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>
+                  <Link to="/" className="hover:text-primary transition-colors">
+                    Home
                   </Link>
                 </li>
-              ))}
-              <li>
-                <Link to="/services" className="text-xs text-primary hover:underline font-medium">
-                  View all services &rarr;
-                </Link>
-              </li>
-            </ul>
+                <li>
+                  <Link to="/about" className="hover:text-primary transition-colors">
+                    About Doctor
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="hover:text-primary transition-colors">
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/insurance" className="hover:text-primary transition-colors">
+                    Cashless Insurance
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/gallery" className="hover:text-primary transition-colors">
+                    Clinic Preview
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="hover:text-primary transition-colors">
+                    Contact & Location
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/appointment" className="hover:text-primary font-semibold transition-colors flex items-center gap-1 text-primary">
+                    <span>Book Visit</span>
+                    <LogoIcon className="w-3.5 h-3.5" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Key Services */}
+            <div className="space-y-3">
+              <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
+                Key Services
+              </h4>
+              <ul className="space-y-2 text-sm text-slate-300">
+                {clinicData.services.slice(0, 5).map((service) => (
+                  <li key={service.id}>
+                    <Link
+                      to={`/services#${service.id}`}
+                      className="hover:text-primary transition-colors block truncate"
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link to="/services" className="text-xs text-primary hover:underline font-medium">
+                    View all services &rarr;
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Col 4: Address & Practical Clinic Info */}
+          {/* Col 3: Address & Practical Clinic Info */}
           <div className="space-y-3">
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-secondary">
               Clinic Location
