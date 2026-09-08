@@ -33,11 +33,11 @@ export default function Home() {
             <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
               
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-border shadow-warm-sm text-xs sm:text-sm font-semibold text-primary">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span>{clinicData.badgeText}</span>
-                <span className="text-brand-subtle">|</span>
-                <span className="text-brand-text font-semibold">Nehru Nagar, Pimpri</span>
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white border border-brand-border shadow-warm-sm text-xs sm:text-sm font-semibold text-primary flex-wrap justify-center">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse shrink-0" />
+                <span className="whitespace-nowrap">{clinicData.badgeText}</span>
+                <span className="text-brand-subtle hidden xs:inline">|</span>
+                <span className="text-brand-text font-semibold whitespace-nowrap">Nehru Nagar, Pimpri</span>
               </div>
 
               {/* Main Headline */}
@@ -59,20 +59,20 @@ export default function Home() {
               </p>
 
               {/* Doctor Highlight Banner */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white border border-brand-border shadow-warm-sm w-full overflow-hidden">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-primary-light border border-primary/20 flex items-center justify-center text-primary shrink-0 shadow-sm">
+              <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-2xl bg-white border border-brand-border shadow-warm-sm w-full">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-primary-light border border-primary/20 flex items-center justify-center text-primary shrink-0 shadow-sm">
                   <UserCheck className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <div className="text-left min-w-0 overflow-hidden">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="font-display font-bold text-sm sm:text-base text-dark-accent truncate">
+                <div className="text-left min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <h2 className="font-display font-bold text-sm sm:text-base text-dark-accent">
                       {clinicData.doctor.name}
                     </h2>
-                    <span className="inline-block px-2 py-0.5 rounded-full text-[11px] font-bold bg-primary-light text-primary border border-primary/20 whitespace-nowrap">
+                    <span className="inline-block px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold bg-primary-light text-primary border border-primary/20 whitespace-nowrap shrink-0">
                       Verified Specialist
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-brand-muted mt-0.5 truncate">
+                  <p className="text-xs sm:text-sm text-brand-muted mt-0.5 leading-tight">
                     {clinicData.doctor.specialization} &bull; Pimpri, Pune
                   </p>
                 </div>
@@ -99,28 +99,28 @@ export default function Home() {
 
               {/* Trust Indicators Pill Row */}
               <div className="pt-4 border-t border-brand-border w-full">
-                <div className="grid grid-cols-3 gap-2 sm:gap-6 text-left">
+                <div className="grid grid-cols-3 gap-2 xs:gap-3 sm:gap-6 text-left">
                   <div className="flex flex-col min-w-0">
-                    <div className="flex items-center gap-1 text-dark-accent font-bold text-base sm:text-xl">
+                    <div className="flex items-center gap-0.5 sm:gap-1 text-dark-accent font-bold text-sm xs:text-base sm:text-xl">
                       <span>{clinicData.reputation.rating}</span>
-                      <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-secondary text-secondary" />
+                      <Star className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 fill-secondary text-secondary shrink-0" />
                     </div>
-                    <span className="text-[11px] sm:text-xs text-brand-muted truncate">Average Rating</span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs text-brand-muted leading-tight">Average Rating</span>
                   </div>
 
                   <div className="flex flex-col min-w-0">
-                    <div className="text-dark-accent font-bold text-base sm:text-xl truncate">
+                    <div className="text-dark-accent font-bold text-sm xs:text-base sm:text-xl">
                       {clinicData.reputation.reviewCount}
                     </div>
-                    <span className="text-[11px] sm:text-xs text-brand-muted truncate">Patient Reviews</span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs text-brand-muted leading-tight">Patient Reviews</span>
                   </div>
 
                   <div className="flex flex-col min-w-0">
-                    <div className="flex items-center gap-1 text-primary font-bold text-xs sm:text-base">
-                      <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
+                    <div className="flex items-center gap-0.5 sm:gap-1 text-primary font-bold text-xs xs:text-sm sm:text-base">
+                      <ShieldCheck className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
                       <span className="truncate">Cashless</span>
                     </div>
-                    <span className="text-[11px] sm:text-xs text-brand-muted truncate">6 Insurers</span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs text-brand-muted leading-tight">6 Insurers</span>
                   </div>
                 </div>
               </div>

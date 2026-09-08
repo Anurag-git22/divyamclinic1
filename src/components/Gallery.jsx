@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Building, Stethoscope, Eye, Sparkles } from 'lucide-react';
+import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 
 const categoryIcons = {
