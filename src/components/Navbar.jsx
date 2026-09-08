@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, PhoneCall } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
-import CoralEyeIcon from './CoralEyeIcon';
+import LogoIcon from './LogoIcon';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -92,7 +92,7 @@ export default function Navbar() {
               to="/appointment"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <CoralEyeIcon className="w-4 h-4" />
+              <LogoIcon className="w-4 h-4" />
               <span>Book Appointment</span>
             </Link>
           </div>
@@ -103,7 +103,7 @@ export default function Navbar() {
               to="/appointment"
               className="inline-flex items-center gap-1 px-2.5 py-1.5 xs:px-3 xs:py-1.5 rounded-full bg-secondary hover:bg-secondary-hover text-white text-xs font-semibold shadow-sm shrink-0 whitespace-nowrap"
             >
-              <CoralEyeIcon className="w-3.5 h-3.5" />
+              <LogoIcon className="w-3.5 h-3.5" />
               <span>Book</span>
             </Link>
 
@@ -144,7 +144,7 @@ export default function Navbar() {
               to="/appointment"
               className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-secondary hover:bg-secondary-hover text-white font-semibold text-sm shadow-md shadow-secondary/20 transition-all"
             >
-              <CoralEyeIcon className="w-4 h-4" />
+              <LogoIcon className="w-4 h-4" />
               <span>Book Appointment</span>
             </Link>
           </div>

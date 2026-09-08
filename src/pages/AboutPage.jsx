@@ -4,7 +4,7 @@ import { UserCheck, ShieldCheck, Award, HeartHandshake, Sparkles, Calendar, Chec
 import AboutDoctor from '../components/AboutDoctor';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Reviews from '../components/Reviews';
-import CoralEyeIcon from '../components/CoralEyeIcon';
+import LogoIcon from '../components/LogoIcon';
 import { clinicData } from '../data/clinicData';
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* Page Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
-          <CoralEyeIcon className="w-4 h-4" />
+          <LogoIcon className="w-4 h-4" />
           <span>About Divyam Eye Care</span>
         </div>
         <h1 className="font-display font-bold text-4xl sm:text-5xl text-dark-accent tracking-tight">

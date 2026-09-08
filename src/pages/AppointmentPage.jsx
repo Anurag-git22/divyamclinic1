@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Calendar, Clock, MapPin, Phone, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import AppointmentForm from '../components/AppointmentForm';
-import CoralEyeIcon from '../components/CoralEyeIcon';
+import LogoIcon from '../components/LogoIcon';
 import { clinicData } from '../data/clinicData';
 
 export default function AppointmentPage() {
@@ -15,7 +15,7 @@ export default function AppointmentPage() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
-          <CoralEyeIcon className="w-4 h-4" />
+          <LogoIcon className="w-4 h-4" />
           <span>Easy Scheduling</span>
         </div>
         <h1 className="font-display font-bold text-4xl sm:text-5xl text-dark-accent tracking-tight">

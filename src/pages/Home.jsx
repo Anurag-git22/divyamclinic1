@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import doctorImg from '../assets/dr-priyanka-murgude.jpg';
-import CoralEyeIcon from '../components/CoralEyeIcon';
+import LogoIcon from '../components/LogoIcon';
 import WhyChooseUs from '../components/WhyChooseUs';
 
 export default function Home() {
@@ -84,7 +84,7 @@ export default function Home() {
                   to="/appointment"
                   className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white font-semibold text-sm sm:text-base shadow-lg shadow-secondary/30 hover:shadow-xl hover:shadow-secondary/40 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
                 >
-                  <CoralEyeIcon className="w-4 h-4" />
+                  <LogoIcon className="w-4 h-4" />
                   <span>Book Appointment</span>
                 </Link>
 
@@ -140,7 +140,7 @@ export default function Home() {
                   <div className="flex items-center justify-between pb-3.5 sm:pb-4 border-b border-brand-border">
                     <div className="flex items-center gap-2.5 sm:gap-3">
                       <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-light flex items-center justify-center text-primary shrink-0">
-                        <CoralEyeIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <LogoIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
                       <div>
                         <h3 className="font-display font-bold text-xs sm:text-sm text-dark-accent">Divyam Eye Care</h3>
@@ -270,7 +270,7 @@ export default function Home() {
               
               <div className="lg:col-span-8 space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-primary border border-white/15">
-                  <CoralEyeIcon className="w-3.5 h-3.5" />
+                  <LogoIcon className="w-3.5 h-3.5" />
                   <span>Consultations Available</span>
                 </div>
                 <h2 className="font-display font-bold text-2xl xs:text-3xl sm:text-4xl text-white tracking-tight">

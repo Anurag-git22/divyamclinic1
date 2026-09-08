@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock, Navigation, Calendar, ExternalLink, ShieldCheck } from 'lucide-react';
 import Contact from '../components/Contact';
-import CoralEyeIcon from '../components/CoralEyeIcon';
+import LogoIcon from '../components/LogoIcon';
 
 export default function ContactPage() {
   return (

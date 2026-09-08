@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Clock, ExternalLink, Heart, ShieldCheck } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
-import CoralEyeIcon from './CoralEyeIcon';
+import LogoIcon from './LogoIcon';
 
 export default function Footer() {
   return (
@@ -103,7 +103,7 @@ export default function Footer() {
               <li>
                 <Link to="/appointment" className="hover:text-primary font-semibold transition-colors flex items-center gap-1 text-primary">
                   <span>Book Visit</span>
-                  <CoralEyeIcon className="w-3.5 h-3.5" />
+                  <LogoIcon className="w-3.5 h-3.5" />
                 </Link>
               </li>
             </ul>

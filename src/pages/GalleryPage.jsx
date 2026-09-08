@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Camera, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
 import Gallery from '../components/Gallery';
-import CoralEyeIcon from '../components/CoralEyeIcon';
+import LogoIcon from '../components/LogoIcon';
 import { clinicData } from '../data/clinicData';
 
 export default function GalleryPage() {
@@ -47,7 +47,7 @@ export default function GalleryPage() {
               to="/appointment"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs font-semibold shadow-md shadow-secondary/25 hover:shadow-lg transition-all"
             >
-              <CoralEyeIcon className="w-4 h-4" />
+              <LogoIcon className="w-4 h-4" />
               <span>Book an Appointment</span>
             </Link>
             <Link

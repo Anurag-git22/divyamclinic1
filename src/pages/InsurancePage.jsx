@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, CheckCircle2, FileText, HelpCircle, Phone, ArrowRight, Calendar, Building2 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
-import CoralEyeIcon from '../components/CoralEyeIcon';
+import LogoIcon from '../components/LogoIcon';
 
 export default function InsurancePage() {
   const steps = [
@@ -156,7 +156,7 @@ export default function InsurancePage() {
               to="/appointment"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs font-semibold shadow-md shadow-secondary/25 hover:shadow-lg transition-all"
             >
-              <CoralEyeIcon className="w-4 h-4" />
+              <LogoIcon className="w-4 h-4" />
               <span>Book Appointment & Verify Insurance</span>
             </Link>
           </div>

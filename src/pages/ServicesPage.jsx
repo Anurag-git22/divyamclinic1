@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, ShieldAlert, Activity, Glasses, Stethoscope, SmilePlus, ArrowRight, Calendar, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
-import CoralEyeIcon from '../components/CoralEyeIcon';
+import LogoIcon from '../components/LogoIcon';
 
 const serviceDetails = {
   'cataract-surgery': {
@@ -65,7 +65,7 @@ export default function ServicesPage() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
-          <CoralEyeIcon className="w-4 h-4" />
+          <LogoIcon className="w-4 h-4" />
           <span>Clinical Excellence</span>
         </div>
         <h1 className="font-display font-bold text-4xl sm:text-5xl text-dark-accent tracking-tight">
