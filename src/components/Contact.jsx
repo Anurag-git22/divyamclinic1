@@ -38,9 +38,9 @@ export default function Contact({ onBookClick }) {
           <div className="lg:col-span-5 space-y-5">
             
             {/* Address Card */}
-            <div className="p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+            <div className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
+              <div className="flex items-start gap-3.5 sm:gap-4">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -64,9 +64,9 @@ export default function Contact({ onBookClick }) {
             </div>
 
             {/* Phone Placeholder Card */}
-            <div className="p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center flex-shrink-0">
+            <div className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
+              <div className="flex items-start gap-3.5 sm:gap-4">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -84,9 +84,9 @@ export default function Contact({ onBookClick }) {
             </div>
 
             {/* Opening Hours Placeholder Card */}
-            <div className="p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center flex-shrink-0">
+            <div className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
+              <div className="flex items-start gap-3.5 sm:gap-4">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -109,7 +109,7 @@ export default function Contact({ onBookClick }) {
                 href={clinicData.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-dark-accent hover:bg-dark-deep text-white text-sm font-semibold shadow-warm-sm hover:shadow-warm-md transition-all group"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-dark-accent hover:bg-dark-deep text-white text-sm font-semibold shadow-warm-sm hover:shadow-warm-md transition-all group text-center"
               >
                 <Navigation className="w-4 h-4 text-secondary group-hover:scale-110 transition-transform" />
                 <span>Get Directions</span>
@@ -118,7 +118,7 @@ export default function Contact({ onBookClick }) {
 
               <button
                 onClick={scrollToAppointment}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-semibold shadow-md shadow-primary/20 hover:shadow-lg transition-all"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-semibold shadow-md shadow-primary/20 hover:shadow-lg transition-all text-center"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Appointment</span>
@@ -129,8 +129,8 @@ export default function Contact({ onBookClick }) {
 
           {/* Right Column: Google Maps Embed */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl bg-white border border-brand-border p-3 shadow-warm-md overflow-hidden">
-              <div className="relative w-full h-[400px] sm:h-[460px] rounded-2xl overflow-hidden bg-brand-bg">
+            <div className="rounded-3xl bg-white border border-brand-border p-2.5 sm:p-3 shadow-warm-md overflow-hidden">
+              <div className="relative w-full h-[280px] xs:h-[350px] sm:h-[460px] rounded-2xl overflow-hidden bg-brand-bg">
                 <iframe
                   title="Divyam Eye Care Clinic Location Google Maps"
                   src={mapsEmbedUrl}

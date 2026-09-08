@@ -45,19 +45,23 @@ export default function Navbar() {
           {/* Brand Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+            className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg min-w-0"
           >
-            <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-[60px] w-auto object-contain shrink-0" />
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-display font-bold text-xl sm:text-2xl text-dark-accent tracking-tight">
+            <img
+              src="/eye-logo.png"
+              alt="Divyam Eye Care"
+              className="h-10 w-auto xs:h-12 sm:h-14 md:h-[56px] object-contain shrink-0"
+            />
+            <div className="flex flex-col min-w-0">
+              <div className="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
+                <span className="font-display font-bold text-base xs:text-lg sm:text-xl md:text-2xl text-dark-accent tracking-tight">
                   Divyam
                 </span>
-                <span className="font-display font-semibold text-xl sm:text-2xl text-primary">
+                <span className="font-display font-bold text-base xs:text-lg sm:text-xl md:text-2xl text-primary">
                   Eye Care
                 </span>
               </div>
-              <span className="text-[11px] sm:text-xs font-medium text-brand-muted tracking-wide -mt-0.5">
+              <span className="hidden sm:block text-[10px] sm:text-xs font-medium text-brand-muted tracking-wide -mt-0.5 truncate">
                 {clinicData.tagline}
               </span>
             </div>
@@ -72,8 +76,8 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `px-3.5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'text-primary bg-primary-light font-semibold shadow-sm'
-                      : 'text-brand-text hover:text-primary hover:bg-primary-light/40'
+                      ? 'text-white bg-primary font-semibold shadow-sm'
+                      : 'text-brand-text hover:text-primary hover:bg-primary-light'
                   }`
                 }
               >
@@ -86,7 +90,7 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               to="/appointment"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/25 hover:shadow-lg hover:shadow-secondary/35 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <CoralEyeIcon className="w-4 h-4" />
               <span>Book Appointment</span>
@@ -94,10 +98,10 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Hamburger */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-1.5 xs:gap-2 lg:hidden shrink-0">
             <Link
               to="/appointment"
-              className="sm:hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-white text-xs font-semibold shadow-sm"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 xs:px-3 xs:py-1.5 rounded-full bg-secondary hover:bg-secondary-hover text-white text-xs font-semibold shadow-sm shrink-0 whitespace-nowrap"
             >
               <CoralEyeIcon className="w-3.5 h-3.5" />
               <span>Book</span>
@@ -105,10 +109,10 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-xl text-brand-text hover:text-primary hover:bg-primary-light/50 focus:outline-none transition-colors"
+              className="p-1.5 xs:p-2 rounded-xl text-brand-text hover:text-primary hover:bg-primary-light focus:outline-none transition-colors"
               aria-label="Toggle navigation menu"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-5 h-5 xs:w-6 xs:h-6" /> : <Menu className="w-5 h-5 xs:w-6 xs:h-6" />}
             </button>
           </div>
 
@@ -125,8 +129,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   isActive
-                    ? 'text-primary bg-primary-light font-semibold'
-                    : 'text-brand-text hover:bg-primary-light/40'
+                    ? 'text-white bg-primary font-semibold shadow-sm'
+                    : 'text-brand-text hover:bg-primary-light hover:text-primary'
                 }`
               }
             >

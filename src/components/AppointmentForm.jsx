@@ -155,17 +155,17 @@ export default function AppointmentForm({ preselectedReason = '', onClearPresele
         </div>
 
         {/* Form Container Card */}
-        <div className="rounded-3xl bg-brand-bg/60 border border-brand-border shadow-warm-md p-6 sm:p-10 relative overflow-hidden">
+        <div className="rounded-3xl bg-brand-bg/60 border border-brand-border shadow-warm-md p-4 xs:p-6 sm:p-10 relative overflow-hidden">
           
           {/* Supabase Status Indicator (Informative & Transparent) */}
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-2 p-3 rounded-2xl bg-white border border-brand-border text-xs">
+          <div className="mb-6 flex flex-col xs:flex-row xs:items-center justify-between gap-2 p-3 rounded-2xl bg-white border border-brand-border text-[11px] sm:text-xs">
             <div className="flex items-center gap-2">
               <span className={`w-2 h-2 rounded-full ${isSupabaseConfigured ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
               <span className="font-medium text-dark-accent">
                 {isSupabaseConfigured ? 'Supabase Database Connected' : 'Demo Mode Active'}
               </span>
             </div>
-            <span className="text-brand-muted text-[11px]">
+            <span className="text-brand-muted text-[10px] sm:text-[11px]">
               {isSupabaseConfigured
                 ? 'Requests stored directly to Postgres appointments table'
                 : 'Submissions are safely simulated & preserved for demo review'}
@@ -436,7 +436,7 @@ export default function AppointmentForm({ preselectedReason = '', onClearPresele
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full py-3.5 px-6 rounded-xl bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-base font-semibold shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/35 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-3.5 px-4 sm:px-6 rounded-xl bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-sm sm:text-base font-semibold shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/35 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status === 'loading' ? (
                     <>
@@ -445,7 +445,7 @@ export default function AppointmentForm({ preselectedReason = '', onClearPresele
                     </>
                   ) : (
                     <>
-                      <Calendar className="w-5 h-5" />
+                      <Calendar className="w-5 h-5 shrink-0" />
                       <span>Submit Appointment Request</span>
                     </>
                   )}

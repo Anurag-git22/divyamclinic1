@@ -36,18 +36,18 @@ export default function AboutPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-12 rounded-3xl bg-primary text-white text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-warm-lg">
-          <div className="space-y-2">
+        <div className="p-8 sm:p-12 rounded-3xl bg-dark-accent text-white text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-warm-lg border border-dark-deep relative overflow-hidden">
+          <div className="space-y-2 relative z-10">
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-white">
               Schedule Your Consultation with Dr. Murgude
             </h2>
-            <p className="text-white/90 text-sm max-w-lg">
+            <p className="text-slate-300 text-sm max-w-lg">
               Accurate diagnostics, clear explanations, and thoughtful ophthalmic treatment tailored to you.
             </p>
           </div>
           <Link
             to="/appointment"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary hover:bg-secondary-hover text-white font-bold text-sm shadow-md transition-all flex-shrink-0"
+            className="relative z-10 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white font-bold text-sm shadow-lg shadow-secondary/30 hover:shadow-xl transition-all shrink-0"
           >
             <Calendar className="w-4 h-4" />
             <span>Book Appointment</span>

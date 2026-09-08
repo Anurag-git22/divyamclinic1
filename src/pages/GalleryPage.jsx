@@ -45,7 +45,7 @@ export default function GalleryPage() {
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
             <Link
               to="/appointment"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover text-white text-xs font-semibold shadow-sm transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs font-semibold shadow-md shadow-secondary/25 hover:shadow-lg transition-all"
             >
               <CoralEyeIcon className="w-4 h-4" />
               <span>Book an Appointment</span>

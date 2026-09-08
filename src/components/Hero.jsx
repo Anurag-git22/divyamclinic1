@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, ArrowRight, Star, ShieldCheck, MapPin, Sparkles, UserCheck, Eye } from 'lucide-react';
+import { Calendar, ArrowRight, Star, ShieldCheck, MapPin, Sparkles, UserCheck, Eye, Award } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import doctorImg from '../assets/dr-priyanka-murgude.jpg';
 
@@ -12,7 +12,7 @@ export default function Hero({ onBookClick, onExploreServices }) {
   return (
     <section id="home" className="relative pt-6 pb-16 lg:pt-14 lg:pb-24 overflow-hidden warm-mesh-gradient">
       {/* Subtle organic background elements matching clinic brand palette */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-secondary-light/60 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute top-40 right-[-100px] w-96 h-96 bg-primary-soft/40 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,12 +49,8 @@ export default function Hero({ onBookClick, onExploreServices }) {
 
             {/* Doctor Highlight Banner */}
             <div className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/90 border border-brand-border/80 shadow-warm-sm w-full sm:w-auto">
-              <div className="w-12 h-12 rounded-xl overflow-hidden border border-secondary flex-shrink-0 shadow-sm">
-                <img
-                  src={doctorImg}
-                  alt={clinicData.doctor.name}
-                  className="w-full h-full object-cover object-center"
-                />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0 shadow-sm">
+                <UserCheck className="w-6 h-6" />
               </div>
               <div className="text-left">
                 <div className="flex items-center gap-2">
@@ -203,20 +199,7 @@ export default function Hero({ onBookClick, onExploreServices }) {
                 </div>
               </div>
 
-              {/* Floating Badge 2: Bottom Left */}
-              <div className="hidden sm:flex absolute -bottom-4 -left-4 bg-white px-4 py-2.5 rounded-2xl shadow-warm-md border border-brand-border items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg overflow-hidden border border-primary/20 flex-shrink-0">
-                  <img
-                    src={doctorImg}
-                    alt={clinicData.doctor.name}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                <div className="text-left">
-                  <p className="text-xs font-bold text-dark-accent">{clinicData.doctor.name}</p>
-                  <p className="text-[10px] text-brand-muted">{clinicData.doctor.specialization}</p>
-                </div>
-              </div>
+              {/* TODO: add real qualifications once confirmed by clinic */}
 
             </div>
 

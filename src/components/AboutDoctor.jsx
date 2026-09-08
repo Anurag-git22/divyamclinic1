@@ -25,10 +25,10 @@ export default function AboutDoctor({ onBookClick }) {
               <div className="absolute -inset-2 rounded-3xl bg-primary/15 blur-xl -z-10" />
 
               {/* Main Card */}
-              <div className="rounded-3xl bg-white border border-brand-border shadow-warm-lg p-6 sm:p-8 flex flex-col items-center text-center">
+              <div className="rounded-3xl bg-white border border-brand-border shadow-warm-lg p-4 xs:p-6 sm:p-8 flex flex-col items-center text-center">
                 
                 {/* Doctor Photo Container */}
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden shadow-warm-md border-2 border-primary/20 group">
+                <div className="relative w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden shadow-warm-md border-2 border-primary/20 group">
                   <img
                     src={doctorImg}
                     alt={`${clinicData.doctor.name} - ${clinicData.doctor.specialization}`}
@@ -139,7 +139,7 @@ export default function AboutDoctor({ onBookClick }) {
             <div className="pt-2">
               <Link
                 to="/appointment"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover text-white font-semibold text-sm shadow-md shadow-secondary/25 hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white font-semibold text-sm shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
               >
                 <CoralEyeIcon className="w-4 h-4" />
                 <span>Book Consultation with Dr. Murgude</span>

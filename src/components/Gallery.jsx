@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin } from 'lucide-react';
+import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin, CheckCircle2 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 
 const categoryIcons = {
@@ -15,8 +15,8 @@ export default function Gallery() {
   const categories = [
     { id: 'all', label: 'All Spaces' },
     { id: 'Clinic Interior', label: 'Clinic Interior' },
-    { id: 'Consultation Area', label: 'Consultation Area' },
-    { id: 'Eye Care Environment', label: 'Eye Care Environment' },
+    { id: 'Doctor Consultation', label: 'Consultation Suite' },
+    { id: 'Eye Care Equipment', label: 'Diagnostic Equipment' },
     { id: 'Clinic Exterior', label: 'Clinic Exterior' },
   ];
 
@@ -30,21 +30,20 @@ export default function Gallery() {
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
             <Camera className="w-3.5 h-3.5" />
             <span>Clinic Spaces & Environment</span>
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-dark-accent tracking-tight">
-            Clinic Preview
+            Clinic Preview & Diagnostics
           </h2>
           <p className="mt-3 text-base text-brand-muted leading-relaxed">
-            Designed for patient serenity, clean clinical protocols, and attentive eye consultations in Pimpri.
+            Clinical spaces and diagnostic stations at Divyam Eye Care on New Telco Road, Nehru Nagar, Pimpri.
           </p>
 
-          {/* Transparent Notice */}
-          <div className="mt-4 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white border border-primary/30 text-xs text-brand-muted shadow-warm-sm">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span>Official clinic photographs will be added following Dr. Priyanka Murgude's review.</span>
+          <div className="mt-4 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white border border-brand-border text-xs text-brand-muted shadow-warm-sm">
+            <Sparkles className="w-3.5 h-3.5 text-secondary" />
+            <span>Modern Ophthalmic Practice &bull; Dr. Priyanka Murgude</span>
           </div>
         </div>
 
@@ -57,7 +56,7 @@ export default function Gallery() {
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
                 activeCategory === cat.id
                   ? 'bg-primary text-white shadow-sm'
-                  : 'bg-white hover:bg-primary-light/50 text-brand-text border border-brand-border/80'
+                  : 'bg-white hover:bg-primary-light text-brand-text border border-brand-border'
               }`}
             >
               {cat.label}
@@ -71,47 +70,37 @@ export default function Gallery() {
             const CategoryIcon = categoryIcons[item.type] || Building;
             return (
               <div
-                key={item.category}
-                className="group relative rounded-3xl bg-white border border-brand-border/80 shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between"
+                key={item.title}
+                className="group relative rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Visual Graphic Container */}
-                <div className="relative h-60 sm:h-72 w-full bg-gradient-to-br from-primary-light/30 via-brand-bg to-primary-soft/40 p-8 flex flex-col items-center justify-center text-center overflow-hidden">
-                  
-                  {/* Subtle architectural lines */}
+                {/* Visual Image/Graphic Container */}
+                <div className="relative h-56 sm:h-72 w-full bg-gradient-to-br from-primary-light/40 via-brand-bg to-secondary-light/40 p-4 xs:p-6 sm:p-8 flex flex-col items-center justify-center text-center overflow-hidden">
                   <div className="absolute inset-0 subtle-grid-pattern opacity-60 pointer-events-none" />
-
-                  {/* Icon illustration */}
-                  <div className="relative w-20 h-20 rounded-2xl bg-white/90 shadow-warm-md border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-300">
-                    <CategoryIcon className="w-10 h-10" />
+                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-300 shrink-0">
+                    <CategoryIcon className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-
-                  <h3 className="relative font-display font-bold text-lg text-dark-accent mt-4">
+                  <h3 className="relative font-display font-bold text-base sm:text-lg text-dark-accent mt-3">
                     {item.title}
                   </h3>
-
-                  {/* Placeholder Badge Overlay */}
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-primary/50 text-[11px] font-medium text-dark-accent shadow-sm">
-                    <Camera className="w-3 h-3 text-primary" />
-                    <span>{item.placeholderLabel}</span>
+                  <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-brand-border text-[10px] sm:text-[11px] font-medium text-dark-accent shadow-sm max-w-full">
+                    <MapPin className="w-3 h-3 text-secondary shrink-0" />
+                    <span className="truncate">{item.placeholderLabel}</span>
                   </div>
-
-                  {/* Subtle Hover Overlay */}
-                  <div className="absolute inset-0 bg-dark-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
 
                 {/* Card Description Footer */}
-                <div className="p-6 bg-white border-t border-brand-border/60">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                <div className="p-4 sm:p-5 bg-white border-t border-brand-border">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="min-w-0">
+                      <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-secondary">
                         {item.category}
                       </span>
-                      <p className="text-sm text-brand-muted mt-0.5">
+                      <p className="text-xs sm:text-sm text-brand-muted mt-0.5">
                         {item.description}
                       </p>
                     </div>
-                    <span className="text-xs px-2.5 py-1 rounded-lg bg-brand-bg border border-brand-border text-brand-muted">
-                      Nehru Nagar
+                    <span className="text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-1 rounded-lg bg-brand-bg border border-brand-border text-brand-muted shrink-0">
+                      Pimpri, Pune
                     </span>
                   </div>
                 </div>

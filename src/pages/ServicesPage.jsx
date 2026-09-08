@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Eye, ShieldAlert, Activity, Glasses, Stethoscope, SmilePlus, ArrowRight, Calendar, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Eye, ShieldAlert, Activity, Glasses, Stethoscope, SmilePlus, ArrowRight, Calendar, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import CoralEyeIcon from '../components/CoralEyeIcon';
 
@@ -30,10 +30,20 @@ const serviceDetails = {
     symptoms: ['Dry, gritty, or tired eyes', 'Family history of glaucoma', 'Routine screening for diabetic patients', 'Intermittent vision fluctuations'],
     procedure: 'Full ocular baseline evaluation including tonometry and optic nerve head examination.'
   },
+  'dry-eye-digital-strain': {
+    details: 'Targeted tear-film stability testing (TBUT), meibomian gland evaluation, and personalized lubricating drops regimen combined with screen hygiene advice.',
+    symptoms: ['Burning or gritty sensation', 'Fluctuating vision while using screens', 'Excessive tearing or reflexive watering', 'Eye fatigue after working on monitors'],
+    procedure: 'Tear break-up analysis, lid margin hygiene guidance, and targeted ocular lubricant protocol.'
+  },
   'blepharoplasty': {
     details: 'Consultation and clinical guidance for functional and aesthetic eyelid concerns, including droopy upper eyelids (ptosis), dermatochalasis, and chalazion management.',
     symptoms: ['Heavy or sagging upper eyelids', 'Reduced peripheral vision from overhanging skin', 'Chronic recurrent eyelid bumps (chalazion)', 'Tired appearance around the eyes'],
     procedure: 'Anatomic lid evaluation, visual field obstruction check, and surgical feasibility consultation.'
+  },
+  'pediatric-eye-screening': {
+    details: 'Child-friendly visual acuity evaluation, binocular alignment check, and early screening for amblyopia (lazy eye), convergence issues, and student myopia.',
+    symptoms: ['Sitting too close to television/books', 'Frequent eye rubbing or blinking', 'Head tilt or squinting when looking at distance', 'Difficulty focusing in school'],
+    procedure: 'Cycloplegic pediatric refraction, ocular motility assessment, and parent lifestyle counseling.'
   }
 };
 
@@ -44,6 +54,8 @@ const serviceIcons = {
   Glasses: Glasses,
   Stethoscope: Stethoscope,
   SmilePlus: SmilePlus,
+  Sparkles: Sparkles,
+  CheckCircle2: CheckCircle2,
 };
 
 export default function ServicesPage() {
@@ -75,27 +87,27 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.id}
-                className="scroll-mt-28 p-8 rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between"
+                className="scroll-mt-28 p-5 xs:p-6 sm:p-8 rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-primary-light border border-primary/30 flex items-center justify-center text-primary shadow-sm">
-                      <Icon className="w-7 h-7" />
+                  <div className="flex items-center justify-between gap-4 mb-5 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary-light border border-primary/30 flex items-center justify-center text-primary shadow-sm shrink-0">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
-                    <span className="text-xs px-3 py-1 rounded-full bg-brand-bg text-brand-muted font-medium border border-brand-border">
+                    <span className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full bg-brand-bg text-brand-muted font-medium border border-brand-border shrink-0">
                       Consultation & Guidance
                     </span>
                   </div>
 
-                  <h2 className="font-display font-bold text-2xl text-dark-accent mb-2">
+                  <h2 className="font-display font-bold text-xl sm:text-2xl text-dark-accent mb-2">
                     {service.name}
                   </h2>
-                  <p className="text-sm sm:text-base text-brand-muted leading-relaxed mb-5">
+                  <p className="text-xs sm:text-sm md:text-base text-brand-muted leading-relaxed mb-5">
                     {service.description}
                   </p>
 
                   {extra.details && (
-                    <div className="p-4 rounded-2xl bg-brand-bg/80 border border-brand-border/60 text-xs sm:text-sm text-brand-text mb-5 leading-relaxed">
+                    <div className="p-3.5 sm:p-4 rounded-2xl bg-brand-bg/80 border border-brand-border/60 text-xs sm:text-sm text-brand-text mb-5 leading-relaxed">
                       <p className="font-semibold text-dark-accent mb-1">Clinical Approach:</p>
                       <p>{extra.details}</p>
                     </div>
@@ -109,7 +121,7 @@ export default function ServicesPage() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {extra.symptoms.map((symptom, i) => (
                           <div key={i} className="flex items-center gap-2 text-xs text-brand-muted">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
                             <span>{symptom}</span>
                           </div>
                         ))}
@@ -118,16 +130,16 @@ export default function ServicesPage() {
                   )}
                 </div>
 
-                <div className="pt-6 border-t border-brand-border/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="pt-5 sm:pt-6 border-t border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                   <span className="text-xs text-brand-muted italic">
                     Consultation with Dr. Priyanka Murgude
                   </span>
                   <Link
                     to={`/appointment?service=${encodeURIComponent(service.name)}`}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover text-white text-xs font-semibold shadow-sm transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs sm:text-sm font-semibold shadow-md shadow-secondary/25 hover:shadow-lg hover:shadow-secondary/35 transition-all text-center w-full sm:w-auto"
                   >
-                    <Calendar className="w-4 h-4" />
-                    <span>Book for {service.name}</span>
+                    <Calendar className="w-4 h-4 shrink-0" />
+                    <span>Book Consultation</span>
                   </Link>
                 </div>
 

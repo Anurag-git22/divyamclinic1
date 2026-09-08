@@ -15,9 +15,7 @@ export default function Footer() {
           {/* Col 1: Brand & Tagline */}
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center text-white shadow-md">
-                <CoralEyeIcon className="w-6 h-6" />
-              </div>
+              <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-9 w-auto object-contain" />
               <div>
                 <span className="font-display font-bold text-xl text-white tracking-tight">
                   Divyam Eye Care
