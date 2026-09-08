@@ -60,7 +60,7 @@ const serviceIcons = {
 
 export default function ServicesPage() {
   return (
-    <div className="pt-6 pb-20 space-y-16">
+    <div className="pt-4 pb-16 space-y-12">
       
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">

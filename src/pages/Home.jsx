@@ -21,7 +21,7 @@ export default function Home() {
     <div className="space-y-0">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-8 pb-16 lg:pt-14 lg:pb-20 overflow-hidden warm-mesh-gradient border-b border-brand-border">
+      <section className="relative pt-6 pb-12 lg:pt-10 lg:pb-16 overflow-hidden warm-mesh-gradient border-b border-brand-border">
         {/* Decorative teal-toned blur orbs */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
         <div className="absolute top-40 right-[-100px] w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
@@ -30,7 +30,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             
             {/* Left Column */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-4">
               
               {/* Badge */}
               <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white border border-brand-border shadow-warm-sm text-xs sm:text-sm font-semibold text-primary flex-wrap justify-center">
@@ -212,7 +212,7 @@ export default function Home() {
       <WhyChooseUs />
 
       {/* 3. SERVICES TEASER */}
-      <section className="py-12 sm:py-16 bg-white border-b border-brand-border">
+      <section className="py-10 sm:py-12 bg-white border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
             <Eye className="w-3.5 h-3.5" />
@@ -235,7 +235,7 @@ export default function Home() {
       </section>
 
       {/* 4. CLINIC GALLERY TEASER */}
-      <section className="py-12 sm:py-16 bg-brand-bg border-b border-brand-border">
+      <section className="py-10 sm:py-12 bg-brand-bg border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
             <Camera className="w-3.5 h-3.5" />
@@ -258,7 +258,7 @@ export default function Home() {
       </section>
 
       {/* 8. HIGH-CONVERTING APPOINTMENT CTA BANNER */}
-      <section className="py-16 sm:py-20 bg-brand-bg">
+      <section className="py-12 sm:py-16 bg-brand-bg">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-dark-accent p-6 sm:p-10 md:p-12 text-white shadow-warm-lg relative overflow-hidden text-center sm:text-left border border-dark-deep">
             

@@ -13,11 +13,11 @@ const iconMap = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-16 sm:py-24 bg-white border-y border-brand-border">
+    <section className="py-12 sm:py-16 bg-white border-y border-brand-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
             <Award className="w-3.5 h-3.5 text-primary" />
             <span>Clinical Standards & Trust</span>
@@ -37,10 +37,10 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={item.title}
-                className="group relative p-5 xs:p-6 sm:p-7 rounded-3xl bg-brand-bg hover:bg-white border border-brand-border hover:border-primary/50 transition-all duration-300 shadow-warm-sm hover:shadow-warm-md flex flex-col justify-between"
+                className="group relative p-4 xs:p-5 sm:p-6 rounded-3xl bg-brand-bg hover:bg-white border border-brand-border hover:border-primary/50 transition-all duration-300 shadow-warm-sm hover:shadow-warm-md flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center justify-between mb-4">
                     {/* Icon Badge */}
                     <div className="w-12 h-12 rounded-2xl bg-white group-hover:bg-primary group-hover:text-white text-primary border border-brand-border flex items-center justify-center transition-colors duration-200 shadow-sm">
                       <IconComponent className="w-6 h-6 transition-transform group-hover:scale-110 duration-200" />
@@ -57,12 +57,12 @@ export default function WhyChooseUs() {
                   <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="mt-2.5 text-sm text-brand-muted leading-relaxed">
+                  <p className="mt-2 text-sm text-brand-muted leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-brand-border flex items-center text-xs font-semibold text-secondary group-hover:text-primary transition-colors">
+                <div className="mt-4 pt-3 border-t border-brand-border flex items-center text-xs font-semibold text-secondary group-hover:text-primary transition-colors">
                   <span>Verified Clinic Standard</span>
                   <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
                 </div>

@@ -6,7 +6,7 @@ import CoralEyeIcon from '../components/CoralEyeIcon';
 
 export default function ContactPage() {
   return (
-    <div className="pt-6 pb-20 space-y-12">
+    <div className="pt-4 pb-16 space-y-10">
       
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">

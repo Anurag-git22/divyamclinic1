@@ -6,14 +6,14 @@ import CoralEyeIcon from './CoralEyeIcon';
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-accent text-white pt-16 pb-12 border-t border-dark-deep">
+    <footer className="bg-dark-accent text-white pt-10 pb-8 border-t border-dark-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 pb-8 border-b border-white/10">
           
           {/* Col 1: Brand & Tagline */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-3">
             <Link to="/" className="flex items-center gap-3 group">
               <img src="/eye-logo.png" alt="Divyam Eye Care" className="h-9 w-auto object-contain" />
               <div>
@@ -31,7 +31,7 @@ export default function Footer() {
             </p>
 
             {/* Social Links */}
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-1 flex items-center gap-3">
               <a
                 href={clinicData.socialMedia.instagram.url}
                 target="_blank"
@@ -175,7 +175,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
             &copy; {new Date().getFullYear()} Divyam Eye Care. All rights reserved. Dr. Priyanka Murgude.
           </p>

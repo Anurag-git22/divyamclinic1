@@ -25,11 +25,11 @@ export default function Services({ onSelectService }) {
   };
 
   return (
-    <section id="services" className="py-16 sm:py-24 bg-white border-y border-brand-border">
+    <section id="services" className="py-12 sm:py-16 bg-white border-y border-brand-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
             <Eye className="w-3.5 h-3.5" />
             <span>Clinical Specialties & Procedures</span>
@@ -49,7 +49,7 @@ export default function Services({ onSelectService }) {
             return (
               <div
                 key={service.id}
-                className="group relative rounded-3xl p-6 bg-brand-bg hover:bg-white border border-brand-border hover:border-primary/50 transition-all duration-300 shadow-warm-sm hover:shadow-warm-md flex flex-col justify-between"
+                className="group relative rounded-3xl p-5 bg-brand-bg hover:bg-white border border-brand-border hover:border-primary/50 transition-all duration-300 shadow-warm-sm hover:shadow-warm-md flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -77,7 +77,7 @@ export default function Services({ onSelectService }) {
                 </div>
 
                 {/* Card Action */}
-                <div className="mt-6 pt-4 border-t border-brand-border flex items-center justify-between">
+                <div className="mt-4 pt-3 border-t border-brand-border flex items-center justify-between">
                   <button
                     onClick={() => handleBookService(service.name)}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-secondary hover:text-secondary-hover group-hover:underline transition-all"

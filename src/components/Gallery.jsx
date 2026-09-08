@@ -25,11 +25,11 @@ export default function Gallery() {
     : clinicData.gallery.filter(item => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-16 sm:py-24 bg-brand-bg relative">
+    <section id="gallery" className="py-12 sm:py-16 bg-brand-bg relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="text-center max-w-2xl mx-auto mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
             <Camera className="w-3.5 h-3.5" />
             <span>Clinic Spaces & Environment</span>
@@ -48,7 +48,7 @@ export default function Gallery() {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
           {categories.map((cat) => (
             <button
               key={cat.id}
