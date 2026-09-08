@@ -9,7 +9,7 @@ import { clinicData } from '../data/clinicData';
 
 export default function AboutPage() {
   return (
-    <div className="pt-4 pb-16 space-y-8">
+    <div className="pt-4 pb-16 space-y-6">
       
       {/* Page Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">

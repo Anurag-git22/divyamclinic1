@@ -12,7 +12,7 @@ export default function AboutDoctor({ onBookClick }) {
   };
 
   return (
-    <section id="about" className="py-8 sm:py-12 bg-brand-bg relative overflow-hidden">
+    <section id="about" className="py-6 sm:py-10 bg-brand-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -27,25 +27,30 @@ export default function AboutDoctor({ onBookClick }) {
               {/* Main Card */}
               <div className="rounded-3xl bg-white border border-brand-border shadow-warm-lg p-4 xs:p-6 sm:p-8 flex flex-col items-center text-center">
                 
-                {/* Doctor Photo Container */}
+                {/* Available Badge - Top Right Corner */}
+                <div className="relative w-full mb-3">
+                  <span className="absolute top-0 right-0 inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold bg-emerald-500 text-white shadow-md z-10">
+                    Available for Consultation
+                  </span>
+                </div>
+
+                {/* Doctor Photo Container - No text overlay */}
                 <div className="relative w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden shadow-warm-md border-2 border-primary/20 group">
                   <img
                     src={doctorImg}
                     alt={`${clinicData.doctor.name} - ${clinicData.doctor.specialization}`}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/70 via-transparent to-transparent opacity-80" />
-                  <div className="absolute bottom-3 left-3 right-3 text-white text-left">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/90 text-white shadow-sm mb-1">
-                      Available for Consultation
-                    </span>
-                    <p className="font-display font-bold text-sm leading-tight text-white drop-shadow-sm">
-                      {clinicData.doctor.name}
-                    </p>
-                    <p className="text-[11px] text-white/90">
-                      {clinicData.doctor.specialization}
-                    </p>
-                  </div>
+                </div>
+
+                {/* Doctor Name & Title - Below Photo */}
+                <div className="mt-4 text-center">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent">
+                    {clinicData.doctor.name}
+                  </h3>
+                  <p className="text-sm text-primary font-medium mt-1">
+                    {clinicData.doctor.specialization}
+                  </p>
                 </div>
 
                 {/* Sub-card details */}
