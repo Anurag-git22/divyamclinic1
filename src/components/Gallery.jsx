@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin, CheckCircle2 } from 'lucide-react';
+import { Camera, Building, Stethoscope, Eye, Sparkles } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 
 const categoryIcons = {
@@ -73,20 +73,19 @@ export default function Gallery() {
                 key={item.title}
                 className="group relative rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Visual Image/Graphic Container */}
-                <div className="relative h-56 sm:h-72 w-full bg-gradient-to-br from-primary-light/40 via-brand-bg to-secondary-light/40 p-4 xs:p-6 sm:p-8 flex flex-col items-center justify-center text-center overflow-hidden">
-                  <div className="absolute inset-0 subtle-grid-pattern opacity-60 pointer-events-none" />
-                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-300 shrink-0">
-                    <CategoryIcon className="w-7 h-7 sm:w-8 sm:h-8" />
-                  </div>
-                  <h3 className="relative font-display font-bold text-base sm:text-lg text-dark-accent mt-3">
-                    {item.title}
-                  </h3>
-                  <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-brand-border text-[10px] sm:text-[11px] font-medium text-dark-accent shadow-sm max-w-full">
-                    <MapPin className="w-3 h-3 text-secondary shrink-0" />
-                    <span className="truncate">{item.placeholderLabel}</span>
-                  </div>
-                </div>
+                 {/* Visual Image/Graphic Container */}
+                 <div className="relative h-56 sm:h-72 w-full bg-gradient-to-br from-primary-light/40 via-brand-bg to-secondary-light/40 p-4 xs:p-6 sm:p-8 flex flex-col items-center justify-center text-center overflow-hidden">
+                   <div className="absolute inset-0 subtle-grid-pattern opacity-60 pointer-events-none" />
+                   <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-300 shrink-0">
+                     <CategoryIcon className="w-7 h-7 sm:w-8 sm:h-8" />
+                   </div>
+                   <h3 className="relative font-display font-bold text-base sm:text-lg text-dark-accent mt-3">
+                     {item.title}
+                   </h3>
+                   <p className="relative text-xs sm:text-sm text-brand-muted mt-1 max-w-md">
+                     {item.description}
+                   </p>
+                 </div>
 
                 {/* Card Description Footer */}
                 <div className="p-4 sm:p-5 bg-white border-t border-brand-border">
