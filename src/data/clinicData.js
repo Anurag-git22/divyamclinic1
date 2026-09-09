@@ -87,8 +87,8 @@ export const clinicData = {
       url: "https://www.instagram.com/divyameyecare/",
     },
     facebook: {
-      name: "Divyam Eye Care by Dr. Priyanka Murgude",
-      url: "https://www.facebook.com/people/Divyam-Eye-Care-by-DrPriyanka-Murgude/100083236081395/",
+      name: "Divyam Eye Care",
+      url: "https://www.facebook.com/divyameyecare/",
     },
   },
 
