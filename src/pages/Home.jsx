@@ -84,7 +84,7 @@ export default function Home() {
                   to="/appointment"
                   className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white font-semibold text-sm sm:text-base shadow-lg shadow-secondary/30 hover:shadow-xl hover:shadow-secondary/40 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
                 >
-                  <LogoIcon className="w-4 h-4" />
+                  <LogoIcon className="w-5 h-5" />
                   <span>Book Appointment</span>
                 </Link>
 

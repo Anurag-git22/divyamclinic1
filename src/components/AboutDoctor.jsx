@@ -146,7 +146,7 @@ export default function AboutDoctor({ onBookClick }) {
                 to="/appointment"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white font-semibold text-sm shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
               >
-                <LogoIcon className="w-4 h-4" />
+                <LogoIcon className="w-5 h-5" />
                 <span>Book Consultation with Dr. Murgude</span>
               </Link>
             </div>

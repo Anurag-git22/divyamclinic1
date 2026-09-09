@@ -156,7 +156,7 @@ export default function InsurancePage() {
               to="/appointment"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs font-semibold shadow-md shadow-secondary/25 hover:shadow-lg transition-all"
             >
-              <LogoIcon className="w-4 h-4" />
+              <LogoIcon className="w-5 h-5" />
               <span>Book Appointment & Verify Insurance</span>
             </Link>
           </div>
