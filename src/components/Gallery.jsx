@@ -54,18 +54,18 @@ export default function Gallery() {
                 className="group relative rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between"
               >
                  {/* Actual Image */}
-                 <div className="relative h-56 sm:h-72 w-full overflow-hidden">
+                 <div className="relative h-64 sm:h-80 lg:h-96 w-full overflow-hidden">
                    <img 
                      src={imageMap[item.category]} 
                      alt={item.title}
-                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     className="w-full h-full object-contain bg-brand-bg group-hover:scale-105 transition-transform duration-300"
                    />
-                   <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/60 via-transparent to-transparent" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/70 via-transparent to-transparent pointer-events-none" />
                    <div className="absolute bottom-4 left-4 right-4">
-                     <div className="w-12 h-12 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-3">
-                       <CategoryIcon className="w-6 h-6" />
+                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-2">
+                       <CategoryIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                      </div>
-                     <h3 className="font-display font-bold text-base sm:text-lg text-white">
+                     <h3 className="font-display font-bold text-sm sm:text-base lg:text-lg text-white drop-shadow-lg">
                        {item.title}
                      </h3>
                    </div>
