@@ -189,6 +189,12 @@ export const clinicData = {
 
   gallery: [
     {
+      category: "Eye Care Equipment",
+      title: "Eye Examination Area",
+      description: "Dedicated diagnostics and vision testing space.",
+      type: "equipment",
+    },
+    {
       category: "Clinic Interior",
       title: "Clinic Interior Space",
       description: "Clean, hygienic, and calm reception area.",
@@ -199,12 +205,6 @@ export const clinicData = {
       title: "Consultation Room",
       description: "Private and focused ophthalmic consultation setting.",
       type: "consultation",
-    },
-    {
-      category: "Eye Care Equipment",
-      title: "Eye Examination Area",
-      description: "Dedicated diagnostics and vision testing space.",
-      type: "equipment",
     },
     {
       category: "Clinic Exterior",

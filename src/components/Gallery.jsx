@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 
@@ -10,19 +10,7 @@ const categoryIcons = {
 };
 
 export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const categories = [
-    { id: 'all', label: 'All Spaces' },
-    { id: 'Clinic Interior', label: 'Clinic Interior' },
-    { id: 'Doctor Consultation', label: 'Consultation Suite' },
-    { id: 'Eye Care Equipment', label: 'Diagnostic Equipment' },
-    { id: 'Clinic Exterior', label: 'Clinic Exterior' },
-  ];
-
-  const filteredItems = activeCategory === 'all'
-    ? clinicData.gallery
-    : clinicData.gallery.filter(item => item.category === activeCategory);
+  const filteredItems = clinicData.gallery;
 
   return (
     <section id="gallery" className="py-12 sm:py-16 bg-brand-bg relative">
@@ -45,23 +33,6 @@ export default function Gallery() {
             <Sparkles className="w-3.5 h-3.5 text-secondary" />
             <span>Modern Ophthalmic Practice &bull; Dr. Priyanka Murgude</span>
           </div>
-        </div>
-
-        {/* Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                activeCategory === cat.id
-                  ? 'bg-primary text-white shadow-sm'
-                  : 'bg-white hover:bg-primary-light text-brand-text border border-brand-border'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
         </div>
 
         {/* Responsive Gallery Grid */}
