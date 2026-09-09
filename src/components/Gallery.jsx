@@ -39,23 +39,36 @@ export default function Gallery() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {filteredItems.map((item, index) => {
             const CategoryIcon = categoryIcons[item.type] || Building;
+            
+            // Map each gallery item to the correct image
+            const imageMap = {
+              'Eye Care Equipment': '/Interior1.jpg',
+              'Clinic Interior': '/Interior.jpg', 
+              'Doctor Consultation': '/Consultation.jpg',
+              'Clinic Exterior': '/Exterior.jpg'
+            };
+            
             return (
               <div
                 key={item.title}
                 className="group relative rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between"
               >
-                 {/* Visual Image/Graphic Container */}
-                 <div className="relative h-56 sm:h-72 w-full bg-gradient-to-br from-primary-light/40 via-brand-bg to-secondary-light/40 p-4 xs:p-6 sm:p-8 flex flex-col items-center justify-center text-center overflow-hidden">
-                   <div className="absolute inset-0 subtle-grid-pattern opacity-60 pointer-events-none" />
-                   <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-300 shrink-0">
-                     <CategoryIcon className="w-7 h-7 sm:w-8 sm:h-8" />
+                 {/* Actual Image */}
+                 <div className="relative h-56 sm:h-72 w-full overflow-hidden">
+                   <img 
+                     src={imageMap[item.category]} 
+                     alt={item.title}
+                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/60 via-transparent to-transparent" />
+                   <div className="absolute bottom-4 left-4 right-4">
+                     <div className="w-12 h-12 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-3">
+                       <CategoryIcon className="w-6 h-6" />
+                     </div>
+                     <h3 className="font-display font-bold text-base sm:text-lg text-white">
+                       {item.title}
+                     </h3>
                    </div>
-                   <h3 className="relative font-display font-bold text-base sm:text-lg text-dark-accent mt-3">
-                     {item.title}
-                   </h3>
-                   <p className="relative text-xs sm:text-sm text-brand-muted mt-1 max-w-md">
-                     {item.description}
-                   </p>
                  </div>
 
                 {/* Card Description Footer */}
