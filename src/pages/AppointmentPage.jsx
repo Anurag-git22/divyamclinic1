@@ -31,7 +31,7 @@ export default function AppointmentPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Form on the left / main area */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8" id="appointment-form">
             <AppointmentForm preselectedReason={preselectedReason} />
           </div>
 
