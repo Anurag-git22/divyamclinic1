@@ -98,26 +98,24 @@ export default function AppointmentForm({ preselectedReason = '', onClearPresele
     if (status === 'loading') return;
     if (!validate()) return;
 
-    setStatus('loading');
-    setResponseInfo(null);
+    // Format the appointment details for WhatsApp
+    const message = `*New Appointment Request - Divyam Eye Care*
 
-    try {
-      const result = await submitAppointment({
-        name: formData.name,
-        phone: formData.phone,
-        preferred_date: formData.preferred_date,
-        preferred_time: formData.preferred_time,
-        appointment_type: formData.appointment_type,
-        reason: formData.reason,
-      });
+👤 *Name:* ${formData.name}
+📞 *Phone:* ${formData.phone}
+📅 *Preferred Date:* ${formData.preferred_date}
+🕐 *Preferred Time:* ${formData.preferred_time}
+📋 *Appointment Type:* ${formData.appointment_type}
+${formData.reason ? `💬 *Reason for Visit:* ${formData.reason}` : ''}
 
-      setStatus('success');
-      setResponseInfo(result);
-    } catch (err) {
-      console.error('Submission error:', err);
-      setStatus('error');
-      setResponseInfo({ error: err.message || 'An unexpected error occurred. Please try again.' });
-    }
+_Patient has consented to share this information for appointment coordination._`;
+
+    // Redirect to WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/${clinicData.placeholders.whatsapp}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+
+    // Show success message
+    setStatus('success');
   };
 
   const handleReset = () => {
@@ -157,21 +155,6 @@ export default function AppointmentForm({ preselectedReason = '', onClearPresele
         {/* Form Container Card */}
         <div className="rounded-3xl bg-brand-bg/60 border border-brand-border shadow-warm-md p-4 xs:p-6 sm:p-10 relative overflow-hidden">
           
-          {/* Supabase Status Indicator (Informative & Transparent) */}
-          <div className="mb-6 flex flex-col xs:flex-row xs:items-center justify-between gap-2 p-3 rounded-2xl bg-white border border-brand-border text-[11px] sm:text-xs">
-            <div className="flex items-center gap-2">
-              <span className={`w-2 h-2 rounded-full ${isSupabaseConfigured ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
-              <span className="font-medium text-dark-accent">
-                {isSupabaseConfigured ? 'Supabase Database Connected' : 'Demo Mode Active'}
-              </span>
-            </div>
-            <span className="text-brand-muted text-[10px] sm:text-[11px]">
-              {isSupabaseConfigured
-                ? 'Requests stored directly to Postgres appointments table'
-                : 'Submissions are safely simulated & preserved for demo review'}
-            </span>
-          </div>
-
           {/* Success State Screen */}
           {status === 'success' ? (
             <div className="text-center py-8 sm:py-12 space-y-6 animate-fadeIn">
@@ -181,10 +164,10 @@ export default function AppointmentForm({ preselectedReason = '', onClearPresele
               
               <div className="space-y-2">
                 <h3 className="font-display font-bold text-2xl text-dark-accent">
-                  Thank you! Your appointment request has been received.
+                  Appointment request sent via WhatsApp!
                 </h3>
                 <p className="text-sm sm:text-base text-brand-muted max-w-lg mx-auto">
-                  The clinic will contact you at <span className="font-semibold text-dark-accent">{formData.phone}</span> to confirm your appointment time with Dr. Priyanka Murgude.
+                  Your appointment details have been sent to Divyam Eye Care via WhatsApp. The clinic will contact you shortly to confirm your appointment with Dr. Priyanka Murgude.
                 </p>
               </div>
 
