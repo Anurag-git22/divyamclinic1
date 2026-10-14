@@ -59,6 +59,17 @@ const serviceIcons = {
 };
 
 export default function ServicesPage() {
+  // Split services into detailed (with extra info) and compact (without)
+  const detailedServices = clinicData.services.filter(service => {
+    const extra = serviceDetails[service.id];
+    return extra && (extra.details || extra.symptoms);
+  });
+
+  const compactServices = clinicData.services.filter(service => {
+    const extra = serviceDetails[service.id];
+    return !extra || (!extra.details && !extra.symptoms);
+  });
+
   return (
     <div className="pt-4 pb-16 space-y-12">
       
@@ -76,10 +87,10 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      {/* Services Grid with Rich Clinical Information */}
+      {/* Detailed Services Grid - 2 columns on desktop */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {clinicData.services.map((service) => {
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {detailedServices.map((service) => {
             const Icon = serviceIcons[service.icon] || Eye;
             const extra = serviceDetails[service.id] || {};
 
@@ -87,7 +98,7 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.id}
-                className="scroll-mt-28 p-5 xs:p-6 sm:p-8 rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between"
+                className="scroll-mt-28 p-5 xs:p-6 sm:p-8 rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between h-full"
               >
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-5 sm:mb-6">
@@ -148,6 +159,57 @@ export default function ServicesPage() {
           })}
         </div>
       </section>
+
+      {/* Compact Services Section - 3-4 columns on desktop */}
+      {compactServices.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h3 className="font-display font-bold text-2xl text-dark-accent">
+              More Services
+            </h3>
+            <p className="text-sm text-brand-muted mt-2">
+              Additional specialized procedures and consultations available
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-start">
+            {compactServices.map((service) => {
+              const Icon = serviceIcons[service.icon] || Eye;
+
+              return (
+                <div
+                  key={service.id}
+                  id={service.id}
+                  className="scroll-mt-28 p-4 sm:p-5 rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between h-fit"
+                >
+                  <div className="flex-1">
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-primary-light border border-primary/30 flex items-center justify-center text-primary shadow-sm shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent leading-tight">
+                        {service.name}
+                      </h3>
+                    </div>
+                    
+                    <p className="text-xs sm:text-sm text-brand-muted leading-relaxed mb-4">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <Link
+                    to={`/appointment?service=${encodeURIComponent(service.name)}`}
+                    className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs font-semibold shadow-md shadow-secondary/25 hover:shadow-lg transition-all text-center w-full"
+                  >
+                    <Calendar className="w-3.5 h-3.5 shrink-0" />
+                    <span>Book Consultation</span>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Responsible Healthcare Notice */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
