@@ -9,12 +9,14 @@ import {
   UserCheck, 
   Eye, 
   Sparkles,
-  Camera
+  Camera,
+  Heart
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import doctorImg from '../assets/dr-priyanka-murgude.jpg';
 import LogoIcon from '../components/LogoIcon';
 import WhyChooseUs from '../components/WhyChooseUs';
+import Reviews from '../components/Reviews';
 
 export default function Home() {
   return (
@@ -120,7 +122,7 @@ export default function Home() {
                       <ShieldCheck className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
                       <span className="truncate">Cashless</span>
                     </div>
-                    <span className="text-[10px] xs:text-[11px] sm:text-xs text-brand-muted leading-tight">6 Insurers</span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs text-brand-muted leading-tight">4 Insurers</span>
                   </div>
                 </div>
               </div>
@@ -182,7 +184,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-brand-bg border border-brand-border">
                       <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span className="truncate">6 Cashless Insurance Partners Accepted</span>
+                      <span className="truncate">4 Cashless Insurance Partners Accepted</span>
                     </div>
                   </div>
 
@@ -208,10 +210,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. WHY CHOOSE US (4 confirmed core pillars, replaces duplicate stats strip) */}
+      {/* 2. WHY CHOOSE US */}
       <WhyChooseUs />
 
-      {/* 3. SERVICES TEASER */}
+      {/* 3. PATIENT TESTIMONIALS */}
+      <Reviews />
+
+      {/* 4. SERVICES TEASER */}
       <section className="py-10 sm:py-12 bg-white border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
@@ -234,7 +239,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. CLINIC GALLERY TEASER */}
+      {/* 5. SERVICE TO SOCIETY TEASER */}
+      <section className="py-10 sm:py-12 bg-brand-bg border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
+              <Heart className="w-3.5 h-3.5" />
+              <span>Community Service</span>
+            </span>
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent tracking-tight">
+              Service to the Society
+            </h2>
+            <p className="mt-2 text-sm text-brand-muted max-w-2xl mx-auto">
+              Divyam Eye Care is committed to serving the community through free eye screening camps and awareness programs.
+            </p>
+          </div>
+
+          {/* Image Slots Placeholder */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 max-w-4xl mx-auto">
+            {[1, 2, 3].map((slot) => (
+              <div
+                key={slot}
+                className="aspect-video rounded-2xl bg-white border border-brand-border shadow-warm-sm flex items-center justify-center overflow-hidden"
+              >
+                <div className="text-center px-4">
+                  <Heart className="w-10 h-10 text-primary mx-auto mb-2 opacity-30" />
+                  <p className="text-xs text-brand-muted">Camp photo slot {slot}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/society"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-primary-light text-dark-accent text-sm font-semibold border border-brand-border shadow-warm-sm transition-all"
+            >
+              <span>View Community Camps</span>
+              <ArrowRight className="w-4 h-4 text-primary" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CLINIC GALLERY TEASER */}
+      <section className="py-10 sm:py-12 bg-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
+            <Eye className="w-3.5 h-3.5" />
+            <span>Specialized Eye Care</span>
+          </span>
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent tracking-tight">
+            Comprehensive Clinical Services
+          </h2>
+          <p className="mt-2 text-sm text-brand-muted max-w-xl mx-auto">
+            From cataract guidance to vision correction, explore our full range of ophthalmology services.
+          </p>
+          <Link
+            to="/services"
+            className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/25 transition-all"
+          >
+            <span>View All Services</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      {/* 6. CLINIC GALLERY TEASER */}
       <section className="py-10 sm:py-12 bg-brand-bg border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
@@ -257,7 +328,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. HIGH-CONVERTING APPOINTMENT CTA BANNER */}
+      {/* 7. HIGH-CONVERTING APPOINTMENT CTA BANNER */}
       <section className="py-12 sm:py-16 bg-brand-bg">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-dark-accent p-6 sm:p-10 md:p-12 text-white shadow-warm-lg relative overflow-hidden text-center sm:text-left border border-dark-deep">

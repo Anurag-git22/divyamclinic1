@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import WhatsAppButton from './components/WhatsAppButton';
 
 // Multi-page route components
 import Home from './pages/Home';
@@ -12,6 +13,7 @@ import InsurancePage from './pages/InsurancePage';
 import GalleryPage from './pages/GalleryPage';
 import AppointmentPage from './pages/AppointmentPage';
 import ContactPage from './pages/ContactPage';
+import SocietyPage from './pages/SocietyPage';
 
 export default function App() {
   return (
@@ -31,12 +33,16 @@ export default function App() {
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/appointment" element={<AppointmentPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/society" element={<SocietyPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
 
         {/* Footer */}
         <Footer />
+
+        {/* WhatsApp Floating Button */}
+        <WhatsAppButton />
       </div>
     </BrowserRouter>
   );

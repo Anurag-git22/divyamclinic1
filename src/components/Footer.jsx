@@ -98,6 +98,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/society" className="hover:text-primary transition-colors">
+                    Society
+                  </Link>
+                </li>
+                <li>
                   <Link to="/contact" className="hover:text-primary transition-colors">
                     Contact & Location
                   </Link>

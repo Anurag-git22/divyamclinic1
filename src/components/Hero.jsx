@@ -182,7 +182,7 @@ export default function Hero({ onBookClick, onExploreServices }) {
                   </div>
                   <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-brand-bg/80 border border-brand-border/60">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                    <span>6 Cashless Insurance Partners Accepted</span>
+                    <span>4 Cashless Insurance Partners Accepted</span>
                   </div>
                 </div>
 

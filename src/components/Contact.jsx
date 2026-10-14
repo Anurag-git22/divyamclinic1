@@ -63,7 +63,7 @@ export default function Contact({ onBookClick }) {
               </div>
             </div>
 
-            {/* Phone Placeholder Card */}
+            {/* Phone Card with Clickable Links */}
             <div className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
               <div className="flex items-start gap-3.5 sm:gap-4">
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center shrink-0">
@@ -73,11 +73,24 @@ export default function Contact({ onBookClick }) {
                   <h3 className="font-display font-bold text-base text-dark-accent">
                     Phone & WhatsApp
                   </h3>
-                  <p className="mt-1.5 text-sm text-primary font-semibold">
-                    {clinicData.placeholders.phone}
-                  </p>
-                  <p className="text-xs text-brand-muted mt-0.5">
-                    Please use the online appointment form for coordination.
+                  <div className="mt-1.5 space-y-1">
+                    <a
+                      href={`tel:${clinicData.placeholders.phone}`}
+                      className="block text-sm text-primary font-semibold hover:underline"
+                    >
+                      {clinicData.placeholders.phone}
+                    </a>
+                    {clinicData.placeholders.phoneSecondary && (
+                      <a
+                        href={`tel:${clinicData.placeholders.phoneSecondary}`}
+                        className="block text-sm text-primary font-semibold hover:underline"
+                      >
+                        {clinicData.placeholders.phoneSecondary}
+                      </a>
+                    )}
+                  </div>
+                  <p className="text-xs text-brand-muted mt-1">
+                    Call for appointments or use online form
                   </p>
                 </div>
               </div>

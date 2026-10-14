@@ -3,9 +3,9 @@
 export const clinicData = {
   name: "Divyam Eye Care",
   tagline: "Our Care...Your Vision",
-  heroSubtitle: "Comprehensive eye care in a comfortable, patient-first environment in Pimpri, Pune — led by ophthalmologist Dr. Priyanka Murgude.",
-  description: "Divyam Eye Care is a modern, well-equipped ophthalmology clinic in Pimpri, Pune, led by ophthalmologist Dr. Priyanka Murgude. We provide comprehensive eye care in a comfortable, patient-first environment — from routine eye check-ups to cataract surgery consultations, eye infection and injury treatment, dry eye therapy, and progressive spectacle solutions. Every visit includes thorough testing with high-precision optical equipment and a clear, detailed explanation of your results, so you always know exactly what's happening with your eyes. Our Care...Your Vision.",
-  badgeText: "Trusted Eye Care in Pimpri",
+  heroSubtitle: "Comprehensive eye care in a comfortable, patient-first environment in Udyam Nagar, Nehru Nagar, Pimpri, Pune — led by ophthalmologist Dr. Priyanka Murgude.",
+  description: "Divyam Eye Care is a modern, well-equipped ophthalmology clinic in Udyam Nagar, Nehru Nagar, Pimpri, Pune, led by ophthalmologist Dr. Priyanka Murgude. We provide comprehensive eye care in a comfortable, patient-first environment — from routine eye check-ups to cataract surgery consultations, eye infection and injury treatment, dry eye therapy, and optical solutions. Every visit includes thorough testing with high-precision optical equipment and a clear, detailed explanation of your results, so you always know exactly what's happening with your eyes. Our Care...Your Vision.",
+  badgeText: "Trusted Eye Care in Udyam Nagar",
   
   doctor: {
     name: "Dr. Priyanka Murgude",
@@ -18,15 +18,17 @@ export const clinicData = {
   address: {
     line1: "Shop No. 1, Plot No. 109, Aaikrupa Building",
     line2: "Udyamnagar, New Telco Road, near Vital Multispeciality Hospital",
-    landmark: "opp. Swapnanagari, Nehru Nagar, Pimpri Colony",
+    landmark: "opp. Swapnanagari, Udyam Nagar, Nehru Nagar, Pimpri Colony",
     cityStateZip: "Pune, Maharashtra 411018",
-    full: "Shop No. 1, Plot No. 109, Aaikrupa Building, Udyamnagar, New Telco Road, near Vital Multispeciality Hospital, opp. Swapnanagari, Nehru Nagar, Pimpri Colony, Pune, Maharashtra 411018",
+    full: "Shop No. 1, Plot No. 109, Aaikrupa Building, Udyamnagar, New Telco Road, near Vital Multispeciality Hospital, opp. Swapnanagari, Udyam Nagar, Nehru Nagar, Pimpri Colony, Pune, Maharashtra 411018",
   },
 
   placeholders: {
-    phone: "Phone number will be updated soon.",
-    openingHours: "Mon - Sat: 10:00 AM - 1:00 PM & 5:00 PM - 8:00 PM",
-    whatsapp: "WhatsApp contact will be updated soon.",
+    phone: "8446265650",
+    phoneSecondary: "8237192266",
+    openingHours: "Mon-Sat: 10 AM - 2 PM & 5 PM - 8 PM | Sunday: Closed",
+    whatsapp: "918446265650",
+    whatsappMessage: "Hello, I'd like to book an appointment at Divyam Eye Care.",
   },
 
   reputation: {
@@ -73,9 +75,9 @@ export const clinicData = {
       location: "Pimpri Colony",
       rating: 5,
       date: "Verified Patient",
-      text: "Thorough testing done with hi-tech machines to get highest accuracy for my progressive spectacles. Dr. Priyanka is polite, highly qualified, and never rushes appointments. Best eye care experience.",
-      highlight: "Highest accuracy for progressive glasses",
-      service: "Progressive Lenses",
+      text: "Thorough testing done with hi-tech machines to get highest accuracy for my spectacles. Dr. Priyanka is polite, highly qualified, and never rushes appointments. Best eye care experience.",
+      highlight: "Highest accuracy for glasses",
+      service: "Optical Solutions",
     },
   ],
 
@@ -107,13 +109,13 @@ export const clinicData = {
     },
     {
       title: "Cashless Insurance Support",
-      description: "Direct claim coordination assistance with 6 major insurance and TPA partners for approved surgical procedures.",
+      description: "Direct claim coordination assistance with 4 major insurance and TPA partners for approved surgical procedures.",
       icon: "ShieldCheck",
-      tag: "6 Approved Insurers",
+      tag: "4 Approved Insurers",
     },
     {
       title: "Convenient Pimpri Location",
-      description: "Ground-floor street access with parking at Aaikrupa Building on New Telco Road, Nehru Nagar, Pimpri.",
+      description: "Ground-floor street access with parking at Aaikrupa Building on New Telco Road, Udyam Nagar, Nehru Nagar, Pimpri.",
       icon: "MapPin",
       tag: "Ground Floor Entry",
     },
@@ -123,7 +125,7 @@ export const clinicData = {
     {
       id: "cataract-surgery",
       name: "Cataract Surgery & Lens Guidance",
-      description: "Comprehensive pre-operative assessment, digital biometry, and expert guidance on monofocal, toric, and multifocal intraocular lenses (IOLs).",
+      description: "Comprehensive pre-operative assessment, digital biometry, and expert guidance on intraocular lenses (IOLs).",
       icon: "Eye",
       category: "Surgical Consultation",
     },
@@ -143,36 +145,92 @@ export const clinicData = {
     },
     {
       id: "vision-correction",
-      name: "Vision Correction & Progressive Lenses",
-      description: "Precision computerized refraction testing for distance blur, astigmatism, reading fatigue, and custom digital progressive eyeglasses.",
+      name: "Vision Correction & Opticals",
+      description: "Precision computerized refraction testing for distance blur, astigmatism, reading fatigue, and custom optical solutions.",
       icon: "Glasses",
       category: "Refraction & Optical",
     },
     {
+      id: "spects-contact-lenses",
+      name: "Spects & Contact Lenses",
+      description: "Professional fitting and prescription for eyeglasses and contact lenses tailored to your vision needs.",
+      icon: "Glasses",
+      category: "Optical Solutions",
+    },
+    {
+      id: "all-types-lenses",
+      name: "All Types of Lenses",
+      description: "Comprehensive range of lens options including single vision, bifocal, and specialized lenses for specific needs.",
+      icon: "Sparkles",
+      category: "Optical Solutions",
+    },
+    {
       id: "general-ophthalmology",
       name: "General Ophthalmology & Glaucoma Check",
-      description: "Routine wellness screenings, intraocular pressure (IOP) tonometry for glaucoma detection, and diabetic retinal health evaluations.",
+      description: "Routine wellness screenings, intraocular pressure (IOP) tonometry for glaucoma detection, and ocular health evaluations.",
       icon: "Stethoscope",
       category: "Preventive Care",
     },
     {
+      id: "glaucoma-surgery",
+      name: "Glaucoma Surgery",
+      description: "Surgical management and treatment options for glaucoma to preserve vision and control intraocular pressure.",
+      icon: "Eye",
+      category: "Surgical Consultation",
+    },
+    {
+      id: "chalazion-surgery",
+      name: "Chalazion Surgery",
+      description: "Surgical removal of chalazion (eyelid cyst) for relief from persistent lumps and inflammation.",
+      icon: "SmilePlus",
+      category: "Minor Surgical",
+    },
+    {
+      id: "pterygium-surgery",
+      name: "Pterygium Surgery",
+      description: "Surgical excision of pterygium (eye surface growth) to restore comfort and clear vision.",
+      icon: "Activity",
+      category: "Surgical Consultation",
+    },
+    {
+      id: "diabetic-hypertensive-check",
+      name: "Diabetic & Hypertensive Eye Check-up",
+      description: "Specialized screening for diabetes and hypertension-related eye complications including retinal health assessment.",
+      icon: "Stethoscope",
+      category: "Preventive Care",
+    },
+    {
+      id: "fundoscopy",
+      name: "Fundoscopy",
+      description: "Detailed examination of the retina and optic nerve to detect and monitor various eye conditions.",
+      icon: "Eye",
+      category: "Diagnostic",
+    },
+    {
       id: "dry-eye-digital-strain",
       name: "Dry Eye & Digital Eyestrain Therapy",
-      description: "Specialized tear film assessment, ergonomic screen-use guidance, and therapeutic relief protocols for IT professionals and students.",
+      description: "Specialized tear film assessment, ergonomic screen-use guidance, and therapeutic relief protocols for digital workers.",
       icon: "Sparkles",
       category: "Specialized Clinic",
     },
     {
-      id: "blepharoplasty",
-      name: "Blepharoplasty & Eyelid Consultation",
-      description: "Medical evaluation and surgical consultation for droopy eyelids (ptosis), dermatochalasis, and recurrent chalazion/styes.",
+      id: "eyelid-consultation-surgeries",
+      name: "Eyelid Consultation & Surgeries",
+      description: "Medical evaluation and surgical consultation for droopy eyelids (ptosis), dermatochalasis, and eyelid conditions.",
       icon: "SmilePlus",
       category: "Oculoplastic Guidance",
     },
     {
+      id: "ophthalmic-fitness-certification",
+      name: "Ophthalmic Fitness Certification",
+      description: "Comprehensive eye examination and certification for professional, educational, or licensing requirements.",
+      icon: "CheckCircle2",
+      category: "Documentation",
+    },
+    {
       id: "pediatric-eye-screening",
       name: "Pediatric & Student Eye Screenings",
-      description: "Gentle, accurate vision evaluations for school children to identify early refractive errors, amblyopia (lazy eye), and squint early.",
+      description: "Gentle, accurate vision evaluations for school children to identify early refractive errors, amblyopia (lazy eye), and alignment issues.",
       icon: "CheckCircle2",
       category: "Family Health",
     },
@@ -182,10 +240,11 @@ export const clinicData = {
     { name: "Mediassist", type: "TPA Partner" },
     { name: "Bajaj Allianz", type: "General Insurance" },
     { name: "SBI General Insurance", type: "General Insurance" },
-    { name: "Universal Sompo", type: "General Insurance" },
-    { name: "ICICI Lombard", type: "General Insurance" },
-    { name: "Zurich Kotak General Insurance", type: "General Insurance" },
+    { name: "Manipal Cigna", type: "General Insurance" },
   ],
+
+  insuranceNote: "Reimbursement available for all insurance companies.",
+  cashlessCoPaymentNote: "In a few situations, a co-payment from the patient applies for choosing premium lenses other than cashless packages.",
 
   gallery: [
     {
@@ -212,5 +271,103 @@ export const clinicData = {
       description: "Easily accessible street view on New Telco Road.",
       type: "exterior",
     },
+    // TODO: Add more real photos from Instagram/Google - expand to 12+ slots
+    { category: "Clinic Interior", title: "Reception Area", description: "Welcoming patient area.", type: "interior" },
+    { category: "Eye Care Equipment", title: "Diagnostic Station", description: "Advanced testing equipment.", type: "equipment" },
+    { category: "Doctor Consultation", title: "Consultation Desk", description: "Patient consultation area.", type: "consultation" },
+    { category: "Clinic Interior", title: "Waiting Area", description: "Comfortable seating for patients.", type: "interior" },
+    { category: "Eye Care Equipment", title: "Vision Testing", description: "Precision vision assessment tools.", type: "equipment" },
+    { category: "Clinic Exterior", title: "Building Signage", description: "Clear clinic identification.", type: "exterior" },
+    { category: "Clinic Interior", title: "Treatment Room", description: "Clean treatment facilities.", type: "interior" },
+    { category: "Eye Care Equipment", title: "Optical Instruments", description: "Modern ophthalmic equipment.", type: "equipment" },
   ],
+
+  // TODO: Add hospital video embed URL when available
+  hospitalVideo: {
+    enabled: false,
+    url: "", // YouTube/Instagram embed URL
+    title: "Divyam Eye Care Facility Tour",
+  },
+
+  // Testimonials - only show rating summary until real reviews arrive
+  testimonials: {
+    summary: {
+      rating: "4.8",
+      count: "107+",
+      source: "Justdial",
+    },
+    // TODO: Add real video testimonials (YouTube/Instagram/Facebook embeds)
+    videos: [],
+    // Real verified reviews from Justdial
+    reviews: [
+      {
+        id: 1,
+        author: "Pooja Deshmukh",
+        location: "Pimpri-Chinchwad",
+        rating: 5,
+        date: "Verified Patient",
+        text: "Dr. Priyanka Murgude is highly skilled, knowledgeable and very friendly. She listened patiently to my vision problems and did thorough testing before suggesting eyeglasses. Highly recommended clinic in Nehru Nagar!",
+        highlight: "Thorough testing & friendly doctor",
+        service: "Vision Correction",
+      },
+      {
+        id: 2,
+        author: "Sachin Kadam",
+        location: "Nehru Nagar, Pune",
+        rating: 5,
+        date: "Verified Patient",
+        text: "Consulted Dr. Priyanka for my mother's cataract evaluation. The doctor gives good time to patients and explains the cause and treatment options in detail. Very clean and hygienic clinic with modern machines.",
+        highlight: "Explains treatment options in detail",
+        service: "Cataract Consultation",
+      },
+      {
+        id: 3,
+        author: "Amit Shinde",
+        location: "Udyamnagar, Pimpri",
+        rating: 5,
+        date: "Verified Patient",
+        text: "I went for an acute eye infection and foreign body sensation. The diagnosis was prompt, relief was immediate with prescribed drops, and follow-up was very organized. Clean and comfortable clinic setting.",
+        highlight: "Prompt diagnosis & immediate relief",
+        service: "Eye Infection Care",
+      },
+      {
+        id: 4,
+        author: "Snehal Patil",
+        location: "Pimpri Colony",
+        rating: 5,
+        date: "Verified Patient",
+        text: "Thorough testing done with hi-tech machines to get highest accuracy for my spectacles. Dr. Priyanka is polite, highly qualified, and never rushes appointments. Best eye care experience.",
+        highlight: "Highest accuracy for glasses",
+        service: "Optical Solutions",
+      },
+    ],
+  },
+
+  // TODO: Fill with real details from the doctor - do NOT add fake content
+  doctorProfile: {
+    titles: [], // e.g., ["MBBS", "MS Ophthalmology"]
+    degrees: [], // e.g., [{ name: "Gold Medal", institution: "XYZ University", year: 2015 }]
+    awards: [], // e.g., [{ title: "Best Young Ophthalmologist", organization: "ABC", year: 2020 }]
+    conferences: [], // e.g., [{ name: "National Ophthalmology Conference", role: "Speaker", year: 2021 }]
+    media: {
+      photos: [], // Additional doctor/clinic photos
+      videoUrl: "", // Professional video embed URL
+    },
+  },
+
+  // Service to Society - camps and community initiatives
+  // TODO: Add real camp photos and video links
+  camps: [],
+  // Example structure when adding real data:
+  // camps: [
+  //   {
+  //     id: 1,
+  //     title: "Free Eye Screening Camp",
+  //     date: "March 15, 2024",
+  //     location: "Pimpri Community Center",
+  //     description: "Free eye check-up camp serving 200+ patients.",
+  //     images: ["/camps/camp1-1.jpg", "/camps/camp1-2.jpg"],
+  //     videoUrl: "", // YouTube/Instagram embed
+  //   },
+  // ],
 };

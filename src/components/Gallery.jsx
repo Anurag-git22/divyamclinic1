@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin } from 'lucide-react';
+import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin, Play } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 
 const categoryIcons = {
@@ -35,6 +35,32 @@ export default function Gallery() {
           </div>
         </div>
 
+        {/* Hospital Video Section (if enabled) */}
+        {clinicData.hospitalVideo && clinicData.hospitalVideo.enabled && clinicData.hospitalVideo.url && (
+          <div className="mb-8 max-w-4xl mx-auto">
+            <div className="rounded-3xl overflow-hidden bg-white border border-brand-border shadow-warm-md">
+              <div className="relative aspect-video">
+                <iframe
+                  src={clinicData.hospitalVideo.url}
+                  title={clinicData.hospitalVideo.title || "Divyam Eye Care Hospital Tour"}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+              {clinicData.hospitalVideo.title && (
+                <div className="p-4 bg-white border-t border-brand-border">
+                  <p className="font-semibold text-dark-accent flex items-center gap-2">
+                    <Play className="w-4 h-4 text-primary" />
+                    {clinicData.hospitalVideo.title}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Responsive Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {filteredItems.map((item, index) => {
@@ -59,6 +85,7 @@ export default function Gallery() {
                      src={imageMap[item.category]} 
                      alt={item.title}
                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                     loading="lazy"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/60 via-transparent to-transparent" />
                    <div className="absolute bottom-4 left-4 right-4">

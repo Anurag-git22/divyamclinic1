@@ -21,7 +21,7 @@ const serviceDetails = {
     procedure: 'Fluorescein staining, high-magnification foreign body removal, and protective healing regimen.'
   },
   'vision-correction': {
-    details: 'Precise subjective and objective refraction for spectacles, computer glasses, and progressive lenses. Expert counseling on myopia, hyperopia, and astigmatism management.',
+    details: 'Precise subjective and objective refraction for spectacles, computer glasses, and multifocal lenses. Expert counseling on myopia, hyperopia, and astigmatism management.',
     symptoms: ['Eyestrain after computer work', 'Difficulty reading small print', 'Distance blur while driving', 'Headaches associated with visual focus'],
     procedure: 'Digital autorefraction, trial frame testing, and customized lifestyle lens recommendation.'
   },

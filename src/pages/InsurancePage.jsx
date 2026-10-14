@@ -24,7 +24,7 @@ export default function InsurancePage() {
     {
       step: '04',
       title: 'Smooth Admission & Care',
-      desc: 'Once approved, your procedure is scheduled with hassle-free cashless settlement as per your policy terms.'
+      desc: 'Once approved, your procedure is scheduled. Smooth admission and care with discharge after final approval.'
     }
   ];
 
@@ -58,6 +58,14 @@ export default function InsurancePage() {
         <p className="mt-3 text-base sm:text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
           Divyam Eye Care facilitates transparent insurance coordination with leading health insurers to make quality eye treatment smooth and accessible.
         </p>
+        
+        {/* Reimbursement Note Badge */}
+        {clinicData.insuranceNote && (
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-semibold shadow-sm">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>{clinicData.insuranceNote}</span>
+          </div>
+        )}
       </section>
 
       {/* Partners Grid */}
@@ -116,6 +124,15 @@ export default function InsurancePage() {
               </div>
             ))}
           </div>
+
+          {/* Co-payment Note */}
+          {clinicData.cashlessCoPaymentNote && (
+            <div className="mt-6 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900">
+              <p className="text-sm leading-relaxed">
+                <span className="font-semibold">Note:</span> {clinicData.cashlessCoPaymentNote}
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
