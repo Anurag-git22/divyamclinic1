@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
             <span>Clinical Standards & Trust</span>
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-dark-accent tracking-tight">
-            Why Choose Divyam Eye Care
+            Why to Choose Divyam Eye Care?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-brand-muted leading-relaxed">
             Every consultation is guided by dedicated one-on-one attention, high-precision diagnostics, and transparent patient care in Pimpri, Pune.
