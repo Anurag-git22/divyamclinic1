@@ -89,80 +89,148 @@ export default function ServicesPage() {
 
       {/* Detailed Services Grid - 2 columns on desktop */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {detailedServices.map((service) => {
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          {detailedServices.map((service, index) => {
             const Icon = serviceIcons[service.icon] || Eye;
             const extra = serviceDetails[service.id] || {};
+            const isLastOdd = index === detailedServices.length - 1 && detailedServices.length % 2 === 1;
 
             return (
               <div
                 key={service.id}
                 id={service.id}
-                className="scroll-mt-28 p-5 xs:p-6 sm:p-8 rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between h-full"
+                className={`scroll-mt-28 p-5 xs:p-6 sm:p-8 rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col h-full ${
+                  isLastOdd ? 'lg:col-span-2' : ''
+                }`}
               >
-                <div>
-                  <div className="flex items-center justify-between gap-4 mb-5 sm:mb-6">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary-light border border-primary/30 flex items-center justify-center text-primary shadow-sm shrink-0">
-                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
-                    </div>
-                    <span className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full bg-brand-bg text-brand-muted font-medium border border-brand-border shrink-0">
-                      Consultation & Guidance
-                    </span>
-                  </div>
+                {isLastOdd ? (
+                  // Last odd card - two-column layout inside
+                  <div className="flex flex-col lg:flex-row gap-6 h-full">
+                    {/* Left column: header, title, description */}
+                    <div className="flex-1 flex flex-col">
+                      <div className="flex items-center justify-between gap-4 mb-5 sm:mb-6">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary-light border border-primary/30 flex items-center justify-center text-primary shadow-sm shrink-0">
+                          <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                        </div>
+                        <span className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full bg-brand-bg text-brand-muted font-medium border border-brand-border shrink-0">
+                          Consultation & Guidance
+                        </span>
+                      </div>
 
-                  <h2 className="font-display font-bold text-xl sm:text-2xl text-dark-accent mb-2">
-                    {service.name}
-                  </h2>
-                  <p className="text-xs sm:text-sm md:text-base text-brand-muted leading-relaxed mb-5">
-                    {service.description}
-                  </p>
-
-                  {extra.details && (
-                    <div className="p-3.5 sm:p-4 rounded-2xl bg-brand-bg/80 border border-brand-border/60 text-xs sm:text-sm text-brand-text mb-5 leading-relaxed">
-                      <p className="font-semibold text-dark-accent mb-1">Clinical Approach:</p>
-                      <p>{extra.details}</p>
-                    </div>
-                  )}
-
-                  {extra.symptoms && (
-                    <div className="space-y-2 mb-6">
-                      <p className="text-xs font-bold text-dark-accent uppercase tracking-wider">
-                        Common Symptoms / Indications:
+                      <h2 className="font-display font-bold text-xl sm:text-2xl text-dark-accent mb-2">
+                        {service.name}
+                      </h2>
+                      <p className="text-xs sm:text-sm md:text-base text-brand-muted leading-relaxed mb-5">
+                        {service.description}
                       </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {extra.symptoms.map((symptom, i) => (
-                          <div key={i} className="flex items-center gap-2 text-xs text-brand-muted">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
-                            <span>{symptom}</span>
-                          </div>
-                        ))}
+
+                      <div className="mt-auto pt-5 sm:pt-6 border-t border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                        <span className="text-xs text-brand-muted italic">
+                          Consultation with Dr. Priyanka Murgude
+                        </span>
+                        <Link
+                          to={`/appointment?service=${encodeURIComponent(service.name)}`}
+                          className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs sm:text-sm font-semibold shadow-md shadow-secondary/25 hover:shadow-lg hover:shadow-secondary/35 transition-all text-center w-full sm:w-auto"
+                        >
+                          <Calendar className="w-4 h-4 shrink-0" />
+                          <span>Book Consultation</span>
+                        </Link>
                       </div>
                     </div>
-                  )}
-                </div>
 
-                <div className="pt-5 sm:pt-6 border-t border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
-                  <span className="text-xs text-brand-muted italic">
-                    Consultation with Dr. Priyanka Murgude
-                  </span>
-                  <Link
-                    to={`/appointment?service=${encodeURIComponent(service.name)}`}
-                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs sm:text-sm font-semibold shadow-md shadow-secondary/25 hover:shadow-lg hover:shadow-secondary/35 transition-all text-center w-full sm:w-auto"
-                  >
-                    <Calendar className="w-4 h-4 shrink-0" />
-                    <span>Book Consultation</span>
-                  </Link>
-                </div>
+                    {/* Right column: clinical details */}
+                    <div className="flex-1 space-y-5">
+                      {extra.details && (
+                        <div className="p-3.5 sm:p-4 rounded-2xl bg-brand-bg/80 border border-brand-border/60 text-xs sm:text-sm text-brand-text leading-relaxed">
+                          <p className="font-semibold text-dark-accent mb-1">Clinical Approach:</p>
+                          <p>{extra.details}</p>
+                        </div>
+                      )}
 
+                      {extra.symptoms && (
+                        <div className="space-y-2">
+                          <p className="text-xs font-bold text-dark-accent uppercase tracking-wider">
+                            Common Symptoms / Indications:
+                          </p>
+                          <div className="grid grid-cols-1 gap-2">
+                            {extra.symptoms.map((symptom, i) => (
+                              <div key={i} className="flex items-center gap-2 text-xs text-brand-muted">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                                <span>{symptom}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  // Regular detailed card
+                  <>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-4 mb-5 sm:mb-6">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary-light border border-primary/30 flex items-center justify-center text-primary shadow-sm shrink-0">
+                          <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                        </div>
+                        <span className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full bg-brand-bg text-brand-muted font-medium border border-brand-border shrink-0">
+                          Consultation & Guidance
+                        </span>
+                      </div>
+
+                      <h2 className="font-display font-bold text-xl sm:text-2xl text-dark-accent mb-2">
+                        {service.name}
+                      </h2>
+                      <p className="text-xs sm:text-sm md:text-base text-brand-muted leading-relaxed mb-5">
+                        {service.description}
+                      </p>
+
+                      {extra.details && (
+                        <div className="p-3.5 sm:p-4 rounded-2xl bg-brand-bg/80 border border-brand-border/60 text-xs sm:text-sm text-brand-text mb-5 leading-relaxed">
+                          <p className="font-semibold text-dark-accent mb-1">Clinical Approach:</p>
+                          <p>{extra.details}</p>
+                        </div>
+                      )}
+
+                      {extra.symptoms && (
+                        <div className="space-y-2 mb-6">
+                          <p className="text-xs font-bold text-dark-accent uppercase tracking-wider">
+                            Common Symptoms / Indications:
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {extra.symptoms.map((symptom, i) => (
+                              <div key={i} className="flex items-center gap-2 text-xs text-brand-muted">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                                <span>{symptom}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="mt-auto pt-5 sm:pt-6 border-t border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                      <span className="text-xs text-brand-muted italic">
+                        Consultation with Dr. Priyanka Murgude
+                      </span>
+                      <Link
+                        to={`/appointment?service=${encodeURIComponent(service.name)}`}
+                        className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white text-xs sm:text-sm font-semibold shadow-md shadow-secondary/25 hover:shadow-lg hover:shadow-secondary/35 transition-all text-center w-full sm:w-auto"
+                      >
+                        <Calendar className="w-4 h-4 shrink-0" />
+                        <span>Book Consultation</span>
+                      </Link>
+                    </div>
+                  </>
+                )}
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* Compact Services Section - 3-4 columns on desktop */}
+      {/* Compact Services Section - 3 columns on desktop (9 cards = 3x3 grid) */}
       {compactServices.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h3 className="font-display font-bold text-2xl text-dark-accent">
               More Services
@@ -172,7 +240,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
             {compactServices.map((service) => {
               const Icon = serviceIcons[service.icon] || Eye;
 
@@ -180,14 +248,14 @@ export default function ServicesPage() {
                 <div
                   key={service.id}
                   id={service.id}
-                  className="scroll-mt-28 p-4 sm:p-5 rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col justify-between h-fit"
+                  className="scroll-mt-28 p-4 sm:p-5 rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col h-full"
                 >
-                  <div className="flex-1">
-                    <div className="flex items-start gap-3 mb-4">
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-start gap-3 mb-3">
                       <div className="w-10 h-10 rounded-xl bg-primary-light border border-primary/30 flex items-center justify-center text-primary shadow-sm shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent leading-tight">
+                      <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent leading-tight min-h-[2.5rem]">
                         {service.name}
                       </h3>
                     </div>
