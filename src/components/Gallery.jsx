@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Building, Stethoscope, Eye, MapPin, Play, Star, X, Quote, ExternalLink } from 'lucide-react';
+import { Camera, Building, Stethoscope, Eye, MapPin, Play, Star, X } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 
 const categoryIcons = {
@@ -9,7 +9,7 @@ const categoryIcons = {
   exterior: MapPin,
 };
 
-// Video Review Card Component with Template
+// Video Review Card Component
 function VideoReviewCard({ review }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = React.useRef(null);
@@ -23,7 +23,7 @@ function VideoReviewCard({ review }) {
 
   return (
     <div className="card-compact rounded-[14px] sm:rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden flex flex-col group h-full">
-      {/* Video Player */}
+      {/* Video Player Container */}
       <div 
         className="relative aspect-video bg-black overflow-hidden cursor-pointer"
         onClick={handleStart}
@@ -45,20 +45,20 @@ function VideoReviewCard({ review }) {
         {/* Template Overlay - shows before video starts */}
         {!isPlaying && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/20 via-slate-900/80 to-secondary/20 text-white z-10 transition-opacity p-4">
-            <div className="relative mb-3">
-              <div className="w-16 h-16 rounded-full bg-secondary text-white shadow-warm-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Play className="w-7 h-7 fill-white ml-1" />
+            <div className="relative mb-2 sm:mb-3">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-secondary text-white shadow-warm-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-white ml-0.5 sm:ml-1" />
               </div>
             </div>
-            <p className="font-display font-bold text-base text-white text-center mb-1">
+            <p className="font-display font-bold text-xs sm:text-base text-white text-center mb-1 line-clamp-1">
               {review.title}
             </p>
-            <div className="flex items-center gap-1 justify-center mb-2">
+            <div className="flex items-center gap-0.5 sm:gap-1 justify-center mb-1.5 sm:mb-2">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-secondary text-secondary" />
+                <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-secondary text-secondary" />
               ))}
             </div>
-            <span className="text-xs text-white/90 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+            <span className="text-[10px] sm:text-xs text-white/90 bg-white/20 backdrop-blur-sm px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20">
               Click to Play Review
             </span>
           </div>
@@ -66,39 +66,39 @@ function VideoReviewCard({ review }) {
       </div>
 
       {/* Review Details */}
-      <div className="p-4 space-y-2 flex-1">
-        <div className="flex items-center gap-1 text-secondary">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-current" />
-          ))}
+      <div className="p-3 sm:p-4 space-y-1 sm:space-y-2 flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-1 text-secondary mb-1">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />
+            ))}
+          </div>
+          <h3 className="font-display font-semibold text-xs sm:text-base text-dark-accent line-clamp-1">
+            {review.title}
+          </h3>
+          {review.description && (
+            <p className="text-[10px] sm:text-xs text-brand-muted mt-0.5 line-clamp-2">
+              {review.description}
+            </p>
+          )}
         </div>
-        <h3 className="font-display font-semibold text-base text-dark-accent">
-          {review.title}
-        </h3>
-        {review.description && (
-          <p className="text-sm text-brand-muted">
-            {review.description}
-          </p>
-        )}
       </div>
     </div>
   );
 }
 
 export default function Gallery() {
-  const [activeTab, setActiveTab] = useState('all');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   
   const filteredItems = clinicData.gallery || [];
-  const { summary = {}, reviews = [] } = clinicData.testimonials || {};
   const reviewVideos = clinicData.reviewVideos || [];
 
   return (
     <section id="gallery" className="py-6 sm:py-10 bg-brand-bg relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Single Unified Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        {/* Single Main Header */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
             <Camera className="w-4 h-4" />
             <span>Clinic Spaces & Patient Experiences</span>
@@ -111,50 +111,8 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* Tab Navigation Filter */}
-        <div className="flex justify-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 p-1 rounded-full bg-white border border-brand-border shadow-warm-sm">
-            <button
-              onClick={() => setActiveTab('all')}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-                activeTab === 'all'
-                  ? 'bg-dark-accent text-white shadow-md'
-                  : 'text-brand-muted hover:text-dark-accent'
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setActiveTab('photos')}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-                activeTab === 'photos'
-                  ? 'bg-primary text-white shadow-md'
-                  : 'text-brand-muted hover:text-dark-accent'
-              }`}
-            >
-              <span className="flex items-center gap-1.5">
-                <Camera className="w-3.5 h-3.5" />
-                <span>Clinic Photos ({filteredItems.length})</span>
-              </span>
-            </button>
-            <button
-              onClick={() => setActiveTab('reviews')}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-                activeTab === 'reviews'
-                  ? 'bg-secondary text-white shadow-md'
-                  : 'text-brand-muted hover:text-dark-accent'
-              }`}
-            >
-              <span className="flex items-center gap-1.5">
-                <Star className="w-3.5 h-3.5 fill-current" />
-                <span>Patient Reviews ({reviews.length})</span>
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Hospital Video Section (if enabled in data) */}
-        {(activeTab === 'all' || activeTab === 'photos') && clinicData.hospitalVideo && clinicData.hospitalVideo.enabled && clinicData.hospitalVideo.url && (
+        {/* Hospital Tour Video (if enabled) */}
+        {clinicData.hospitalVideo && clinicData.hospitalVideo.enabled && clinicData.hospitalVideo.url && (
           <div className="mb-8 max-w-4xl mx-auto">
             <div className="rounded-3xl overflow-hidden bg-white border border-brand-border shadow-warm-md">
               <div className="relative aspect-video">
@@ -179,195 +137,115 @@ export default function Gallery() {
           </div>
         )}
 
-        {/* Clinic Photos Section */}
-        {(activeTab === 'all' || activeTab === 'photos') && (
-          <div className="space-y-6">
-            {activeTab === 'all' && (
-              <div className="flex items-center justify-between pb-2 border-b border-brand-border/60">
-                <div className="flex items-center gap-2">
-                  <Camera className="w-4 h-4 text-primary" />
-                  <h2 className="font-display font-bold text-lg sm:text-xl text-dark-accent">
-                    Clinic Facilities & Spaces
-                  </h2>
-                </div>
-                <span className="text-xs text-brand-muted font-medium">
-                  {filteredItems.length} Verified Photos
-                </span>
-              </div>
-            )}
-
-            <div className="cards-grid md:grid-cols-2">
-              {filteredItems.map((item) => {
-                const CategoryIcon = categoryIcons[item.type] || Building;
-                const photoSrc = item.image || '/Interior.jpg';
-                
-                return (
-                  <div
-                    key={item.id || item.title}
-                    onClick={() => setSelectedPhoto(item)}
-                    className="card-compact group relative rounded-[14px] sm:rounded-2xl bg-white border border-brand-border hover:border-primary/40 shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-200 flex flex-col justify-between cursor-pointer h-full"
-                  >
-                    {/* Photo Container - Neatly adjusted with ambient background and full uncropped photo */}
-                    <div className="relative aspect-square sm:aspect-[4/3] w-full overflow-hidden bg-slate-900/90 flex items-center justify-center border-b border-brand-border/60">
-                      {/* Ambient blurred backdrop matching photo tones */}
-                      <img 
-                        src={photoSrc} 
-                        alt="" 
-                        aria-hidden="true"
-                        className="absolute inset-0 w-full h-full object-cover blur-md scale-125 opacity-40 pointer-events-none"
-                      />
-                      {/* Complete uncropped photo */}
-                      <img 
-                        src={photoSrc} 
-                        alt={item.title}
-                        className="relative z-10 w-full h-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    {/* Card Description Footer */}
-                    <div className="p-2.5 sm:p-4 bg-white flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center justify-between gap-1.5 sm:gap-2 mb-1 sm:mb-1.5">
-                          <span className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-secondary">
-                            <CategoryIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                            <span>{item.category}</span>
-                          </span>
-                          <span className="hidden sm:inline-block text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md bg-brand-bg border border-brand-border text-brand-muted shrink-0">
-                            Pimpri, Pune
-                          </span>
-                        </div>
-                        <h3 className="font-display font-bold text-xs sm:text-base text-dark-accent leading-snug line-clamp-1 sm:line-clamp-2">
-                          {item.title}
-                        </h3>
-                        <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-sm text-brand-muted leading-relaxed line-clamp-2">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Patient Reviews Section */}
-        {(activeTab === 'all' || activeTab === 'reviews') && (
-          <div className={`${activeTab === 'all' ? 'mt-12 sm:mt-16 pt-10 sm:pt-14 border-t border-brand-border/70' : ''}`}>
-            
-            {/* Reviews Header with Verified Rating Summary */}
-            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-secondary/15 text-secondary mb-2.5">
-                <Star className="w-3.5 h-3.5 fill-secondary" />
-                <span>Verified Patient Feedback</span>
-              </span>
-              <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent tracking-tight">
-                What Patients Say About Us
+        {/* 1. Clinic Photos Section (Directly displayed, no toggles) */}
+        <div className="space-y-5 sm:space-y-6">
+          <div className="flex items-center justify-between pb-2 border-b border-brand-border/60">
+            <div className="flex items-center gap-2">
+              <Camera className="w-4 h-4 text-primary" />
+              <h2 className="font-display font-bold text-lg sm:text-xl text-dark-accent">
+                Clinic Facilities & Spaces
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-brand-muted">
-                Real feedback from patients treated by Dr. Priyanka Murgude at Divyam Eye Care
-              </p>
-
-              {summary && summary.rating && (
-                <div className="mt-5 inline-flex flex-col items-center gap-2.5 px-6 py-4 rounded-2xl bg-white border border-brand-border shadow-warm-sm">
-                  <div className="flex items-center gap-1.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-5 h-5 ${
-                          i < Math.floor(parseFloat(summary.rating))
-                            ? 'fill-secondary text-secondary'
-                            : 'text-brand-subtle'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xl font-bold text-dark-accent">
-                      {summary.rating} / 5.0
-                    </p>
-                    <p className="text-xs text-brand-muted">
-                      Based on <span className="font-semibold text-primary">{summary.count}</span> verified reviews on {summary.source}
-                    </p>
-                    <a
-                      href="https://www.justdial.com/Pune/Divyam-Eye-Care-Near-Vital-Multispeciality-Hospital-Nehru-Nagar-Pimpri/020PXX20-XX20-230124181949-R7F4_BZDET"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-primary hover:underline"
-                    >
-                      <span>Read all reviews on {summary.source}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                </div>
-              )}
             </div>
+            <span className="text-xs text-brand-muted font-medium">
+              {filteredItems.length} Verified Photos
+            </span>
+          </div>
 
-            {/* Written Reviews Grid */}
-            {reviews && reviews.length > 0 && (
-              <div className="cards-grid md:grid-cols-2">
-                {reviews.map((review) => (
-                  <div
-                    key={review.id}
-                    className="card-compact rounded-[14px] sm:rounded-2xl bg-white border border-brand-border p-3.5 sm:p-6 shadow-warm-sm hover:shadow-warm-md transition-all relative flex flex-col justify-between h-full"
-                  >
+          <div className="cards-grid md:grid-cols-2">
+            {filteredItems.map((item) => {
+              const CategoryIcon = categoryIcons[item.type] || Building;
+              const photoSrc = item.image || '/Interior.jpg';
+              
+              return (
+                <div
+                  key={item.id || item.title}
+                  onClick={() => setSelectedPhoto(item)}
+                  className="card-compact group relative rounded-[14px] sm:rounded-2xl bg-white border border-brand-border hover:border-primary/40 shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-200 flex flex-col justify-between cursor-pointer h-full"
+                >
+                  {/* Photo Container - Neatly adjusted with ambient background and full uncropped photo */}
+                  <div className="relative aspect-square sm:aspect-[4/3] w-full overflow-hidden bg-slate-900/90 flex items-center justify-center border-b border-brand-border/60">
+                    {/* Ambient blurred backdrop matching photo tones */}
+                    <img 
+                      src={photoSrc} 
+                      alt="" 
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md scale-125 opacity-40 pointer-events-none"
+                    />
+                    {/* Complete uncropped photo */}
+                    <img 
+                      src={photoSrc} 
+                      alt={item.title}
+                      className="relative z-10 w-full h-full object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Card Description Footer */}
+                  <div className="p-2.5 sm:p-4 bg-white flex-1 flex flex-col justify-between">
                     <div>
-                      {/* Quote Icon */}
-                      <Quote className="absolute top-3 right-3 sm:top-5 sm:right-5 w-5 h-5 sm:w-8 sm:h-8 text-primary/10 pointer-events-none" />
-
-                      {/* Rating Stars */}
-                      <div className="flex items-center gap-0.5 sm:gap-1 mb-2">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-secondary text-secondary" />
-                        ))}
+                      <div className="flex items-center justify-between gap-1.5 sm:gap-2 mb-1 sm:mb-1.5">
+                        <span className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-secondary">
+                          <CategoryIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                          <span>{item.category}</span>
+                        </span>
+                        <span className="hidden sm:inline-block text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md bg-brand-bg border border-brand-border text-brand-muted shrink-0">
+                          Pimpri, Pune
+                        </span>
                       </div>
-
-                      {/* Highlight */}
-                      {review.highlight && (
-                        <p className="font-display font-bold text-xs sm:text-base text-dark-accent mb-1.5 line-clamp-2">
-                          "{review.highlight}"
-                        </p>
-                      )}
-
-                      {/* Review Text */}
-                      <p className="text-[11px] sm:text-sm text-brand-muted leading-relaxed mb-3 line-clamp-4">
-                        {review.text}
+                      <h3 className="font-display font-bold text-xs sm:text-base text-dark-accent leading-snug line-clamp-1 sm:line-clamp-2">
+                        {item.title}
+                      </h3>
+                      <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-sm text-brand-muted leading-relaxed line-clamp-2">
+                        {item.description}
                       </p>
                     </div>
-
-                    {/* Author & Service Meta */}
-                    <div className="pt-2 sm:pt-3 border-t border-brand-border flex items-center justify-between mt-auto">
-                      <div className="min-w-0 pr-2">
-                        <p className="font-semibold text-xs sm:text-sm text-dark-accent truncate">{review.author}</p>
-                        <p className="text-[10px] sm:text-xs text-brand-muted truncate">{review.location}</p>
-                      </div>
-                      <span className="shrink-0 text-[10px] sm:text-xs font-medium text-primary px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-primary-light border border-primary/20">
-                        {review.service || review.date}
-                      </span>
-                    </div>
                   </div>
-                ))}
-              </div>
-            )}
 
-            {/* Video Testimonials (if available) */}
-            {reviewVideos && reviewVideos.length > 0 && (
-              <div className="mt-8">
-                <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent mb-4 text-center">
-                  Video Testimonials
-                </h3>
-                <div className="cards-grid md:grid-cols-2 lg:grid-cols-3">
-                  {reviewVideos.map((video, idx) => (
-                    <VideoReviewCard key={video.id || idx} review={video} />
-                  ))}
                 </div>
-              </div>
-            )}
-
+              );
+            })}
           </div>
-        )}
+        </div>
+
+        {/* 2. Patient Reviews Section - ONLY Video Reviews, NO text reviews */}
+        <div className="mt-12 sm:mt-16 pt-10 sm:pt-14 border-t border-brand-border/70">
+          
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-secondary/15 text-secondary mb-2.5">
+              <Star className="w-3.5 h-3.5 fill-secondary" />
+              <span>Patient Feedback</span>
+            </span>
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent tracking-tight">
+              Patient Video Reviews
+            </h2>
+            <p className="mt-2 text-xs sm:text-sm text-brand-muted">
+              Watch real video testimonials from patients treated at Divyam Eye Care
+            </p>
+          </div>
+
+          {/* Video Reviews Grid */}
+          {reviewVideos && reviewVideos.length > 0 ? (
+            <div className="cards-grid md:grid-cols-2 lg:grid-cols-3">
+              {reviewVideos.map((video, idx) => (
+                <VideoReviewCard key={video.id || idx} review={video} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 bg-white rounded-2xl border border-brand-border">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary/10 mb-3">
+                <Star className="w-7 h-7 text-secondary" />
+              </div>
+              <p className="text-sm font-semibold text-dark-accent">
+                Patient Video Reviews
+              </p>
+              <p className="text-xs text-brand-muted mt-1">
+                Video testimonials will appear here soon.
+              </p>
+            </div>
+          )}
+
+        </div>
 
         {/* Photo Lightbox Modal */}
         {selectedPhoto && (
