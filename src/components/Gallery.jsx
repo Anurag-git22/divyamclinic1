@@ -185,11 +185,19 @@ export default function Gallery() {
                   className="card-compact group relative rounded-[14px] sm:rounded-2xl bg-white border border-brand-border hover:border-primary/40 shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-200 flex flex-col justify-between cursor-pointer h-full"
                 >
                   {/* Photo Container - Neatly adjusted in the box */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-brand-border/60">
+                  <div className="relative aspect-square sm:aspect-[4/3] w-full overflow-hidden bg-slate-900/90 flex items-center justify-center border-b border-brand-border/60">
+                    {/* Ambient blurred backdrop matching photo tones */}
+                    <img 
+                      src={photoSrc} 
+                      alt="" 
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md scale-125 opacity-40 pointer-events-none"
+                    />
+                    {/* Complete uncropped photo - full doctor, microscope, and procedure visible */}
                     <img 
                       src={photoSrc} 
                       alt={item.title}
-                      className="w-full h-full object-cover object-center"
+                      className="relative z-10 w-full h-full object-contain"
                       loading="lazy"
                     />
                   </div>
