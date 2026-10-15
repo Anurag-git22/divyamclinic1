@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin, Play, Star } from 'lucide-react';
+import { Camera, Building, Stethoscope, Eye, Sparkles, MapPin, Play, Star, X } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 
 const categoryIcons = {
@@ -87,6 +87,7 @@ function VideoReviewCard({ review }) {
 
 export default function Gallery() {
   const [activeTab, setActiveTab] = useState('photos');
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
   const filteredItems = clinicData.gallery;
 
   return (
@@ -173,40 +174,42 @@ export default function Gallery() {
         {/* Clinic Photos Tab */}
         {activeTab === 'photos' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {filteredItems.map((item, index) => {
+            {filteredItems.map((item) => {
               const CategoryIcon = categoryIcons[item.type] || Building;
-              
-              // Map each gallery item to the correct image
-              const imageMap = {
-                'Eye Care Equipment': '/Interior1.jpg',
-                'Clinic Interior': '/Interior.jpg', 
-                'Doctor Consultation': '/Consultation.jpg',
-                'Clinic Exterior': '/Exterior.jpg'
-              };
+              const photoSrc = item.image || '/Interior.jpg';
               
               return (
                 <div
-                  key={item.title}
-                  className="group relative rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between"
+                  key={item.id || item.title}
+                  onClick={() => setSelectedPhoto(item)}
+                  className="group relative rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 >
-                   {/* Actual Image */}
-                   <div className="relative h-56 sm:h-72 w-full overflow-hidden">
-                     <img 
-                       src={imageMap[item.category]} 
-                       alt={item.title}
-                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                       loading="lazy"
-                     />
-                     <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/60 via-transparent to-transparent" />
-                     <div className="absolute bottom-4 left-4 right-4">
-                       <div className="w-12 h-12 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-3">
-                         <CategoryIcon className="w-6 h-6" />
-                       </div>
-                       <h3 className="font-display font-bold text-base sm:text-lg text-white">
-                         {item.title}
-                       </h3>
-                     </div>
-                   </div>
+                  {/* Actual Image */}
+                  <div className="relative h-60 sm:h-76 w-full overflow-hidden bg-slate-100">
+                    <img 
+                      src={photoSrc} 
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/70 via-transparent to-transparent" />
+                    
+                    {/* Hover indicator */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="text-xs font-semibold text-white bg-black/60 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/20 shadow-md">
+                        Click to view full photo
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
+                      <div className="w-11 h-11 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-2.5">
+                        <CategoryIcon className="w-5 h-5" />
+                      </div>
+                      <h3 className="font-display font-bold text-base sm:text-lg text-white">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </div>
 
                   {/* Card Description Footer */}
                   <div className="p-4 sm:p-5 bg-white border-t border-brand-border">
@@ -253,6 +256,43 @@ export default function Gallery() {
                 </p>
               </div>
             )}
+          </div>
+        )}
+
+        {/* Photo Lightbox Modal */}
+        {selectedPhoto && (
+          <div
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fadeIn"
+            onClick={() => setSelectedPhoto(null)}
+          >
+            <button
+              onClick={() => setSelectedPhoto(null)}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+              aria-label="Close photo preview"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <div
+              className="max-w-4xl max-h-[90vh] overflow-auto flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedPhoto.image || '/Interior.jpg'}
+                alt={selectedPhoto.title}
+                className="w-auto h-auto max-h-[75vh] max-w-full rounded-2xl shadow-2xl object-contain"
+              />
+              <div className="text-center mt-4 px-4 text-white">
+                <span className="text-xs uppercase font-bold tracking-wider text-secondary">
+                  {selectedPhoto.category}
+                </span>
+                <h3 className="font-display font-bold text-lg sm:text-xl text-white mt-1">
+                  {selectedPhoto.title}
+                </h3>
+                <p className="text-sm text-slate-300 mt-1 max-w-lg">
+                  {selectedPhoto.description}
+                </p>
+              </div>
+            </div>
           </div>
         )}
 
