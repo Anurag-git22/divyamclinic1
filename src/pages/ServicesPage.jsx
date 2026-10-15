@@ -5,7 +5,7 @@ import { clinicData } from '../data/clinicData';
 import LogoIcon from '../components/LogoIcon';
 
 const serviceDetails = {
-  'cataract-surgery': {
+  'cataract-checkup-surgery': {
     details: 'Comprehensive pre-operative assessment, optical biometry, and intraocular lens (IOL) selection. Guidance on modern micro-incision phacoemulsification techniques for fast visual recovery.',
     symptoms: ['Cloudy or blurry vision', 'Glare or halos around headlights at night', 'Frequent changes in eyeglass prescription', 'Faded color perception'],
     procedure: 'Slit-lamp examination & dilated fundus evaluation with personalized lens guidance.'
@@ -15,17 +15,17 @@ const serviceDetails = {
     symptoms: ['Redness and irritation', 'Watery or purulent discharge', 'Itching, burning, or foreign body sensation', 'Crusted eyelashes upon waking'],
     procedure: 'Microscopic anterior segment examination, tear film assessment, and pathogen-targeted therapy.'
   },
-  'eye-injury': {
+  'ocular-trauma-care': {
     details: 'Urgent ophthalmic assessment of corneal abrasions, foreign bodies, blunt trauma, or chemical exposure to safeguard your long-term visual acuity.',
     symptoms: ['Sudden ocular pain', 'Persistent feeling of grit or foreign body', 'Traumatic redness or swelling', 'Sensitivity to light (photophobia)'],
     procedure: 'Fluorescein staining, high-magnification foreign body removal, and protective healing regimen.'
   },
-  'vision-correction': {
-    details: 'Precise subjective and objective refraction for spectacles, computer glasses, and multifocal lenses. Expert counseling on myopia, hyperopia, and astigmatism management.',
+  'quality-frames-contact-lenses': {
+    details: 'Precise subjective and objective refraction for spectacles, computer glasses, and contact lenses. Expert counseling on myopia, hyperopia, and astigmatism management.',
     symptoms: ['Eyestrain after computer work', 'Difficulty reading small print', 'Distance blur while driving', 'Headaches associated with visual focus'],
     procedure: 'Digital autorefraction, trial frame testing, and customized lifestyle lens recommendation.'
   },
-  'general-ophthalmology': {
+  'exclusive-eye-checkup': {
     details: 'Regular preventive eye health screenings, dry eye syndrome management, diabetic retinopathy screening, and glaucoma intraocular pressure checks.',
     symptoms: ['Dry, gritty, or tired eyes', 'Family history of glaucoma', 'Routine screening for diabetic patients', 'Intermittent vision fluctuations'],
     procedure: 'Full ocular baseline evaluation including tonometry and optic nerve head examination.'
@@ -35,12 +35,12 @@ const serviceDetails = {
     symptoms: ['Burning or gritty sensation', 'Fluctuating vision while using screens', 'Excessive tearing or reflexive watering', 'Eye fatigue after working on monitors'],
     procedure: 'Tear break-up analysis, lid margin hygiene guidance, and targeted ocular lubricant protocol.'
   },
-  'blepharoplasty': {
+  'eyelid-consultation-surgeries': {
     details: 'Consultation and clinical guidance for functional and aesthetic eyelid concerns, including droopy upper eyelids (ptosis), dermatochalasis, and chalazion management.',
     symptoms: ['Heavy or sagging upper eyelids', 'Reduced peripheral vision from overhanging skin', 'Chronic recurrent eyelid bumps (chalazion)', 'Tired appearance around the eyes'],
     procedure: 'Anatomic lid evaluation, visual field obstruction check, and surgical feasibility consultation.'
   },
-  'pediatric-eye-screening': {
+  'children-eye-clinic': {
     details: 'Child-friendly visual acuity evaluation, binocular alignment check, and early screening for amblyopia (lazy eye), convergence issues, and student myopia.',
     symptoms: ['Sitting too close to television/books', 'Frequent eye rubbing or blinking', 'Head tilt or squinting when looking at distance', 'Difficulty focusing in school'],
     procedure: 'Cycloplegic pediatric refraction, ocular motility assessment, and parent lifestyle counseling.'

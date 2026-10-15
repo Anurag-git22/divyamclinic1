@@ -14,23 +14,9 @@ export default function Contact({ onBookClick }) {
   )}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-brand-bg relative">
+    <section id="contact" className="py-10 sm:py-16 bg-brand-bg relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary mb-3">
-            <MapPin className="w-3.5 h-3.5" />
-            <span>Clinic Location & Reach</span>
-          </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-dark-accent tracking-tight">
-            Visit Divyam Eye Care
-          </h2>
-          <p className="mt-3 text-base text-brand-muted leading-relaxed">
-            Conveniently located in Nehru Nagar, Pimpri Colony, easily accessible from New Telco Road and nearby areas.
-          </p>
-        </div>
-
         {/* Main Grid: Details on Left, Map on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
