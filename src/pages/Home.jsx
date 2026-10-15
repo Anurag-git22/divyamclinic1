@@ -12,6 +12,7 @@ import {
   Camera,
   Heart
 } from 'lucide-react';
+import { clinicData } from '../data/clinicData';
 import { campVideos } from '../data/campVideos';
 import VideoGrid from '../components/VideoGrid';
 import LogoIcon from '../components/LogoIcon';
