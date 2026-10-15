@@ -19,7 +19,7 @@ import LogoIcon from '../components/LogoIcon';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Reviews from '../components/Reviews';
 
-const doctorImg = '/dr-priyanka-murgude.jpg';
+const doctorImg = '/Dr-priyanka-murgude.jpeg';
 
 export default function Home() {
   return (

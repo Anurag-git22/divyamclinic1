@@ -4,7 +4,7 @@ import { UserCheck, ShieldCheck, FileText, Clock, Sparkles, Calendar, Award, X }
 import { clinicData } from '../data/clinicData';
 import LogoIcon from './LogoIcon';
 
-const doctorImg = '/dr-priyanka-murgude.jpg';
+const doctorImg = '/Dr-priyanka-murgude.jpeg';
 
 export default function AboutDoctor({ onBookClick }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
