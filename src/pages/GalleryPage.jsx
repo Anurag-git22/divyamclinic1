@@ -7,23 +7,8 @@ import { clinicData } from '../data/clinicData';
 
 export default function GalleryPage() {
   return (
-    <div className="pt-4 pb-16 space-y-12">
-      
-      {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
-          <Camera className="w-4 h-4" />
-          <span>Visual Walkthrough</span>
-        </div>
-        <h1 className="font-display font-bold text-4xl sm:text-5xl text-dark-accent tracking-tight">
-          Clinic Spaces & Environment
-        </h1>
-        <p className="mt-3 text-base sm:text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
-          Designed for calm patient comfort, hygiene, and focused ophthalmology consultations on New Telco Road, Pimpri.
-        </p>
-      </section>
-
-      {/* Main Gallery Component */}
+    <div className="pt-2 pb-16 space-y-10">
+      {/* Main Unified Gallery & Patient Reviews Component */}
       <Gallery />
 
       {/* Location & Visit Guidance */}
