@@ -21,19 +21,19 @@ export default function Contact({ onBookClick }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Contact & Hours Cards */}
-          <div className="lg:col-span-5 space-y-5">
+          <div className="lg:col-span-5 cards-grid lg:flex lg:flex-col lg:space-y-5">
             
-            {/* Address Card */}
-            <div className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
+            {/* Address Card (Full width on mobile) */}
+            <div className="col-span-2 card-compact p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
               <div className="flex items-start gap-3.5 sm:gap-4">
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-base text-dark-accent">
+                  <h3 className="font-display font-bold text-sm sm:text-base text-dark-accent">
                     Clinic Address
                   </h3>
-                  <p className="mt-2 text-sm text-brand-text leading-relaxed font-medium">
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-brand-text leading-relaxed font-medium">
                     {clinicData.address.line1},
                   </p>
                   <p className="text-xs sm:text-sm text-brand-muted mt-0.5 leading-relaxed">
@@ -50,65 +50,65 @@ export default function Contact({ onBookClick }) {
             </div>
 
             {/* Phone Card with Clickable Links */}
-            <div className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
-              <div className="flex items-start gap-3.5 sm:gap-4">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5" />
+            <div className="col-span-1 card-compact p-3 sm:p-6 rounded-[14px] sm:rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm flex flex-col justify-between h-full">
+              <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-4">
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <h3 className="font-display font-bold text-base text-dark-accent">
+                <div className="min-w-0 w-full">
+                  <h3 className="font-display font-bold text-xs sm:text-base text-dark-accent">
                     Phone & WhatsApp
                   </h3>
-                  <div className="mt-1.5 space-y-1">
+                  <div className="mt-1 sm:mt-1.5 space-y-0.5 sm:space-y-1">
                     <a
                       href={`tel:${clinicData.placeholders.phone}`}
-                      className="block text-sm text-primary font-semibold hover:underline"
+                      className="block text-xs sm:text-sm text-primary font-semibold hover:underline truncate"
                     >
                       {clinicData.placeholders.phone}
                     </a>
                     {clinicData.placeholders.phoneSecondary && (
                       <a
                         href={`tel:${clinicData.placeholders.phoneSecondary}`}
-                        className="block text-sm text-primary font-semibold hover:underline"
+                        className="block text-[11px] sm:text-sm text-primary font-semibold hover:underline truncate"
                       >
                         {clinicData.placeholders.phoneSecondary}
                       </a>
                     )}
                   </div>
-                  <p className="text-xs text-brand-muted mt-1">
-                    Call for appointments or use online form
+                  <p className="text-[10px] sm:text-xs text-brand-muted mt-1 line-clamp-2">
+                    Call for prior booking
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Opening Hours Placeholder Card */}
-            <div className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
-              <div className="flex items-start gap-3.5 sm:gap-4">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5" />
+            <div className="col-span-1 card-compact p-3 sm:p-6 rounded-[14px] sm:rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm flex flex-col justify-between h-full">
+              <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-4">
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-secondary-light text-dark-accent flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <h3 className="font-display font-bold text-base text-dark-accent">
+                <div className="min-w-0 w-full">
+                  <h3 className="font-display font-bold text-xs sm:text-base text-dark-accent">
                     Consultation Hours
                   </h3>
-                  <p className="mt-1.5 text-sm text-dark-accent font-semibold">
+                  <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-dark-accent font-semibold leading-tight">
                     {clinicData.placeholders.openingHours}
                   </p>
-                  <p className="text-xs text-brand-muted mt-0.5">
-                    Consultations are scheduled via prior appointment request.
+                  <p className="text-[10px] sm:text-xs text-brand-muted mt-1 line-clamp-2">
+                    Prior appointment request
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <div className="col-span-2 flex flex-col sm:flex-row gap-3 pt-2">
               <a
                 href={clinicData.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-dark-accent hover:bg-dark-deep text-white text-sm font-semibold shadow-warm-sm hover:shadow-warm-md transition-all group text-center"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-dark-accent hover:bg-dark-deep text-white text-xs sm:text-sm font-semibold shadow-warm-sm hover:shadow-warm-md transition-all group text-center"
               >
                 <Navigation className="w-4 h-4 text-secondary group-hover:scale-110 transition-transform" />
                 <span>Get Directions</span>
@@ -117,7 +117,7 @@ export default function Contact({ onBookClick }) {
 
               <button
                 onClick={scrollToAppointment}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-semibold shadow-md shadow-primary/20 hover:shadow-lg transition-all text-center"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-semibold shadow-md shadow-primary/20 hover:shadow-lg transition-all text-center"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Appointment</span>

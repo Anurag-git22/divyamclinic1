@@ -98,48 +98,50 @@ export default function Reviews() {
         {/* Written Reviews Grid */}
         {reviews && reviews.length > 0 && (
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="cards-grid md:grid-cols-2">
               {reviews.slice(0, 4).map((review) => (
                 <div
                   key={review.id}
-                  className="rounded-3xl bg-white border border-brand-border p-6 shadow-warm-sm hover:shadow-warm-md transition-all relative"
+                  className="card-compact rounded-[14px] sm:rounded-3xl bg-white border border-brand-border p-3 sm:p-6 shadow-warm-sm hover:shadow-warm-md transition-all relative flex flex-col justify-between h-full"
                 >
-                  {/* Quote Icon */}
-                  <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10" />
+                  <div>
+                    {/* Quote Icon */}
+                    <Quote className="absolute top-3 right-3 sm:top-6 sm:right-6 w-5 h-5 sm:w-10 sm:h-10 text-primary/10 pointer-events-none" />
 
-                  {/* Rating Stars */}
-                  <div className="flex items-center gap-1 mb-3">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-secondary text-secondary" />
-                    ))}
+                    {/* Rating Stars */}
+                    <div className="flex items-center gap-0.5 sm:gap-1 mb-2 sm:mb-3">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-secondary text-secondary" />
+                      ))}
+                    </div>
+
+                    {/* Service Badge */}
+                    {review.service && (
+                      <span className="hidden sm:inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary border border-primary/20 mb-3">
+                        {review.service}
+                      </span>
+                    )}
+
+                    {/* Highlight */}
+                    {review.highlight && (
+                      <p className="font-display font-bold text-[13px] sm:text-base text-dark-accent mb-1.5 sm:mb-2 line-clamp-2">
+                        "{review.highlight}"
+                      </p>
+                    )}
+
+                    {/* Review Text */}
+                    <p className="text-[11px] sm:text-sm text-brand-muted leading-relaxed mb-3 line-clamp-4 sm:line-clamp-none">
+                      {review.text}
+                    </p>
                   </div>
 
-                  {/* Service Badge */}
-                  {review.service && (
-                    <span className="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary border border-primary/20 mb-3">
-                      {review.service}
-                    </span>
-                  )}
-
-                  {/* Highlight */}
-                  {review.highlight && (
-                    <p className="font-display font-bold text-base text-dark-accent mb-2">
-                      "{review.highlight}"
-                    </p>
-                  )}
-
-                  {/* Review Text */}
-                  <p className="text-sm text-brand-muted leading-relaxed mb-4">
-                    {review.text}
-                  </p>
-
                   {/* Author Info */}
-                  <div className="pt-3 border-t border-brand-border flex items-center justify-between">
-                    <div>
-                      <p className="font-semibold text-sm text-dark-accent">{review.author}</p>
-                      <p className="text-xs text-brand-muted">{review.location}</p>
+                  <div className="pt-2 sm:pt-3 border-t border-brand-border flex items-center justify-between mt-auto">
+                    <div className="min-w-0 pr-2">
+                      <p className="font-semibold text-xs sm:text-sm text-dark-accent truncate">{review.author}</p>
+                      <p className="text-[10px] sm:text-xs text-brand-muted truncate">{review.location}</p>
                     </div>
-                    <span className="text-xs font-medium text-primary px-2.5 py-1 rounded-full bg-primary-light border border-primary/20">
+                    <span className="shrink-0 text-[10px] sm:text-xs font-medium text-primary px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-primary-light border border-primary/20">
                       {review.date}
                     </span>
                   </div>

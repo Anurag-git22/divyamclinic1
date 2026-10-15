@@ -22,7 +22,7 @@ function VideoReviewCard({ review }) {
   };
 
   return (
-    <div className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden flex flex-col group">
+    <div className="card-compact rounded-[14px] sm:rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden flex flex-col group h-full">
       {/* Video Player */}
       <div 
         className="relative aspect-video bg-black overflow-hidden cursor-pointer"
@@ -173,7 +173,7 @@ export default function Gallery() {
 
         {/* Clinic Photos Tab */}
         {activeTab === 'photos' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="cards-grid md:grid-cols-2">
             {filteredItems.map((item) => {
               const CategoryIcon = categoryIcons[item.type] || Building;
               const photoSrc = item.image || '/Interior.jpg';
@@ -182,47 +182,47 @@ export default function Gallery() {
                 <div
                   key={item.id || item.title}
                   onClick={() => setSelectedPhoto(item)}
-                  className="group relative rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                  className="card-compact group relative rounded-[14px] sm:rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between cursor-pointer h-full"
                 >
                   {/* Actual Image */}
-                  <div className="relative h-60 sm:h-76 w-full overflow-hidden bg-slate-100">
+                  <div className="relative h-36 sm:h-76 w-full overflow-hidden bg-slate-100">
                     <img 
                       src={photoSrc} 
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/80 via-dark-accent/20 to-transparent" />
                     
                     {/* Hover indicator */}
                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <span className="text-xs font-semibold text-white bg-black/60 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/20 shadow-md">
-                        Click to view full photo
+                        Click to view
                       </span>
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
-                      <div className="w-11 h-11 rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-2.5">
-                        <CategoryIcon className="w-5 h-5" />
+                    <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 pointer-events-none">
+                      <div className="w-7 h-7 sm:w-11 sm:h-11 rounded-lg sm:rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-1 sm:mb-2.5">
+                        <CategoryIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                       </div>
-                      <h3 className="font-display font-bold text-base sm:text-lg text-white">
+                      <h3 className="font-display font-bold text-xs sm:text-lg text-white line-clamp-1 sm:line-clamp-none">
                         {item.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* Card Description Footer */}
-                  <div className="p-4 sm:p-5 bg-white border-t border-brand-border">
-                    <div className="flex items-center justify-between gap-2">
+                  <div className="p-2 sm:p-5 bg-white border-t border-brand-border">
+                    <div className="flex items-center justify-between gap-1.5 sm:gap-2">
                       <div className="min-w-0">
-                        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-secondary">
+                        <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider text-secondary block truncate">
                           {item.category}
                         </span>
-                        <p className="text-xs sm:text-sm text-brand-muted mt-0.5">
+                        <p className="text-[10px] sm:text-sm text-brand-muted mt-0.5 line-clamp-2 sm:line-clamp-none">
                           {item.description}
                         </p>
                       </div>
-                      <span className="text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-1 rounded-lg bg-brand-bg border border-brand-border text-brand-muted shrink-0">
+                      <span className="hidden sm:inline-block text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-1 rounded-lg bg-brand-bg border border-brand-border text-brand-muted shrink-0">
                         Pimpri, Pune
                       </span>
                     </div>
@@ -238,7 +238,7 @@ export default function Gallery() {
         {activeTab === 'reviews' && (
           <div>
             {clinicData.reviewVideos && clinicData.reviewVideos.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="cards-grid md:grid-cols-2 lg:grid-cols-3">
                 {clinicData.reviewVideos.map((review) => (
                   <VideoReviewCard key={review.id} review={review} />
                 ))}

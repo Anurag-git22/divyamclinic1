@@ -90,19 +90,19 @@ export default function AboutPage() {
                   <Star className="w-6 h-6 text-secondary fill-secondary" />
                   Awards & Recognition
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="cards-grid md:grid-cols-2">
                   {clinicData.doctorProfile.awards.map((award, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-3 p-4 rounded-2xl bg-brand-bg border border-brand-border"
+                      className="card-compact flex items-start gap-3 p-3 sm:p-4 rounded-[14px] sm:rounded-2xl bg-brand-bg border border-brand-border h-full"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary shrink-0">
-                        <CheckCircle2 className="w-5 h-5" />
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary shrink-0">
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
-                      <div>
-                        <p className="font-bold text-dark-accent text-sm">{award.title}</p>
-                        <p className="text-xs text-brand-muted">{award.organization}</p>
-                        {award.year && <p className="text-xs text-brand-subtle mt-1">{award.year}</p>}
+                      <div className="min-w-0">
+                        <p className="font-bold text-dark-accent text-xs sm:text-sm line-clamp-2">{award.title}</p>
+                        <p className="text-[10px] sm:text-xs text-brand-muted line-clamp-1">{award.organization}</p>
+                        {award.year && <p className="text-[10px] text-brand-subtle mt-0.5">{award.year}</p>}
                       </div>
                     </div>
                   ))}
@@ -150,7 +150,7 @@ export default function AboutPage() {
                     <h3 className="font-display font-bold text-2xl text-dark-accent mb-6 text-center">
                       Gallery & Media
                     </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="cards-grid lg:grid-cols-4">
                       {/* Photo Slots */}
                       {clinicData.doctorProfile.media.photos && clinicData.doctorProfile.media.photos.length > 0 ? (
                         clinicData.doctorProfile.media.photos.map((photo, index) => (

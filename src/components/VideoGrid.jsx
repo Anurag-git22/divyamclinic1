@@ -15,11 +15,11 @@ export default function VideoGrid({ videos, limit = null }) {
 
   return (
     <div 
-      className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${centerClass}`}
+      className={`cards-grid md:grid-cols-2 lg:grid-cols-3 ${centerClass}`}
       role="list"
     >
       {displayVideos.map((video) => (
-        <div key={video.id} role="listitem">
+        <div key={video.id} role="listitem" className="min-w-0">
           <VideoCard video={video} />
         </div>
       ))}

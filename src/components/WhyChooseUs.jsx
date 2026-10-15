@@ -31,40 +31,40 @@ export default function WhyChooseUs() {
         </div>
 
         {/* 4 Confirmed Trust Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="cards-grid md:grid-cols-2 lg:grid-cols-4">
           {clinicData.whyChooseUs.map((item) => {
             const IconComponent = iconMap[item.icon] || Award;
             return (
               <div
                 key={item.title}
-                className="group relative p-4 xs:p-5 sm:p-6 rounded-3xl bg-brand-bg hover:bg-white border border-brand-border hover:border-primary/50 transition-all duration-300 shadow-warm-sm hover:shadow-warm-md flex flex-col justify-between"
+                className="card-compact group relative p-3 sm:p-6 rounded-[14px] sm:rounded-3xl bg-brand-bg hover:bg-white border border-brand-border hover:border-primary/50 transition-all duration-300 shadow-warm-sm hover:shadow-warm-md flex flex-col justify-between h-full"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-2.5 sm:mb-4">
                     {/* Icon Badge */}
-                    <div className="w-12 h-12 rounded-2xl bg-white group-hover:bg-primary group-hover:text-white text-primary border border-brand-border flex items-center justify-center transition-colors duration-200 shadow-sm">
-                      <IconComponent className="w-6 h-6 transition-transform group-hover:scale-110 duration-200" />
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white group-hover:bg-primary group-hover:text-white text-primary border border-brand-border flex items-center justify-center transition-colors duration-200 shadow-sm shrink-0">
+                      <IconComponent className="w-4 h-4 sm:w-6 sm:h-6 transition-transform group-hover:scale-110 duration-200" />
                     </div>
 
                     {(item.tag || item.metric) && (
-                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-secondary/15 text-secondary border border-secondary/20 truncate max-w-[130px]">
+                      <span className="hidden sm:inline-flex text-[10px] font-bold px-2.5 py-1 rounded-full bg-secondary/15 text-secondary border border-secondary/20 truncate max-w-[130px]">
                         {item.tag || item.metric}
                       </span>
                     )}
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-display font-bold text-base sm:text-lg text-dark-accent group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-bold text-[13px] sm:text-lg leading-snug text-dark-accent group-hover:text-primary transition-colors line-clamp-2 sm:line-clamp-none">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm text-brand-muted leading-relaxed">
+                  <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-sm text-brand-muted leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-brand-border flex items-center text-xs font-semibold text-secondary group-hover:text-primary transition-colors">
-                  <span>Verified Clinic Standard</span>
-                  <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+                <div className="mt-2.5 sm:mt-4 pt-2 sm:pt-3 border-t border-brand-border flex items-center text-[10px] sm:text-xs font-semibold text-secondary group-hover:text-primary transition-colors">
+                  <span className="truncate">Verified Standard</span>
+                  <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">&rarr;</span>
                 </div>
               </div>
             );

@@ -119,14 +119,14 @@ export default function AboutDoctor({ onBookClick }) {
               
               {/* Highlight Badges */}
               {clinicData.doctor.highlights && clinicData.doctor.highlights.length > 0 && (
-                <div className="flex flex-wrap gap-2">
+                <div className="cards-grid sm:flex sm:flex-wrap w-full">
                   {clinicData.doctor.highlights.map((highlight, index) => (
                     <span
                       key={index}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary/10 text-secondary border border-secondary/20"
+                      className="card-compact inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-[14px] sm:rounded-full text-[10px] sm:text-xs font-semibold bg-secondary/10 text-secondary border border-secondary/20 truncate"
                     >
-                      <Award className="w-3.5 h-3.5" />
-                      {highlight}
+                      <Award className="w-3.5 h-3.5 shrink-0" />
+                      <span className="truncate">{highlight}</span>
                     </span>
                   ))}
                 </div>
@@ -154,26 +154,26 @@ export default function AboutDoctor({ onBookClick }) {
             </div>
 
             {/* Clinical Principles */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full pt-2">
-              <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-brand-border/70">
-                <ShieldCheck className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <h3 className="text-sm font-bold text-dark-accent">Evidence-Based Care</h3>
-                  <p className="text-xs text-brand-muted mt-0.5">Accurate ophthalmic assessments and transparent treatment plans.</p>
+            <div className="cards-grid sm:grid-cols-2 w-full pt-2">
+              <div className="card-compact flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3.5 rounded-[14px] sm:rounded-xl bg-white border border-brand-border/70 h-full">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div className="min-w-0">
+                  <h3 className="text-xs sm:text-sm font-bold text-dark-accent truncate">Evidence-Based Care</h3>
+                  <p className="text-[10px] sm:text-xs text-brand-muted mt-0.5 line-clamp-3 sm:line-clamp-none">Accurate ophthalmic assessments and transparent treatment plans.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-brand-border/70">
-                <Calendar className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <h3 className="text-sm font-bold text-dark-accent">Direct Consultation</h3>
-                  <p className="text-xs text-brand-muted mt-0.5">Dedicated one-on-one time to address your questions thoroughly.</p>
+              <div className="card-compact flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3.5 rounded-[14px] sm:rounded-xl bg-white border border-brand-border/70 h-full">
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div className="min-w-0">
+                  <h3 className="text-xs sm:text-sm font-bold text-dark-accent truncate">Direct Consultation</h3>
+                  <p className="text-[10px] sm:text-xs text-brand-muted mt-0.5 line-clamp-3 sm:line-clamp-none">Dedicated one-on-one time to address your questions thoroughly.</p>
                 </div>
               </div>
             </div>
 
             {/* CTA Button */}
-            <div className="pt-2">
+            <div className="pt-2 w-full sm:w-auto">
               <Link
                 to="/appointment"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-secondary hover:bg-secondary-hover active:bg-secondary-hover text-white font-semibold text-sm shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
@@ -200,12 +200,12 @@ export default function AboutDoctor({ onBookClick }) {
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="cards-grid md:grid-cols-3 lg:grid-cols-4">
               {clinicData.awards.map((award) => (
                 <div
                   key={award.id}
                   onClick={() => openLightbox(award)}
-                  className="group relative rounded-xl overflow-hidden bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all cursor-pointer"
+                  className="card-compact group relative rounded-[14px] sm:rounded-xl overflow-hidden bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all cursor-pointer h-full flex flex-col justify-between"
                 >
                   <div className="aspect-[3/4] overflow-hidden">
                     <img
@@ -215,8 +215,8 @@ export default function AboutDoctor({ onBookClick }) {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-3">
-                    <p className="text-xs font-semibold text-dark-accent text-center">
+                  <div className="p-2 sm:p-3">
+                    <p className="text-[11px] sm:text-xs font-semibold text-dark-accent text-center line-clamp-2">
                       {award.caption}
                     </p>
                   </div>

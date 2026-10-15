@@ -79,23 +79,23 @@ export default function InsurancePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+        <div className="cards-grid md:grid-cols-2 max-w-4xl mx-auto">
           {clinicData.insurancePartners.map((partner, index) => (
             <div
               key={index}
-              className="p-4 xs:p-5 sm:p-6 rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex items-start gap-3.5 sm:gap-4"
+              className="card-compact p-3 sm:p-6 rounded-[14px] sm:rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all flex flex-col sm:flex-row items-start gap-2.5 sm:gap-4 h-full"
             >
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary shrink-0">
-                <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary-light flex items-center justify-center text-primary shrink-0">
+                <Building2 className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
               <div className="min-w-0">
-                <h3 className="font-display font-bold text-sm sm:text-base text-dark-accent">
+                <h3 className="font-display font-bold text-xs sm:text-base text-dark-accent line-clamp-2">
                   {partner.name}
                 </h3>
-                <p className="text-xs text-brand-muted mt-0.5">{partner.type}</p>
-                <div className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-medium text-emerald-600">
+                <p className="text-[10px] sm:text-xs text-brand-muted mt-0.5">{partner.type}</p>
+                <div className="mt-1.5 sm:mt-2.5 inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-emerald-600">
                   <CheckCircle2 className="w-3 h-3 shrink-0" />
-                  <span>Cashless Support Available</span>
+                  <span className="truncate">Cashless Support</span>
                 </div>
               </div>
             </div>
@@ -105,21 +105,21 @@ export default function InsurancePage() {
 
       {/* How the Process Works */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-5 xs:p-8 sm:p-12 rounded-3xl bg-white border border-brand-border shadow-warm-sm">
-          <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
+        <div className="p-4 sm:p-12 rounded-3xl bg-white border border-brand-border shadow-warm-sm">
+          <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-primary">Simple & Transparent</span>
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent mt-1">
               How Cashless Claims Work
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="cards-grid md:grid-cols-2 lg:grid-cols-4">
             {steps.map((item) => (
-              <div key={item.step} className="p-4 sm:p-5 rounded-2xl bg-brand-bg border border-brand-border/70 flex flex-col justify-between">
+              <div key={item.step} className="card-compact p-3 sm:p-5 rounded-[14px] sm:rounded-2xl bg-brand-bg border border-brand-border/70 flex flex-col justify-between h-full">
                 <div>
-                  <span className="font-display font-bold text-2xl text-primary">{item.step}</span>
-                  <h3 className="font-bold text-base text-dark-accent mt-2">{item.title}</h3>
-                  <p className="text-xs text-brand-muted mt-2 leading-relaxed">{item.desc}</p>
+                  <span className="font-display font-bold text-lg sm:text-2xl text-primary">{item.step}</span>
+                  <h3 className="font-bold text-xs sm:text-base text-dark-accent mt-1 sm:mt-2 line-clamp-2">{item.title}</h3>
+                  <p className="text-[11px] sm:text-xs text-brand-muted mt-1 sm:mt-2 leading-relaxed line-clamp-3 sm:line-clamp-none">{item.desc}</p>
                 </div>
               </div>
             ))}

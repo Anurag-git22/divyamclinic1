@@ -234,17 +234,17 @@ export default function Home() {
           </p>
 
           {/* Quick Service Highlights */}
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl mx-auto text-left">
+          <div className="mt-6 cards-grid sm:grid-cols-3 lg:grid-cols-4 max-w-4xl mx-auto text-left">
             {clinicData.services.slice(0, 8).map((service) => (
               <Link
                 key={service.id}
                 to={`/services#${service.id}`}
-                className="p-3 rounded-2xl bg-brand-bg/80 hover:bg-primary-light/50 border border-brand-border/70 hover:border-primary/30 transition-all flex items-center gap-2.5 group"
+                className="card-compact p-2.5 sm:p-3 rounded-[14px] sm:rounded-2xl bg-brand-bg/80 hover:bg-primary-light/50 border border-brand-border/70 hover:border-primary/30 transition-all flex items-center gap-2 group"
               >
-                <div className="w-8 h-8 rounded-xl bg-white border border-brand-border flex items-center justify-center text-primary shrink-0 shadow-2xs group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Eye className="w-4 h-4" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-white border border-brand-border flex items-center justify-center text-primary shrink-0 shadow-2xs group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <span className="text-xs font-semibold text-dark-accent group-hover:text-primary transition-colors line-clamp-1">
+                <span className="text-[11px] sm:text-xs font-semibold text-dark-accent group-hover:text-primary transition-colors line-clamp-2 sm:line-clamp-1">
                   {service.name}
                 </span>
               </Link>
