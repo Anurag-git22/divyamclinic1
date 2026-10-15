@@ -230,15 +230,36 @@ export default function Home() {
             Comprehensive Clinical Services
           </h2>
           <p className="mt-2 text-sm text-brand-muted max-w-xl mx-auto">
-            From cataract guidance to vision correction, explore our full range of ophthalmology services.
+            From cataract guidance and emergency eye injury care to vision correction, explore our complete list of 16 specialized services.
           </p>
-          <Link
-            to="/services"
-            className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/25 transition-all"
-          >
-            <span>View All Services</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+
+          {/* Quick Service Highlights */}
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl mx-auto text-left">
+            {clinicData.services.slice(0, 8).map((service) => (
+              <Link
+                key={service.id}
+                to={`/services#${service.id}`}
+                className="p-3 rounded-2xl bg-brand-bg/80 hover:bg-primary-light/50 border border-brand-border/70 hover:border-primary/30 transition-all flex items-center gap-2.5 group"
+              >
+                <div className="w-8 h-8 rounded-xl bg-white border border-brand-border flex items-center justify-center text-primary shrink-0 shadow-2xs group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Eye className="w-4 h-4" />
+                </div>
+                <span className="text-xs font-semibold text-dark-accent group-hover:text-primary transition-colors line-clamp-1">
+                  {service.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-6">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/25 transition-all"
+            >
+              <span>View All 16 Services</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -272,29 +293,6 @@ export default function Home() {
               <ArrowRight className="w-4 h-4 text-primary" />
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* 6. CLINIC GALLERY TEASER */}
-      <section className="py-10 sm:py-12 bg-white border-b border-brand-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary mb-3">
-            <Eye className="w-3.5 h-3.5" />
-            <span>Specialized Eye Care</span>
-          </span>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent tracking-tight">
-            Comprehensive Clinical Services
-          </h2>
-          <p className="mt-2 text-sm text-brand-muted max-w-xl mx-auto">
-            From cataract guidance to vision correction, explore our full range of ophthalmology services.
-          </p>
-          <Link
-            to="/services"
-            className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover text-white text-sm font-semibold shadow-md shadow-secondary/25 transition-all"
-          >
-            <span>View All Services</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
       </section>
 
