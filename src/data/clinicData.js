@@ -385,7 +385,6 @@ export const clinicData = {
       date: "Community Outreach",
       location: "MIDC Factory",
       videoUrl: "/Video/Camp1.mp4",
-      poster: "/Video/Camp1.mp4",
       description: "Free eye check-up camp at industrial facility"
     },
     {
@@ -394,7 +393,6 @@ export const clinicData = {
       date: "Educational Initiative",
       location: "Academic Institution",
       videoUrl: "/Video/Camp2.mp4",
-      poster: "/Video/Camp2.mp4",
       description: "Eye health awareness session for students"
     },
     {
@@ -403,7 +401,6 @@ export const clinicData = {
       date: "Social Service",
       location: "Spiritual Centre",
       videoUrl: "/Video/Camp3.mp4",
-      poster: "/Video/Camp3.mp4",
       description: "Free eye screening at community centre"
     },
     {
@@ -412,7 +409,6 @@ export const clinicData = {
       date: "Workplace Health",
       location: "Multinational Company",
       videoUrl: "/Video/Camp4.mp4",
-      poster: "/Video/Camp4.mp4",
       description: "Eye health screening for employees"
     },
     {
@@ -421,7 +417,6 @@ export const clinicData = {
       date: "Public Service",
       location: "Community Facility",
       videoUrl: "/Video/Camp5.mp4",
-      poster: "/Video/Camp5.mp4",
       description: "Comprehensive eye screening program"
     },
   ],
@@ -432,35 +427,30 @@ export const clinicData = {
       id: 1,
       title: "Patient Experience",
       videoUrl: "/Video/Review1.mp4",
-      poster: "/Video/Review1.mp4",
       description: "Patient testimonial"
     },
     {
       id: 2,
       title: "Patient Feedback",
       videoUrl: "/Video/Review2.mp4",
-      poster: "/Video/Review2.mp4",
       description: "Patient review"
     },
     {
       id: 3,
       title: "Customer Review",
       videoUrl: "/Video/Review3.mp4",
-      poster: "/Video/Review3.mp4",
       description: "Treatment experience"
     },
     {
       id: 4,
       title: "Patient Testimonial",
       videoUrl: "/Video/Review4.mp4",
-      poster: "/Video/Review4.mp4",
       description: "Eye care experience"
     },
     {
       id: 5,
       title: "Customer Testimonial",
       videoUrl: "/Video/Review5.mp4",
-      poster: "/Video/Review5.mp4",
       description: "Service review"
     },
   ],

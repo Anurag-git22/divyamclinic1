@@ -82,7 +82,7 @@ export default function VideoModal({ video, onClose }) {
               className="w-full h-auto max-h-[80vh] object-contain"
               onError={() => setVideoError(true)}
             >
-              <source src={video.video} type="video/mp4" />
+              <source src={video.video || video.videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           ) : (
