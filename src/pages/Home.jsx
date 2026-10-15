@@ -10,7 +10,8 @@ import {
   Eye, 
   Sparkles,
   Camera,
-  Heart
+  Heart,
+  Play
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import doctorImg from '../assets/dr-priyanka-murgude.jpg';
@@ -251,31 +252,63 @@ export default function Home() {
               Service to the Society
             </h2>
             <p className="mt-2 text-sm text-brand-muted max-w-2xl mx-auto">
-              Divyam Eye Care is committed to serving the community through free eye screening camps and awareness programs.
+              Free eye screening camps and awareness programs conducted at MIDC factories, spiritual centres, academic institutions, and multinational companies.
             </p>
           </div>
 
-          {/* Image Slots Placeholder */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 max-w-4xl mx-auto">
-            {[1, 2, 3].map((slot) => (
-              <div
-                key={slot}
-                className="aspect-video rounded-2xl bg-white border border-brand-border shadow-warm-sm flex items-center justify-center overflow-hidden"
-              >
-                <div className="text-center px-4">
-                  <Heart className="w-10 h-10 text-primary mx-auto mb-2 opacity-30" />
-                  <p className="text-xs text-brand-muted">Camp photo slot {slot}</p>
+          {/* Camp Videos Preview */}
+          {clinicData.camps && clinicData.camps.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 max-w-5xl mx-auto">
+              {clinicData.camps.slice(0, 3).map((camp) => (
+                <div
+                  key={camp.id}
+                  className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden"
+                >
+                  <div className="relative aspect-video bg-black">
+                    <video
+                      preload="none"
+                      poster={camp.poster}
+                      className="w-full h-full object-contain cursor-pointer"
+                      aria-label={camp.title}
+                      onClick={(e) => e.target.play()}
+                    >
+                      <source src={camp.videoUrl} type="video/mp4" />
+                    </video>
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                        <Play className="w-6 h-6 text-primary ml-0.5" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <p className="text-xs font-semibold text-dark-accent">{camp.title}</p>
+                    <p className="text-[11px] text-brand-muted">{camp.location}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 max-w-4xl mx-auto">
+              {[1, 2, 3].map((slot) => (
+                <div
+                  key={slot}
+                  className="aspect-video rounded-2xl bg-white border border-brand-border shadow-warm-sm flex items-center justify-center overflow-hidden"
+                >
+                  <div className="text-center px-4">
+                    <Heart className="w-10 h-10 text-primary mx-auto mb-2 opacity-30" />
+                    <p className="text-xs text-brand-muted">Camp photo slot {slot}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="text-center">
             <Link
               to="/society"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-primary-light text-dark-accent text-sm font-semibold border border-brand-border shadow-warm-sm transition-all"
             >
-              <span>View Community Camps</span>
+              <span>View All Camps</span>
               <ArrowRight className="w-4 h-4 text-primary" />
             </Link>
           </div>

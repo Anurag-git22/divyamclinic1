@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserCheck, ShieldCheck, FileText, Clock, Sparkles, Calendar } from 'lucide-react';
+import { UserCheck, ShieldCheck, FileText, Clock, Sparkles, Calendar, Award, X } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
 import doctorImg from '../assets/dr-priyanka-murgude.jpg';
 import LogoIcon from './LogoIcon';
 
 export default function AboutDoctor({ onBookClick }) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedAward, setSelectedAward] = useState(null);
+
   const scrollToAppointment = () => {
     if (onBookClick) onBookClick();
     document.querySelector('#appointment')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openLightbox = (award) => {
+    setSelectedAward(award);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setSelectedAward(null);
   };
 
   return (
@@ -102,13 +115,31 @@ export default function AboutDoctor({ onBookClick }) {
 
             {/* Biography & Clinic Description section */}
             <div className="space-y-4 text-brand-muted text-base leading-relaxed">
+              
+              {/* Highlight Badges */}
+              {clinicData.doctor.highlights && clinicData.doctor.highlights.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {clinicData.doctor.highlights.map((highlight, index) => (
+                    <span
+                      key={index}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary/10 text-secondary border border-secondary/20"
+                    >
+                      <Award className="w-3.5 h-3.5" />
+                      {highlight}
+                    </span>
+                  ))}
+                </div>
+              )}
+
               <div className="p-5 rounded-2xl bg-white border border-brand-border/80 shadow-warm-sm">
                 <h3 className="font-display font-bold text-xs uppercase tracking-wider text-primary mb-2">
                   About Dr. Priyanka Murgude
                 </h3>
-                <p className="text-dark-accent leading-relaxed text-sm sm:text-base">
-                  {clinicData.doctor.bio}
-                </p>
+                <div className="text-dark-accent leading-relaxed text-sm sm:text-base space-y-3">
+                  {clinicData.doctor.bio.split('\n\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
 
               <div className="p-5 rounded-2xl bg-white/80 border border-brand-border/80 shadow-warm-sm">
@@ -154,6 +185,76 @@ export default function AboutDoctor({ onBookClick }) {
           </div>
 
         </div>
+
+        {/* Awards & Recognitions Section */}
+        {clinicData.awards && clinicData.awards.length > 0 && (
+          <div className="mt-12 pt-10 border-t border-brand-border/50">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary mb-3">
+                <Award className="w-3.5 h-3.5" />
+                <span>Recognition & Excellence</span>
+              </div>
+              <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent">
+                Awards & Recognitions
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              {clinicData.awards.map((award) => (
+                <div
+                  key={award.id}
+                  onClick={() => openLightbox(award)}
+                  className="group relative rounded-xl overflow-hidden bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all cursor-pointer"
+                >
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <img
+                      src={award.image}
+                      alt={award.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-3">
+                    <p className="text-xs font-semibold text-dark-accent text-center">
+                      {award.caption}
+                    </p>
+                  </div>
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <span className="text-xs font-semibold text-primary bg-white px-3 py-1.5 rounded-full shadow-md">
+                      Click to view
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Lightbox Modal */}
+        {lightboxOpen && selectedAward && (
+          <div
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={closeLightbox}
+          >
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 text-white hover:text-secondary transition-colors"
+              aria-label="Close lightbox"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <div className="max-w-4xl max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={selectedAward.image}
+                alt={selectedAward.title}
+                className="w-full h-auto rounded-lg"
+              />
+              <p className="text-white text-center mt-4 font-semibold">
+                {selectedAward.caption}
+              </p>
+            </div>
+          </div>
+        )}
 
       </div>
     </section>

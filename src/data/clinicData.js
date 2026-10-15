@@ -10,9 +10,13 @@ export const clinicData = {
   doctor: {
     name: "Dr. Priyanka Murgude",
     specialization: "Ophthalmologist & Eye Surgeon",
-    bio: "Dr. Priyanka Murgude is an experienced ophthalmologist known for her skilled, attentive approach to patient care. Patients consistently praise her as highly skilled, knowledgeable, and patient-focused — taking dedicated time to listen, perform thorough diagnostics, and explain conditions and treatment options clearly rather than rushing through appointments. At Divyam Eye Care, she brings this meticulous clinical dedication to every case, from routine vision check-ups to complex anterior segment conditions and cataract surgery guidance.",
-    /* TODO: add real qualifications once confirmed by clinic */
-    credentials: "",
+    bio: "Dr. Priyanka Murgude is dedicated to patient care. She is a Gold Medalist in her Master's in Ophthalmology and stood first in Rajiv Gandhi University of Health Sciences (RGUHS), Karnataka, a reflection of her academic excellence.\n\nGrateful to society, she runs eye awareness programs across many academic institutions and national and multinational companies. She conducts free eye check-up camps in many MIDC factories and at spiritual centres.\n\nKeeping pace with new modalities in eye care, she has attended and presented her studies at many national and international conferences, and has been invited as an eminent speaker at several ophthalmology conferences.",
+    credentials: "MBBS, MS Ophthalmology (Gold Medalist, RGUHS Karnataka)",
+    highlights: [
+      "Gold Medalist, Master's in Ophthalmology",
+      "University First, RGUHS Karnataka",
+      "Eminent Speaker, Ophthalmology Conferences"
+    ],
   },
 
   address: {
@@ -357,31 +361,119 @@ export const clinicData = {
     ],
   },
 
-  // TODO: Fill with real details from the doctor - do NOT add fake content
-  doctorProfile: {
-    titles: [], // e.g., ["MBBS", "MS Ophthalmology"]
-    degrees: [], // e.g., [{ name: "Gold Medal", institution: "XYZ University", year: 2015 }]
-    awards: [], // e.g., [{ title: "Best Young Ophthalmologist", organization: "ABC", year: 2020 }]
-    conferences: [], // e.g., [{ name: "National Ophthalmology Conference", role: "Speaker", year: 2021 }]
-    media: {
-      photos: [], // Additional doctor/clinic photos
-      videoUrl: "", // Professional video embed URL
+  // Doctor awards and recognition
+  awards: [
+    {
+      id: 1,
+      title: "Award & Recognition",
+      image: "/Award1.jpg",
+      caption: "Professional Achievement"
     },
-  },
+    {
+      id: 2,
+      title: "Award & Recognition",
+      image: "/Award2.jpg",
+      caption: "Academic Excellence"
+    },
+    {
+      id: 3,
+      title: "Award & Recognition",
+      image: "/Award3.jpg",
+      caption: "Conference Participation"
+    },
+    {
+      id: 4,
+      title: "Award & Recognition",
+      image: "/Award4.jpg",
+      caption: "Medical Achievement"
+    },
+  ],
 
   // Service to Society - camps and community initiatives
-  // TODO: Add real camp photos and video links
-  camps: [],
-  // Example structure when adding real data:
-  // camps: [
-  //   {
-  //     id: 1,
-  //     title: "Free Eye Screening Camp",
-  //     date: "March 15, 2024",
-  //     location: "Pimpri Community Center",
-  //     description: "Free eye check-up camp serving 200+ patients.",
-  //     images: ["/camps/camp1-1.jpg", "/camps/camp1-2.jpg"],
-  //     videoUrl: "", // YouTube/Instagram embed
-  //   },
-  // ],
+  camps: [
+    {
+      id: 1,
+      title: "Eye Screening Camp",
+      date: "Community Outreach",
+      location: "MIDC Factory",
+      videoUrl: "/Video/Camp1.mp4",
+      poster: "/Video/Camp1.mp4",
+      description: "Free eye check-up camp at industrial facility"
+    },
+    {
+      id: 2,
+      title: "Awareness Program",
+      date: "Educational Initiative",
+      location: "Academic Institution",
+      videoUrl: "/Video/Camp2.mp4",
+      poster: "/Video/Camp2.mp4",
+      description: "Eye health awareness session for students"
+    },
+    {
+      id: 3,
+      title: "Community Eye Camp",
+      date: "Social Service",
+      location: "Spiritual Centre",
+      videoUrl: "/Video/Camp3.mp4",
+      poster: "/Video/Camp3.mp4",
+      description: "Free eye screening at community centre"
+    },
+    {
+      id: 4,
+      title: "Corporate Eye Check-up",
+      date: "Workplace Health",
+      location: "Multinational Company",
+      videoUrl: "/Video/Camp4.mp4",
+      poster: "/Video/Camp4.mp4",
+      description: "Eye health screening for employees"
+    },
+    {
+      id: 5,
+      title: "Vision Screening Camp",
+      date: "Public Service",
+      location: "Community Facility",
+      videoUrl: "/Video/Camp5.mp4",
+      poster: "/Video/Camp5.mp4",
+      description: "Comprehensive eye screening program"
+    },
+  ],
+
+  // Customer review videos
+  reviewVideos: [
+    {
+      id: 1,
+      title: "Patient Experience",
+      videoUrl: "/Video/Review1.mp4",
+      poster: "/Video/Review1.mp4",
+      description: "Patient testimonial"
+    },
+    {
+      id: 2,
+      title: "Patient Feedback",
+      videoUrl: "/Video/Review2.mp4",
+      poster: "/Video/Review2.mp4",
+      description: "Patient review"
+    },
+    {
+      id: 3,
+      title: "Customer Review",
+      videoUrl: "/Video/Review3.mp4",
+      poster: "/Video/Review3.mp4",
+      description: "Treatment experience"
+    },
+    {
+      id: 4,
+      title: "Patient Testimonial",
+      videoUrl: "/Video/Review4.mp4",
+      poster: "/Video/Review4.mp4",
+      description: "Eye care experience"
+    },
+    {
+      id: 5,
+      title: "Customer Testimonial",
+      videoUrl: "/Video/Review5.mp4",
+      poster: "/Video/Review5.mp4",
+      description: "Service review"
+    },
+  ],
 };

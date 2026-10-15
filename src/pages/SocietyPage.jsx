@@ -17,63 +17,62 @@ export default function SocietyPage() {
           Service to the Society
         </h1>
         <p className="mt-3 text-base sm:text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
-          Divyam Eye Care is committed to serving the community through free eye screening camps, awareness programs, and accessible eye care initiatives in Pimpri and surrounding areas.
+          Grateful to society, Dr. Priyanka Murgude runs eye awareness programs across many academic institutions and national and multinational companies. She conducts free eye check-up camps in many MIDC factories and at spiritual centres, committed to accessible eye care for all.
         </p>
       </section>
 
       {/* Camps Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent mb-2">
+            Our Camps
+          </h2>
+          <p className="text-brand-muted">
+            Eye screening camps and awareness programs conducted across various organizations
+          </p>
+        </div>
+
         {clinicData.camps && clinicData.camps.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clinicData.camps.map((camp) => (
               <div
                 key={camp.id}
-                className="rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden"
+                className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden flex flex-col"
               >
-                {/* Camp Images */}
-                {camp.images && camp.images.length > 0 && (
-                  <div className="relative h-48 w-full bg-brand-bg">
-                    <img
-                      src={camp.images[0]}
-                      alt={camp.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
+                {/* Video Player */}
+                <div className="relative aspect-video bg-black">
+                  <video
+                    controls
+                    preload="none"
+                    poster={camp.poster}
+                    className="w-full h-full object-contain"
+                    aria-label={camp.title}
+                  >
+                    <source src={camp.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
 
                 {/* Camp Details */}
-                <div className="p-5 space-y-3">
-                  <h3 className="font-display font-bold text-lg text-dark-accent">
+                <div className="p-5 space-y-2 flex-1">
+                  <h3 className="font-display font-bold text-base text-dark-accent">
                     {camp.title}
                   </h3>
                   
                   <div className="flex items-center gap-2 text-xs text-brand-muted">
-                    <Calendar className="w-4 h-4 text-primary" />
+                    <Calendar className="w-3.5 h-3.5 text-primary" />
                     <span>{camp.date}</span>
                   </div>
 
                   <div className="flex items-center gap-2 text-xs text-brand-muted">
-                    <MapPin className="w-4 h-4 text-primary" />
+                    <MapPin className="w-3.5 h-3.5 text-primary" />
                     <span>{camp.location}</span>
                   </div>
 
-                  <p className="text-sm text-brand-muted leading-relaxed">
-                    {camp.description}
-                  </p>
-
-                  {/* Video Embed */}
-                  {camp.videoUrl && (
-                    <div className="pt-2">
-                      <div className="aspect-video rounded-xl overflow-hidden">
-                        <iframe
-                          src={camp.videoUrl}
-                          title={camp.title}
-                          className="w-full h-full"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
-                      </div>
-                    </div>
+                  {camp.description && (
+                    <p className="text-sm text-brand-muted leading-relaxed pt-1">
+                      {camp.description}
+                    </p>
                   )}
                 </div>
               </div>
