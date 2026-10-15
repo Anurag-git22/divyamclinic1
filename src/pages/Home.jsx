@@ -10,62 +10,15 @@ import {
   Eye, 
   Sparkles,
   Camera,
-  Heart,
-  Play
+  Heart
 } from 'lucide-react';
-import { clinicData } from '../data/clinicData';
+import { campVideos } from '../data/campVideos';
+import VideoGrid from '../components/VideoGrid';
 import LogoIcon from '../components/LogoIcon';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Reviews from '../components/Reviews';
 
 const doctorImg = '/dr-priyanka-murgude.jpg';
-
-// Camp Video Preview Component
-function CampVideoPreview({ camp }) {
-  const [showTemplate, setShowTemplate] = React.useState(true);
-
-  const handleClick = (e) => {
-    const video = e.currentTarget.querySelector('video');
-    if (video.paused) {
-      video.play();
-      setShowTemplate(false);
-    } else {
-      video.pause();
-    }
-  };
-
-  return (
-    <div className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden group">
-      <div className="relative aspect-video bg-gradient-to-br from-primary/5 via-white to-primary/10 cursor-pointer" onClick={handleClick}>
-        <video
-          preload="none"
-          className="w-full h-full object-contain"
-          aria-label={camp.title}
-          onPlay={() => setShowTemplate(false)}
-        >
-          <source src={camp.videoUrl} type="video/mp4" />
-        </video>
-        
-        {/* Template Overlay */}
-        {showTemplate && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 via-white to-primary/10 pointer-events-none">
-            <div className="w-14 h-14 rounded-full bg-white shadow-warm-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <Play className="w-7 h-7 text-primary ml-0.5" />
-            </div>
-            <div className="text-center px-3">
-              <p className="font-semibold text-sm text-dark-accent mb-1">{camp.title}</p>
-              <p className="text-xs text-brand-muted">{camp.location}</p>
-            </div>
-          </div>
-        )}
-      </div>
-      <div className="p-3">
-        <p className="text-xs font-semibold text-dark-accent">{camp.title}</p>
-        <p className="text-[11px] text-brand-muted">{camp.location}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function Home() {
   return (
@@ -304,28 +257,10 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Camp Videos Preview */}
-          {clinicData.camps && clinicData.camps.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 max-w-5xl mx-auto">
-              {clinicData.camps.slice(0, 3).map((camp) => (
-                <CampVideoPreview key={camp.id} camp={camp} />
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 max-w-4xl mx-auto">
-              {[1, 2, 3].map((slot) => (
-                <div
-                  key={slot}
-                  className="aspect-video rounded-2xl bg-white border border-brand-border shadow-warm-sm flex items-center justify-center overflow-hidden"
-                >
-                  <div className="text-center px-4">
-                    <Heart className="w-10 h-10 text-primary mx-auto mb-2 opacity-30" />
-                    <p className="text-xs text-brand-muted">Camp photo slot {slot}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Camp Videos Preview - Show first 3 */}
+          <div className="mb-6 max-w-5xl mx-auto">
+            <VideoGrid videos={campVideos} limit={3} />
+          </div>
 
           <div className="text-center">
             <Link

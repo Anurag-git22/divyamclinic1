@@ -1,79 +1,8 @@
-import React, { useState } from 'react';
-import { Heart, Calendar, MapPin, Users } from 'lucide-react';
-import { clinicData } from '../data/clinicData';
+import React from 'react';
+import { Heart, Calendar, Users } from 'lucide-react';
+import { campVideos } from '../data/campVideos';
+import VideoGrid from '../components/VideoGrid';
 import LogoIcon from '../components/LogoIcon';
-
-// Camp Video Card Component with Template
-function CampVideoCard({ camp }) {
-  const [showTemplate, setShowTemplate] = useState(true);
-
-  const handlePlay = () => {
-    setShowTemplate(false);
-  };
-
-  return (
-    <div className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden flex flex-col group">
-      {/* Video Player with Template Overlay */}
-      <div className="relative aspect-video bg-gradient-to-br from-primary/10 via-brand-bg to-primary/5">
-        <video
-          controls
-          preload="none"
-          className="w-full h-full object-contain"
-          aria-label={camp.title}
-          onPlay={handlePlay}
-        >
-          <source src={camp.videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        {/* Template Overlay - shows before video plays */}
-        {showTemplate && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 via-white to-primary/10 pointer-events-none">
-            <div className="relative">
-              <div className="w-20 h-20 rounded-full bg-white shadow-warm-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Heart className="w-10 h-10 text-primary" />
-              </div>
-              <div className="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-primary/20 blur-xl" />
-            </div>
-            <div className="text-center px-4">
-              <p className="font-display font-bold text-lg text-dark-accent mb-1">
-                {camp.title}
-              </p>
-              <div className="flex items-center gap-2 text-xs text-brand-muted justify-center mb-1">
-                <MapPin className="w-3.5 h-3.5 text-primary" />
-                <span>{camp.location}</span>
-              </div>
-              <p className="text-xs text-brand-muted">Click to play camp video</p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Camp Details */}
-      <div className="p-5 space-y-2 flex-1">
-        <h3 className="font-display font-bold text-base text-dark-accent">
-          {camp.title}
-        </h3>
-        
-        <div className="flex items-center gap-2 text-xs text-brand-muted">
-          <Calendar className="w-3.5 h-3.5 text-primary" />
-          <span>{camp.date}</span>
-        </div>
-
-        <div className="flex items-center gap-2 text-xs text-brand-muted">
-          <MapPin className="w-3.5 h-3.5 text-primary" />
-          <span>{camp.location}</span>
-        </div>
-
-        {camp.description && (
-          <p className="text-sm text-brand-muted leading-relaxed pt-1">
-            {camp.description}
-          </p>
-        )}
-      </div>
-    </div>
-  );
-}
 
 export default function SocietyPage() {
   return (
@@ -89,11 +18,11 @@ export default function SocietyPage() {
           Service to the Society
         </h1>
         <p className="mt-3 text-base sm:text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
-          Grateful to society, Dr. Priyanka Murgude runs eye awareness programs across many academic institutions and national and multinational companies. She conducts free eye check-up camps in many MIDC factories and at spiritual centres, committed to accessible eye care for all.
+          Dr. Priyanka Murgude conducts free eye check-up camps in MIDC factories and at spiritual centres, and runs eye awareness programs in academic institutions and multinational companies, committed to accessible eye care for all.
         </p>
       </section>
 
-      {/* Camps Section */}
+      {/* Our Camps Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="font-display font-bold text-2xl sm:text-3xl text-dark-accent mb-2">
@@ -104,14 +33,10 @@ export default function SocietyPage() {
           </p>
         </div>
 
-        {clinicData.camps && clinicData.camps.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {clinicData.camps.map((camp) => (
-              <CampVideoCard key={camp.id} camp={camp} />
-            ))}
-          </div>
-        ) : (
-          // Placeholder when no camps data
+        <VideoGrid videos={campVideos} />
+
+        {/* Empty State - shown when no videos */}
+        {(!campVideos || campVideos.length === 0) && (
           <div className="text-center py-16">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-light mb-6">
               <Users className="w-10 h-10 text-primary" />
@@ -140,11 +65,11 @@ export default function SocietyPage() {
             We partner with schools, community centers, and organizations to provide free eye screenings and awareness programs. Contact us to organize a camp in your area.
           </p>
           <a
-            href={`tel:${clinicData.placeholders.phone}`}
+            href="tel:8446265650"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary hover:bg-secondary-hover text-white font-semibold text-sm shadow-md transition-all"
           >
             <LogoIcon className="w-5 h-5" />
-            <span>Contact for Camps: {clinicData.placeholders.phone}</span>
+            <span>Contact for Camps: 8446265650</span>
           </a>
         </div>
       </section>
