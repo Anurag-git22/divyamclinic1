@@ -182,49 +182,36 @@ export default function Gallery() {
                 <div
                   key={item.id || item.title}
                   onClick={() => setSelectedPhoto(item)}
-                  className="card-compact group relative rounded-[14px] sm:rounded-3xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-300 flex flex-col justify-between cursor-pointer h-full"
+                  className="card-compact group relative rounded-[14px] sm:rounded-2xl bg-white border border-brand-border hover:border-primary/40 shadow-warm-sm hover:shadow-warm-md overflow-hidden transition-all duration-200 flex flex-col justify-between cursor-pointer h-full"
                 >
-                  {/* Actual Image */}
-                  <div className="relative h-36 sm:h-76 w-full overflow-hidden bg-slate-100">
+                  {/* Photo Container - Neatly adjusted in the box */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 border-b border-brand-border/60">
                     <img 
                       src={photoSrc} 
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-center"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-accent/80 via-dark-accent/20 to-transparent" />
-                    
-                    {/* Hover indicator */}
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="text-xs font-semibold text-white bg-black/60 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/20 shadow-md">
-                        Click to view
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 pointer-events-none">
-                      <div className="w-7 h-7 sm:w-11 sm:h-11 rounded-lg sm:rounded-2xl bg-white shadow-warm-md border border-brand-border flex items-center justify-center text-primary mb-1 sm:mb-2.5">
-                        <CategoryIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-                      </div>
-                      <h3 className="font-display font-bold text-xs sm:text-lg text-white line-clamp-1 sm:line-clamp-none">
-                        {item.title}
-                      </h3>
-                    </div>
                   </div>
 
                   {/* Card Description Footer */}
-                  <div className="p-2 sm:p-5 bg-white border-t border-brand-border">
-                    <div className="flex items-center justify-between gap-1.5 sm:gap-2">
-                      <div className="min-w-0">
-                        <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider text-secondary block truncate">
-                          {item.category}
+                  <div className="p-2.5 sm:p-4 bg-white flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-1.5 sm:gap-2 mb-1 sm:mb-1.5">
+                        <span className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-secondary">
+                          <CategoryIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                          <span>{item.category}</span>
                         </span>
-                        <p className="text-[10px] sm:text-sm text-brand-muted mt-0.5 line-clamp-2 sm:line-clamp-none">
-                          {item.description}
-                        </p>
+                        <span className="hidden sm:inline-block text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md bg-brand-bg border border-brand-border text-brand-muted shrink-0">
+                          Pimpri, Pune
+                        </span>
                       </div>
-                      <span className="hidden sm:inline-block text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-1 rounded-lg bg-brand-bg border border-brand-border text-brand-muted shrink-0">
-                        Pimpri, Pune
-                      </span>
+                      <h3 className="font-display font-bold text-xs sm:text-base text-dark-accent leading-snug line-clamp-1 sm:line-clamp-2">
+                        {item.title}
+                      </h3>
+                      <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-sm text-brand-muted leading-relaxed line-clamp-2">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
 
@@ -267,7 +254,7 @@ export default function Gallery() {
           >
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-none"
               aria-label="Close photo preview"
             >
               <X className="w-6 h-6" />
@@ -279,16 +266,16 @@ export default function Gallery() {
               <img
                 src={selectedPhoto.image || '/Interior.jpg'}
                 alt={selectedPhoto.title}
-                className="w-auto h-auto max-h-[75vh] max-w-full rounded-2xl shadow-2xl object-contain"
+                className="w-auto h-auto max-h-[72vh] max-w-full rounded-2xl shadow-2xl object-contain border border-white/10"
               />
-              <div className="text-center mt-4 px-4 text-white">
-                <span className="text-xs uppercase font-bold tracking-wider text-secondary">
+              <div className="text-center mt-4 px-4 text-white max-w-2xl">
+                <span className="inline-block text-xs uppercase font-bold tracking-wider text-secondary bg-secondary/15 px-3 py-1 rounded-full border border-secondary/30 mb-2">
                   {selectedPhoto.category}
                 </span>
-                <h3 className="font-display font-bold text-lg sm:text-xl text-white mt-1">
+                <h3 className="font-display font-bold text-base sm:text-2xl text-white">
                   {selectedPhoto.title}
                 </h3>
-                <p className="text-sm text-slate-300 mt-1 max-w-lg">
+                <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
                   {selectedPhoto.description}
                 </p>
               </div>

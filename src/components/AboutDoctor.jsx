@@ -205,25 +205,20 @@ export default function AboutDoctor({ onBookClick }) {
                 <div
                   key={award.id}
                   onClick={() => openLightbox(award)}
-                  className="card-compact group relative rounded-[14px] sm:rounded-xl overflow-hidden bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all cursor-pointer h-full flex flex-col justify-between"
+                  className="card-compact group relative rounded-[14px] sm:rounded-xl overflow-hidden bg-white border border-brand-border hover:border-primary/40 shadow-warm-sm hover:shadow-warm-md transition-all duration-200 cursor-pointer h-full flex flex-col justify-between"
                 >
-                  <div className="aspect-[3/4] overflow-hidden">
+                  <div className="aspect-[3/4] overflow-hidden bg-slate-50 border-b border-brand-border/60">
                     <img
                       src={award.image}
                       alt={award.title}
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <div className="p-2 sm:p-3">
                     <p className="text-[11px] sm:text-xs font-semibold text-dark-accent text-center line-clamp-2">
                       {award.caption}
                     </p>
-                  </div>
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <span className="text-xs font-semibold text-primary bg-white px-3 py-1.5 rounded-full shadow-md">
-                      Click to view
-                    </span>
                   </div>
                 </div>
               ))}
