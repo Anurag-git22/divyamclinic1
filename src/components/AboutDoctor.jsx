@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserCheck, ShieldCheck, FileText, Clock, Sparkles, Calendar, Award, X } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
-import doctorImg from '../assets/dr-priyanka-murgude.jpg';
 import LogoIcon from './LogoIcon';
+
+const doctorImg = '/dr-priyanka-murgude.jpg';
 
 export default function AboutDoctor({ onBookClick }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);

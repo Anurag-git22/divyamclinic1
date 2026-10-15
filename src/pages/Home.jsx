@@ -14,10 +14,11 @@ import {
   Play
 } from 'lucide-react';
 import { clinicData } from '../data/clinicData';
-import doctorImg from '../assets/dr-priyanka-murgude.jpg';
 import LogoIcon from '../components/LogoIcon';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Reviews from '../components/Reviews';
+
+const doctorImg = '/dr-priyanka-murgude.jpg';
 
 export default function Home() {
   return (
@@ -262,21 +263,32 @@ export default function Home() {
               {clinicData.camps.slice(0, 3).map((camp) => (
                 <div
                   key={camp.id}
-                  className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden"
+                  className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden group"
                 >
-                  <div className="relative aspect-video bg-black">
+                  <div className="relative aspect-video bg-gradient-to-br from-primary/5 via-white to-primary/10 cursor-pointer">
                     <video
                       preload="none"
-                      poster={camp.poster}
-                      className="w-full h-full object-contain cursor-pointer"
+                      className="w-full h-full object-contain"
                       aria-label={camp.title}
-                      onClick={(e) => e.target.play()}
+                      onClick={(e) => {
+                        if (e.target.paused) {
+                          e.target.play();
+                        } else {
+                          e.target.pause();
+                        }
+                      }}
                     >
                       <source src={camp.videoUrl} type="video/mp4" />
                     </video>
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                        <Play className="w-6 h-6 text-primary ml-0.5" />
+                    
+                    {/* Template Overlay */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 via-white to-primary/10 pointer-events-none group-has-[:playing]:hidden">
+                      <div className="w-14 h-14 rounded-full bg-white shadow-warm-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Play className="w-7 h-7 text-primary ml-0.5" />
+                      </div>
+                      <div className="text-center px-3">
+                        <p className="font-semibold text-sm text-dark-accent mb-1">{camp.title}</p>
+                        <p className="text-xs text-brand-muted">{camp.location}</p>
                       </div>
                     </div>
                   </div>

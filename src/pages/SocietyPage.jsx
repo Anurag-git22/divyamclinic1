@@ -37,20 +37,39 @@ export default function SocietyPage() {
             {clinicData.camps.map((camp) => (
               <div
                 key={camp.id}
-                className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden flex flex-col"
+                className="rounded-2xl bg-white border border-brand-border shadow-warm-sm hover:shadow-warm-md transition-all overflow-hidden flex flex-col group"
               >
-                {/* Video Player */}
-                <div className="relative aspect-video bg-black">
+                {/* Video Player with Template Overlay */}
+                <div className="relative aspect-video bg-gradient-to-br from-primary/10 via-brand-bg to-primary/5">
                   <video
                     controls
                     preload="none"
-                    poster={camp.poster}
                     className="w-full h-full object-contain"
                     aria-label={camp.title}
                   >
                     <source src={camp.videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
+
+                  {/* Template Overlay - shows before video loads */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 via-white to-primary/10 pointer-events-none group-has-[:playing]:hidden">
+                    <div className="relative">
+                      <div className="w-20 h-20 rounded-full bg-white shadow-warm-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <Heart className="w-10 h-10 text-primary" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-primary/20 blur-xl" />
+                    </div>
+                    <div className="text-center px-4">
+                      <p className="font-display font-bold text-lg text-dark-accent mb-1">
+                        {camp.title}
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-brand-muted justify-center mb-1">
+                        <MapPin className="w-3.5 h-3.5 text-primary" />
+                        <span>{camp.location}</span>
+                      </div>
+                      <p className="text-xs text-brand-muted">Click to play camp video</p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Camp Details */}
